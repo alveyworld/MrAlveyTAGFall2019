@@ -66,7 +66,8 @@ def render_introduction():
             "After getting to school Mr. Alvey must earn\n" +
             "enough money to get home without going insane.\n" +
             "Mr. Alvey is sitting in his classroom and the\n" +
-            "bell rings for first period.")
+            "bell rings for first period.\n" + 
+            "Ethan was here")
 
 def create_world():
     '''
