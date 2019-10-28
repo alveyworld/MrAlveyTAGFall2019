@@ -37,7 +37,9 @@ Records:
     Player:
       location (str): The name of the player's current location.
       inventory (list[str]): The player's collection of items. Initially empty.
-      state (dict[bool: Hungry, bool: Sanity, int: Money]): The current health and wealth status of the player
+      hungry (bool): True if Mtr Alvey needs food.
+      sanity (bool): False if Mr Alvey is insane
+      money (int): how much money Mr. Alvey has
 
     Location:
       about (str): A sentence that describes what this location looks like.
@@ -68,6 +70,28 @@ def render_introduction():
             "Mr. Alvey is sitting in his classroom and the\n" +
             "bell rings for first period.\n" + 
             "Ethan was here")
+def create_map():
+    '''
+    Creates a dictionary of the world map
+    
+    Returns:
+        Map
+    '''
+
+def create_player():
+    '''
+    Creates a dictionary of the player
+    
+    Returns:
+        Player
+    '''
+    return {
+        'location': 'Classroom',
+        'inventory': [],
+        'hungry': False,
+        'sanity': True,
+        'money': 0
+        }
 
 def create_world():
     '''
@@ -76,6 +100,11 @@ def create_world():
     Returns:
         World: The initial state of the world
     '''
+    return {
+        'map': create_map(),
+        'player': create_player(),
+        'status': "playing"
+    }
 
 def render(world):
     '''
