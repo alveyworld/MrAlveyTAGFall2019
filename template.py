@@ -153,8 +153,8 @@ LOSE_PATH = []
 
 from cisc108 import assert_equal
 
-assert_equal("Mr. Alvey" in render_instructions(), True)
-assert_equal("classroom" in render_instructions(), True)
+assert_equal("Mr. Alvey" in render_introduction(), True)
+assert_equal("classroom" in render_introduction(), True)
 
 
 ###### 6) Main Function #####
