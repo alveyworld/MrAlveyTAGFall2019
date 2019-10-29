@@ -37,7 +37,9 @@ Records:
     Player:
       location (str): The name of the player's current location.
       inventory (list[str]): The player's collection of items. Initially empty.
-      state (dict[bool: Hungry, bool: Sanity, int: Money]): The current health and wealth status of the player
+      hungry (bool): True if Mtr Alvey needs food.
+      sanity (bool): False if Mr Alvey is insane
+      money (int): how much money Mr. Alvey has
 
     Location:
       about (str): A sentence that describes what this location looks like.
@@ -69,25 +71,80 @@ def render_introduction():
             "bell rings for first period.\n" + 
             "Ethan was here")
 
+def random_students():
+    '''
+    Return a random list of students, most sane, some insane
+    '''
+    
+def random_chillstaff():
+    '''
+    Return a random list of dq workers, most sane, some insane
+    '''
+
 def create_map():
     '''
-    creates a dictionary of the world map
+    Creates a dictionary of the world map
     
     Returns:
         Map
     '''
-    
+    return {
+        'classroom' : {
+            'about': 'You are at your desk in your classroom. The students are ready to learn.', 
+            'neighbors' : ['lounge', 'car'],
+            'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
+            'people': random_students()
+        },
+        'lounge' : {
+            'about': 'You sit in your regular spot and Hosner comments on your food.',
+            'neighbors' : ['classroom'],
+            'stuff': [],
+            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
+        },
+        'car' : {
+            'about': 'You sit in your car and turn on the engine.',
+            'neighbors' : ['lins', 'home'],
+            'stuff': [],
+            'people': [],
+        },
+        'lins' : {
+            'about': 'You put on your apron and log into your register',
+            'neighbors' : ['car', 'dq'],
+            'stuff': [],
+            'people': ['Ashlee', 'Jeff', 'Collin'],    
+        },
+        'dq' : {
+            'about': 'You yell for help at the dq counter.',
+            'neighbors' : ['lins'],
+            'stuff': [],
+            'people': random_chillstaff(),    
+        },
+        'archam' : {
+            'neighbors' : ['home'],
+            'stuff': [],
+            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
+        },
+        'home' : {
+            'about': 'You made it home to your family. You are safe. You win',
+            'neighbors' : [],
+            'stuff': [],
+            'people': []
+        }
+    }
+
 def create_player():
     '''
-    Create a dictionary of the player
+    Creates a dictionary of the player
     
     Returns:
         Player
     '''
     return {
-        'location':'Classroom'
-        'invatory':'
-        'state'
+        'location': 'classroom',
+        'inventory': [],
+        'hungry': False,
+        'sanity': True,
+        'money': 0
         }
 
 def create_world():
@@ -97,13 +154,11 @@ def create_world():
     Returns:
         World: The initial state of the world
     '''
-    def create_world():
     return {
         'map': create_map(),
         'player': create_player(),
         'status': "playing"
     }
-    
 
 def render(world):
     '''
@@ -182,8 +237,8 @@ LOSE_PATH = []
 
 from cisc108 import assert_equal
 
-assert_equal("Mr. Alvey" in render_instructions(), True)
-assert_equal("classroom" in render_instructions(), True)
+assert_equal("Mr. Alvey" in render_introduction(), True)
+assert_equal("classroom" in render_introduction(), True)
 
 
 ###### 6) Main Function #####
