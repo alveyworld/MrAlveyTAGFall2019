@@ -70,6 +70,17 @@ def render_introduction():
             "Mr. Alvey is sitting in his classroom and the\n" +
             "bell rings for first period.\n" + 
             "Ethan was here")
+
+def random_students():
+    '''
+    Return a random list of students, most sane, some insane
+    '''
+    
+def random_chillstaff():
+    '''
+    Return a random list of dq workers, most sane, some insane
+    '''
+
 def create_map():
     '''
     Creates a dictionary of the world map
@@ -77,6 +88,49 @@ def create_map():
     Returns:
         Map
     '''
+    return {
+        'classroom' : {
+            'about': 'You are at your desk in your classroom. The students are ready to learn.', 
+            'neighbors' : ['lounge', 'car'],
+            'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
+            'people': random_students()
+        },
+        'lounge' : {
+            'about': 'You sit in your regular spot and Hosner comments on your food.',
+            'neighbors' : ['classroom'],
+            'stuff': [],
+            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
+        },
+        'car' : {
+            'about': 'You sit in your car and turn on the engine.',
+            'neighbors' : ['lins', 'home'],
+            'stuff': [],
+            'people': [],
+        },
+        'lins' : {
+            'about': 'You put on your apron and log into your register',
+            'neighbors' : ['car', 'dq'],
+            'stuff': [],
+            'people': ['Ashlee', 'Jeff', 'Collin'],    
+        },
+        'dq' : {
+            'about': 'You yell for help at the dq counter.',
+            'neighbors' : ['lins'],
+            'stuff': [],
+            'people': random_chillstaff(),    
+        },
+        'archam' : {
+            'neighbors' : ['home'],
+            'stuff': [],
+            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
+        },
+        'home' : {
+            'about': 'You made it home to your family. You are safe. You win',
+            'neighbors' : [],
+            'stuff': [],
+            'people': []
+        }
+    }
 
 def create_player():
     '''
@@ -86,7 +140,7 @@ def create_player():
         Player
     '''
     return {
-        'location': 'Classroom',
+        'location': 'classroom',
         'inventory': [],
         'hungry': False,
         'sanity': True,
