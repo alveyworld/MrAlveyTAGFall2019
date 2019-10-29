@@ -69,6 +69,27 @@ def render_introduction():
             "bell rings for first period.\n" + 
             "Ethan was here")
 
+def create_map():
+    '''
+    creates a dictionary of the world map
+    
+    Returns:
+        Map
+    '''
+    
+def create_player():
+    '''
+    Create a dictionary of the player
+    
+    Returns:
+        Player
+    '''
+    return {
+        'location':'Classroom'
+        'invatory':'
+        'state'
+        }
+
 def create_world():
     '''
     Creates a new version of the world in its initial state.
@@ -76,6 +97,13 @@ def create_world():
     Returns:
         World: The initial state of the world
     '''
+    def create_world():
+    return {
+        'map': create_map(),
+        'player': create_player(),
+        'status': "playing"
+    }
+    
 
 def render(world):
     '''
