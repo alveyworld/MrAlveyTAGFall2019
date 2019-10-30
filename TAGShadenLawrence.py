@@ -190,9 +190,9 @@ def create_map():
             'people':[],
             }
         'Ocean 3':{
-            'neighbors':[],
+            'neighbors':['Woods 4'],
             'about':"",
-            'stuff':[],
+            'stuff':['Gold egg'],
             'people':[],
             }
         "Ulga's House":{
