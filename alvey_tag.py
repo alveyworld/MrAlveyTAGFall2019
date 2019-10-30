@@ -240,6 +240,22 @@ from cisc108 import assert_equal
 assert_equal("Mr. Alvey" in render_introduction(), True)
 assert_equal("classroom" in render_introduction(), True)
 
+player = create_player()
+# Use the built-in isinstance function to confirm that we made a dictionary
+assert_equal(isinstance(player, dict), True)
+# Does it have the right keys?
+assert_equal(len(player.keys()), 2)
+assert_equal("location" in player, True)
+assert_equal(player['location'], 'classroom')
+assert_equal("inventory" in player, True)
+assert_equal(player['inventory'], [])
+assert_equal("hungry" in player, True)
+assert_equal(player['hungry'], False)
+assert_equal("sanity" in player, True)
+assert_equal(player['sanity'], True)
+assert_equal("money" in player, True)
+assert_equal(player['money'], 0)
+
 
 ###### 6) Main Function #####
 # Do not modify this area
