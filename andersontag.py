@@ -108,7 +108,7 @@ def create_map():
             'people' : [],
         },
          'lins' : {
-            'about' : 'You put on your apron and log into your register',
+            'about' : 'You put on your apron and log into your register.',
             'neighbors' : ['car', 'DQ'],
             'stuff' : [],
             'people' : ['Ashlee','Jeff','Collin'],
