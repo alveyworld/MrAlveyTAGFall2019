@@ -48,7 +48,7 @@ Records:
                                that you can reach from this 
                                location.
         stuff (list[str]): A collection of things available at 
-                           this location.
+                           this location. 
 '''
 
 ##### 3) Core Game Functions #####
