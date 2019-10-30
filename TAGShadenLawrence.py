@@ -107,8 +107,8 @@ def create_map():
             'people':[]
             }
         'Woods 1':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Cavern','Pasture','Woods 3'],
+            'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             }
