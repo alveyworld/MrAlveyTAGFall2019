@@ -71,15 +71,15 @@ def render_introduction():
             "bell rings for first period.\n" + 
             "Ethan was here")
 
-def random_students():
+def random_student
     '''
-    Return a random list of students, most sane, some insane
-    '''
+    Return a random list of student, most sane, some insane
     
-def random_chillstaff():
     '''
-    Return a random list of dq workers, most sane, some insane
-    '''
+
+
+
+
 
 def create_map():
     '''
@@ -89,47 +89,49 @@ def create_map():
         Map
     '''
     return {
-        'classroom' : {
-            'about': 'You are at your desk in your classroom. The students are ready to learn.', 
+        'classroom': {
+            'about': 'You are at your desk in your classroom. The student are ready to learn.',
             'neighbors' : ['lounge', 'car'],
-            'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
-            'people': random_students()
-        },
+            'stuff' : ['ibuprofen', 'cliff bar', 'lotto ticket'],
+            'people' : random_students(),
+        }
         'lounge' : {
-            'about': 'You sit in your regular spot and Hosner comments on your food.',
-            'neighbors' : ['classroom'],
-            'stuff': [],
-            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
+            'about' : ' You sit in your regular spot and Hosner comments on your food.',
+            'neighbors' : ['classroom']
+            'stuff' : [],
+            'people' : ['Kreitzer','Holt','Roberts','Hosner', 'Shaw', 'Dewitt', 'B'],
         },
         'car' : {
-            'about': 'You sit in your car and turn on the engine.',
+            'about' : "You sit in your car and turn on the engine.'
             'neighbors' : ['lins', 'home'],
-            'stuff': [],
-            'people': [],
+            'stuff' : [],
+            'people' : [],
         },
-        'lins' : {
-            'about': 'You put on your apron and log into your register',
-            'neighbors' : ['car', 'dq'],
-            'stuff': [],
-            'people': ['Ashlee', 'Jeff', 'Collin'],    
+         'lins' : {
+            'about' : 'You put on your apron and log into your register',
+            'neighbors' : ['car', 'DQ'],
+            'stuff' : [],
+            'people' : ['Ashlee','Jeff','Collin'],
         },
-        'dq' : {
-            'about': 'You yell for help at the dq counter.',
+         'DQ' : {
+             'about' : 'You yell for help at the DQ counter',
             'neighbors' : ['lins'],
-            'stuff': [],
-            'people': random_chillstaff(),    
+            'stuff' : [],
+            'people' : random_chillstaff(),
         },
-        'archam' : {
+         'arkham' : {
             'neighbors' : ['home'],
-            'stuff': [],
-            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
+            'stuff' : [],
+            'people' : ['Joker','Counselor', 'Batman','Gordon','Dent', 'Alfred'],
         },
-        'home' : {
-            'about': 'You made it home to your family. You are safe. You win',
+         'home' : {
+            'about' : 'You made it home to your family. You are safe. You win.'
             'neighbors' : [],
-            'stuff': [],
-            'people': []
-        }
+            'stuff' : [],
+            'people' : [],
+        },
+        
+        
     }
 
 def create_player():
@@ -140,7 +142,7 @@ def create_player():
         Player
     '''
     return {
-        'location': 'classroom',
+        'location': 'Classroom',
         'inventory': [],
         'hungry': False,
         'sanity': True,
