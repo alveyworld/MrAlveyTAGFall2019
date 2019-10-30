@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "zack.alvey@washk12.org"
+__author__ = "21torreisav@washk12.org"
 __title__ = "Name of your game goes here"
 __description__ = "Replace this with a quick description of your game."
 
@@ -28,29 +28,27 @@ __date__ = "Spring 2019"
 '''
 Records:
     World:
-      status (str): Whether or not the game is "playing", "quit", "won", or "lost".
-                    Initially "playing".
-      map (dict[str: Location]): The lookup dictionary matching location names
-                     to their information.
-      player (Player): The player character's information.
+        status (str): Whether or not the game is "playing", "won",
+                      "quit", or "lost". Initially "playing".
+        map (dict[str: Location]): The lookup dictionary matching 
+                                   location names to their
+                                   information.
+        player (Player): The player character's information.
 
+      
     Player:
-      location (str): The name of the player's current location.
-      inventory (list[str]): The player's collection of items. Initially empty.
-      hungry (bool): True if Mtr Alvey needs food.
-      sanity (bool): False if Mr Alvey is insane
-      money (int): how much money Mr. Alvey has
+        location (str): The name of the player's current location.
+        inventory (list[str]): The player's collection of items.
+                               Initially empty.
 
     Location:
-      about (str): A sentence that describes what this location looks like.
-      neighbors (list[str]): A list of the names of other places that you can
-                             reach from this location.
-      stuff (list[str]): A collection of things available at this location.
-      people (list[Person]): A random list of persons at a location 
-
-    Person:
-      name (str): The person’s name
-      annoying (bool): True if the person is annoying and causes insanity
+        about (str): A sentence that describes what this location 
+                     looks like.
+        neighbors (list[str]): A list of the names of other places 
+                               that you can reach from this 
+                               location.
+        stuff (list[str]): A collection of things available at 
+                           this location. 
 '''
 
 ##### 3) Core Game Functions #####
@@ -63,35 +61,28 @@ def render_introduction():
     Returns:
         str: The introductory text of your game to be displayed.
     '''
-    return ("== Mr. Alvey Teacher Adventure ==\n" +
-            " = by Mr. Alvey's 3rd period class =\n\n" +
-            "After getting to school Mr. Alvey must earn\n" +
-            "enough money to get home without going insane.\n" +
-            "Mr. Alvey is sitting in his classroom and the\n" +
-            "bell rings for first period.\n" + 
-            "Ethan was here")
 def create_map():
     '''
-    Creates a dictionary of the world map
+    creates a dictionary of the world map
     
-    Returns:
+    returns:
         Map
     '''
 
 def create_player():
     '''
-    Creates a dictionary of the player
+    creates a dictonary of the player
     
-    Returns:
-        Player
+    returns:
+        player
     '''
+    
     return {
-        'location': 'Classroom',
-        'inventory': [],
-        'hungry': False,
-        'sanity': True,
-        'money': 0
-        }
+        ' locatiion': "classrom",
+        ' incentory':
+        'state':
+        }                     n
+        
 
 def create_world():
     '''
@@ -101,7 +92,7 @@ def create_world():
         World: The initial state of the world
     '''
     return {
-        'map': create_map(),
+        'map': create_map()
         'player': create_player(),
         'status': "playing"
     }
@@ -183,9 +174,6 @@ LOSE_PATH = []
 
 from cisc108 import assert_equal
 
-assert_equal("Mr. Alvey" in render_introduction(), True)
-assert_equal("classroom" in render_introduction(), True)
-
 
 ###### 6) Main Function #####
 # Do not modify this area
@@ -206,3 +194,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+ 
