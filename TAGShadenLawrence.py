@@ -295,13 +295,31 @@ def create_world():
         'status':"playing"
         
     }
+def render_player(world):
+    
 def render_location(world):
     # ...
     location = world['player']['location']
     here = world['map'][location]
     about = here['about']
     # ...
-    
+
+def render_visible_stuff(world):
+     location = world['player']['location']
+    here = world['map'][location]
+    stuff = here['stuff']
+    inventory = world['player']['inventory']
+
+    visible_stuff = []
+    for thing in stuff:
+        if thing == 'Grue':
+            if 'flashlight' not in inventory:
+                visible_stuff.append(thing)
+        else:
+            visible_stuff.append(thing)
+
+    return "You see: " + ', '.join(visible_stuff)
+
 def render(world):
     return (render_location(world) +
             render_player(world) +
