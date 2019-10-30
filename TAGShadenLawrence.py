@@ -76,7 +76,11 @@ def render_introduction():
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
-
+def random_cliff_text():
+    
+    
+    
+    
 def create_map():
     return{
         'Farm House':{
@@ -223,25 +227,25 @@ def create_map():
             }
         'Clif 1':{
             'neighbors':[],
-            'about':"",
+            'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             }
         'Clif 2':{
             'neighbors':[],
-            'about':"",
+            'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             }
         'Clif 3':{
             'neighbors':[],
-            'about':"",
+            'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             }
         'Clif 4':{
             'neighbors':[],
-            'about':"",
+            'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             }
