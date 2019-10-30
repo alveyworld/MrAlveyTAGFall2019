@@ -101,13 +101,14 @@ def create_map():
         
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
-            'about':"",
+            'about':"Large Field of grass there are some sheep with wool and\n"+
+            'chikens with eggs',
             'stuff':['wool','eggs'],
             'people':[]
             }
         'Woods 1':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Cavern','Pasture','Woods 3'],
+            'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             }
@@ -125,7 +126,7 @@ def create_map():
             'people':[],
             }
         'Town of Zik':{
-            'neighbors':[],
+            'neighbors':['Farm house','Woods 2','River','Blacksmith'],
             'about':"",
             'stuff':[],
             'people':[],

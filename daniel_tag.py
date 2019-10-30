@@ -121,13 +121,13 @@ def create_map():
         }
         'underground': {
            'neighbors': ['tunnel', 'basement']
-           'about': "I wounder where this goes.",
+           'about': "You show a hole that lead to on opening. There is a in the distance.",
            'stuff': [],
            'people': ["minikane", "dragondirgel"],
         }
         'tunnel': {
             'neighbors': ['door', 'underground'],
-            'about': "How far does this go",
+            'about': "You wounder how far this goes.",
             'stuff': [],
             'people': ["minikane", "dragondirgel"],
         }
