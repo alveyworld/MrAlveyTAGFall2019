@@ -75,6 +75,7 @@ def random_students
     return a random list of students who are insane
     
     '''
+    
 def random_chillstaff
     '''
     return a random list of dq workers who are insane
