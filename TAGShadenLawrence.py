@@ -118,8 +118,9 @@ def create_map():
             'people':[],
             }
         'Ocean 1':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Cavern 1',],
+            'about':"Calm still waters there might be a ship out there...\n"+
+            'But probably not thats the edge of the world',
             'stuff':[],
             'people':[],
             }
@@ -190,9 +191,9 @@ def create_map():
             'people':[],
             }
         'Ocean 3':{
-            'neighbors':[],
+            'neighbors':['Woods 4'],
             'about':"",
-            'stuff':[],
+            'stuff':['Gold egg'],
             'people':[],
             }
         "Ulga's House":{

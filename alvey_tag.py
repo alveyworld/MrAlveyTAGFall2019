@@ -125,7 +125,7 @@ def create_map():
             'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
         },
         'home' : {
-            'about': 'You made it home to your family. You are safe. You win',
+            'about': 'You made it home to your family. You are happy. You win',
             'neighbors' : [],
             'stuff': [],
             'people': []
