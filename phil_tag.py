@@ -139,6 +139,7 @@ def create_player():
     Returns:
         Player
     '''
+    
     return {
         'location': 'classroom',
         'inventory': [],
