@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "zack.alvey@washk12.org"
+__author__ = "20anderdevj@washk12.org"
 __title__ = "Name of your game goes here"
 __description__ = "Replace this with a quick description of your game."
 
