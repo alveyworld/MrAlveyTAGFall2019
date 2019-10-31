@@ -180,7 +180,7 @@ def create_map():
             'people':[],
             }
         'Cavern 3':{
-            'neighbors':[],
+            'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
