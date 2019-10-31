@@ -145,7 +145,7 @@ def create_map():
             'people':[],
             }
         'Woods 3':{
-            'neighbors':['Thief Hideout','Cavern 2','Woods'],
+            'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
             'about':"",
             'stuff':[],
             'people':[],
