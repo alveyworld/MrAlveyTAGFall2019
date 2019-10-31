@@ -71,16 +71,16 @@ def render_introduction():
             "bell rings for first period.\n" + 
             "Ethan was here")
 
-def random_student
+def random_student():
     '''
     Return a random list of student, most sane, some insane
     
     '''
-
-
-
-
-
+    
+def random_chillstaff():
+    '''
+    Return a random list of dq workers, most sane, some insane
+    '''
 def create_map():
     '''
     Creates a dictionary of the world map
@@ -93,18 +93,18 @@ def create_map():
             'about': 'You are at your desk in your classroom. The student are ready to learn.',
             'neighbors' : ['lounge', 'car'],
             'stuff' : ['ibuprofen', 'cliff bar', 'lotto ticket'],
-            'people' : random_students(),
-        }
+            'people' : random_student(),
+        },
         'lounge' : {
             'about' : ' You sit in your regular spot and Hosner comments on your food.',
-            'neighbors' : ['classroom']
+            'neighbors' : ['classroom'],
             'stuff' : [],
-            'people' : ['Kreitzer','Holt','Roberts','Hosner', 'Shaw', 'Dewitt', 'B'],
+            'people' : ['Kreitzer','Holt','Roberts','Hosner', 'Shaw', 'Dewitt', 'B']
         },
         'car' : {
-            'about' : "You sit in your car and turn on the engine.'
+            'about' : 'You sit in your car and turn on the engine.',
             'neighbors' : ['lins', 'home'],
-            'stuff' : [],
+            'stuff': [],
             'people' : [],
         },
          'lins' : {
@@ -125,7 +125,7 @@ def create_map():
             'people' : ['Joker','Counselor', 'Batman','Gordon','Dent', 'Alfred'],
         },
          'home' : {
-            'about' : 'You made it home to your family. You are safe. You win.'
+            'about' : 'You made it home to your family. You are safe. You win.',
             'neighbors' : [],
             'stuff' : [],
             'people' : [],
@@ -241,6 +241,25 @@ from cisc108 import assert_equal
 
 assert_equal("Mr. Alvey" in render_introduction(), True)
 assert_equal("classroom" in render_introduction(), True)
+
+
+player = create_player()
+# Use the built-in isinstance function to confirm that we made a dictionary
+assert_equal(isinstance(player, dict), True)
+# Does it have the right keys?
+assert_equal(len(player.keys()), 2)
+assert_equal("location" in player, True)
+assert_equal(player['location'], 'yard')
+assert_equal("inventory" in player, True)
+assert_equal(player['inventory'], [])
+assert_equal("hungry" in player, True)
+assert_equal(player['hungry'], False)
+assert_equal("sanity" in player, True)
+assert_equal(player['sanity'], True)
+assert_equal("money" in player, True)
+assert_equal(player['money'], 0)
+
+
 
 
 ###### 6) Main Function #####

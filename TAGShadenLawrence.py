@@ -76,9 +76,10 @@ def render_introduction():
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
+import random
+Cliff_Text = []
 def random_cliff_text():
-    
-    
+   random.choice(Cliff_Text) 
     
     
 def create_map():
@@ -101,13 +102,14 @@ def create_map():
         
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
-            'about':"",
+            'about':"Large Field of grass there are some sheep with wool and\n"+
+            'chikens with eggs',
             'stuff':['wool','eggs'],
             'people':[]
             }
         'Woods 1':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Cavern','Pasture','Woods 3'],
+            'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             }
@@ -125,37 +127,37 @@ def create_map():
             'people':[],
             }
         'Town of Zik':{
-            'neighbors':[],
+            'neighbors':['Farm house','Woods 2','River','Blacksmith'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Woods 2':{
-            'neighbors':[],
+            'neighbors':['Town of Zik', 'Thief Hideout','Field'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Thief Hideout':{
-            'neighbors':[],
+            'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Woods 3':{
-            'neighbors':[],
+            'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Cavern 2':{
-            'neighbors':[],
+            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Ocean 2':{
-            'neighbors':[],
+            'neighbors':['Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
@@ -167,25 +169,25 @@ def create_map():
             'people':[],
             }
         'River':{
-            'neighbors':[],
+            'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Wood w/ River 1':{
-            'neighbors':[],
+            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Cavern 3':{
-            'neighbors':[],
+            'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Woods 4':{
-            'neighbors':[],
+            'neighbors':['Cavern 3','Ocean 3','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
@@ -296,14 +298,6 @@ def create_world():
         'status':"playing"
         
     }
-def render_player(world):
-    
-def render_location(world):
-    # ...
-    location = world['player']['location']
-    here = world['map'][location]
-    about = here['about']
-    # ...
 
 def render_visible_stuff(world):
      location = world['player']['location']
@@ -320,6 +314,22 @@ def render_visible_stuff(world):
             visible_stuff.append(thing)
 
     return "You see: " + ', '.join(visible_stuff)
+
+
+def render_player(world):
+    '''
+    Consume a world and produce a string describing the player
+    '''
+    inventorty = world['player']['inventory']
+    Gold = world['player']['Gold']
+        }
+def render_location(world):
+    '''
+    Consume a world and produce a string describing the location
+    '''
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
 
 def render(world):
     return (render_location(world) +
