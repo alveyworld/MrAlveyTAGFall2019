@@ -298,14 +298,6 @@ def create_world():
         'status':"playing"
         
     }
-def render_player(world):
-    
-def render_location(world):
-    # ...
-    location = world['player']['location']
-    here = world['map'][location]
-    about = here['about']
-    # ...
 
 def render_visible_stuff(world):
      location = world['player']['location']
@@ -322,6 +314,22 @@ def render_visible_stuff(world):
             visible_stuff.append(thing)
 
     return "You see: " + ', '.join(visible_stuff)
+
+
+def render_player(world):
+    '''
+    Consume a world and produce a string describing the player
+    '''
+    inventorty = world['player']['inventory']
+    Gold = world['player']['Gold']
+        }
+def render_location(world):
+    '''
+    Consume a world and produce a string describing the location
+    '''
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
 
 def render(world):
     return (render_location(world) +
