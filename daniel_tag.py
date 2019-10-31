@@ -68,6 +68,13 @@ def create_player():
         'location': 'interance',
         'inventory': [],
     }
+def render_location(world):
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
+    
+    return ("You are in "+location+"\n"+
+            about+"\n")
 
 def create_map():
     return {
@@ -81,42 +88,49 @@ def create_map():
         'livingroom': {
             'neighbors': ['interance', 'kitchen', 'outside'],
             'about': "As you walk into the room and you look around you fell like there is something in the shadows.",
-            'stuff': [],
+            'stuff': ["note"],
+            'people': [],
         }
         'outside': {
             'neighbors': ['living room', 'woods'],
             'about': "The outside was warm but with a breeze. You feel strange. You looked around and see something, but don't know what",
-            'stuff': ["sleeping drug", "dragondirgel"],
+            'stuff': ["sleeping drug"],
+            'people': ["dragon"],
         }
         'woods': {
             'neighbors': ['outside', 'cabin'],
             'about': "The woods is a nice place to be right? as you walk deeper into the woods your body feels cold. like someone already killed you.",
-            'stuff': ["minikane", "dragondirgel"],
+            'stuff': ["wood"],
+            'people': ["minikane", "dragondirgel"],
         }
         'cabin': {
             'neighbors': ['woods', 'living room'],
             'about': "A cabin in the woods seems to be the best place to be, but is it?",
-            'stuff': ["minikane", "dragondirgel"],
+            'stuff': ["generator"],
+            'people': ["minikane", "dragondirgel"],
         }
         'living room': {
             'neighbors': ['bedroom', 'back room', 'basement'],
             'about': "As you walk into the living room things feels like death, but you don't know why.",
-            'stuff': ["minikane", "dragondirgel"],
+            'stuff': ["oil can"],
+            'people': ["minikane", "dragondirgel"],
         }
         'back room': {
             'neighbors': ['living room']
             'about': "This is all the killings that happen this year. Wait... what. this is all their friends that died, and they have a X across there face. Did they kill them? What the hell is going on here."
-            'stuff': []
+            'stuff': [],
+            'people': [],
         }
         'bedroom': {
             'neighbors':['living room'],
             'about': "OWO"
-            'stuff': [],
+            'stuff': ["straps"],
+            'people': [],
         }
         'basement': {
             'neighbors':['underground'],
             'about': "As you creep your way through the place you show this basement. What is down here.",
-            'stuff': [],
+            'stuff': ["nails", "metal"],
             'people': ["minikane", "dragondirgel"],
         }
         'underground': {
@@ -133,46 +147,49 @@ def create_map():
         }
         'door': {
             'neighbors': ['tunnel', 'cave'],
-            'about': "I wounder whats behind this door",
+            'about': "As you walk down the tunnel you notice a door at the end of it. Do I want to go in?",
             'stuff': [],
         }
         'cave': {
             'neighbors': ['door', 'hole1', 'hole2', 'storage'],
-            'about': "Is this where they did their muders"
-            'stuff': [],
+            'about': "When you enter the door you show blood everywhere. You paniced. You head rocks shifted."
+            'stuff': ["tesla coils"],
             'people': ["minikane", "dragondirgel"],
         }
         'hole1': {
             'neighbors': ['cave'],
             'about': "Mmmm whats over here"
-            'stuff': ["minikane"],
+            'stuff': [],
+            'people': ["minikane"],
         }
         'hole2': {
             'neighors': ['cave'],
             'about': "Mmmm what's over here",
-            'stuff': ["dragondirgel"],
+            'stuff': [],
+            'people': ["dragondirgel"],
         }
         'storage': {
             'neighbor': ['tunnel2', 'cave'],
-            'about': "This is where they store their bloody tools",
-            'stuff': [],
+            'about': "The storage is where they kept their tools. Bloody... bloody tools.",
+            'stuff': ["wires"],
             'poeple': ["minikane", "dragondirgel"],
         }
         'tunnel2': {
             'neighbors': ['storage', 'docks'],
             'about': "How far does this go"
             'stuff': [],
+            'people': [],
         }
         'docks': {
             'neighbors': ['basement', 'island', 'tunnel2'],
             'about': "As you exits the tunnel you walk on a dark and misty dock. You can't see anything but a bout. 'Mmmmm I wounder where this goes,' you thought to yourself.",
-            'stuff': [],
+            'stuff': ["oil"],
             'people': ["minikane", "dragondirgel"],
         }
         'island': {
             'neigbors': ['dock', 'hidden path', 'struggled path'],
             'about': "You get of the bout and looked around. You see a trail that looks like someone was struggling to drag something, and another trail that looks hidden in the bushes",
-            'stuff': [],
+            'stuff': ["gears"],
             'people': ["minikane", "dragondirgel"],
         }
         'struggled path': {
@@ -212,13 +229,13 @@ def create_map():
         'basement': {
             'neighbors': ['hallway'],
             'about': "This is were they did their experiments. There is blood everywhere",
-            'stuff' [],
+            'stuff' ["saw"],
             'people': ["minikane", "dragondirgel"],
         }
         'studys': {
             'neighbors': ['interance'],
             'about': "There is a phone",
-            'stuff': [],
+            'stuff': ["book"],
             'people': ["dragondigel"],
         }
         'upstairs_hallway': {
@@ -253,17 +270,17 @@ def create_map():
         }
   }
 
+
+
+
+def render_player(world):
+    
+
 def render(world):
-    '''
-    Consumes a world and produces a string that will describe the current state
-    of the world. Does not print.
-    
-    Args:
-        world (World): The current world to describe.
-    
-    Returns:
-        str: A textual description of the world.
-    '''
+    return (render_location(world) +
+            render_player(world) +
+            render_visible_stuff(world))
+
 
 def get_options(world):
     '''
