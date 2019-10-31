@@ -132,31 +132,31 @@ def create_map():
             'people':[],
             }
         'Woods 2':{
-            'neighbors':[],
+            'neighbors':['Town of Zik', 'Thief Hideout','Field'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Thief Hideout':{
-            'neighbors':[],
+            'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Woods 3':{
-            'neighbors':[],
+            'neighbors':['Thief Hideout','Cavern 2','Woods'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Cavern 2':{
-            'neighbors':[],
+            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Ocean 2':{
-            'neighbors':[],
+            'neighbors':['Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
