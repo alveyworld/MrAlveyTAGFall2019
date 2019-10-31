@@ -76,9 +76,10 @@ def render_introduction():
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
+import random
+Cliff_Text = []
 def random_cliff_text():
-    
-    
+   random.choice(Cliff_Text) 
     
     
 def create_map():
