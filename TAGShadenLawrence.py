@@ -168,13 +168,13 @@ def create_map():
             'people':[],
             }
         'River':{
-            'neighbors':[],
+            'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
             'about':"",
             'stuff':[],
             'people':[],
             }
         'Wood w/ River 1':{
-            'neighbors':[],
+            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
             'about':"",
             'stuff':[],
             'people':[],
