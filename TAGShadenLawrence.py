@@ -300,7 +300,7 @@ def create_world():
     }
 
 def render_visible_stuff(world):
-     location = world['player']['location']
+    location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
     inventory = world['player']['inventory']
@@ -347,6 +347,7 @@ def render(world):
     '''
 
 def get_options(world):
+    
     '''
     Consumes a world and produces a list of strings representing the options
     that are available to be chosen given this state.
@@ -357,6 +358,16 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
+     # ...
+    commands = ["Quit"]
+    current_location = world['player']['location']
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    # ...
+    # Add more commands
+    # ...
+    return commands
+
 
 def update(world, command):
     '''
