@@ -181,6 +181,25 @@ def render_player(world):
     sanity = world['player']['sanity']
     money = world['player']['money']
     
+    
+def render_visible_stuff():
+    '''
+    Consumes a world a produces a string fo visible stuff.
+    '''
+    
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
+    
+    if location == 'classroom':
+        return "You see a desk that might have something useful to you inside."
+    else:
+        stuff_string = ""
+        for thing in stuff:
+            stuff_string += thing = ', '
+        return "You see" stuff_string
+        
+    
 
 def render(world):
     '''
