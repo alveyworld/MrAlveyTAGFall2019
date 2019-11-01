@@ -160,6 +160,43 @@ def create_world():
         'status': "playing"
     }
 
+def render_location(world):
+    '''
+    Consume a world and produce a string describing the location
+    '''
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
+    
+    return ("You are in "+location+"\n"+
+            about+"\n")
+
+def render_player(world):
+    '''
+    Consume a world and produce a string describing the player
+    '''
+    
+    hungry = world['player']['hungry']
+    sanity = world['player']['sanity']
+    money = world['player']['money']
+    
+def render_visible_stuff(world):
+    '''
+     Consumes a world and produces a string of visible items
+     '''
+    location = world['player']['location']
+    here = world['map'][location]
+    stuff = here['stuff']
+    inventory = world['player']['inventory']
+    
+    if location == 'classroom':
+        return "You see a desk that might have something useful to you inside."
+    else:
+        stuff_string = ""
+        for thing in stuff:
+            stuff_string += thing + ', '
+        return "You see" + stuff_string
+    
 def render(world):
     '''
     Consumes a world and produces a string that will describe the current state
@@ -171,6 +208,9 @@ def render(world):
     Returns:
         str: A textual description of the world.
     '''
+    return (render_location(world) +
+            render_player(world) +
+            render_visible_stuff(world))
 
 def get_options(world):
     '''
@@ -255,6 +295,16 @@ assert_equal("sanity" in player, True)
 assert_equal(player['sanity'], True)
 assert_equal("money" in player, True)
 assert_equal(player['money'], 0)
+
+new_map = create_map()
+
+assert_equal("classroom" in new_map, True)
+assert_equal("lounge" in new_map, True)
+assert_equal("car" in new_map, True)
+assert_equal("lins" in new_map, True)
+assert_equal("dq" in new_map, True)
+assert_equal("archam" in new_map, True)
+assert_equal("home" in new_map, True)
 
 
 ###### 6) Main Function #####
