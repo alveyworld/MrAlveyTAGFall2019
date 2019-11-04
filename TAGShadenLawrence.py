@@ -96,8 +96,8 @@ def create_map():
         'Field':{
             'neighbors':['Farm house','Sheep Pasture','Woods 2'],
             'about':"A large Field of golden wheat\n"+
-            'to the West is a old house to the East is a Large Pasture\n'+
-            'and to the south is a dense forest',
+                    'to the West is a old house to the East is a Large Pasture\n'+
+                    'and to the south is a dense forest',
             'stuff':["wheat","hoe"],
             'people':[]
             }
