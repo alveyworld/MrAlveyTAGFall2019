@@ -105,7 +105,7 @@ def create_map():
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
             'about':"Large Field of grass light seems brighter here and life seems happier \n"+
-            'to the west a field of wheat to the east a dense forest',
+                    'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
             'people':[]
             }
@@ -130,7 +130,9 @@ def create_map():
             }
         'Town of Zik':{
             'neighbors':['Farm house','Woods 2','River','Blacksmith'],
-            'about':"",
+            'about':'A large City full of people from this part of the Germany\n'+
+                    'they come in all shapes and sizes some big some small \n'+
+                    'But they all seem bigger than you',
             'stuff':[],
             'people':[],
             }
@@ -165,8 +167,8 @@ def create_map():
             'people':[],
             }
         'Black Smith':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Town of Zik','River',"Ulga's House"],
+            'about':'The smell of iorn can be smellt',
             'stuff':[],
             'people':[],
             }
