@@ -140,7 +140,7 @@ def create_map():
                     'they come in all shapes and sizes some big some small \n'+
                     'But they all seem bigger than you',
             'stuff':[],
-            'people':[],
+            'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
         
         'Woods 2':{
