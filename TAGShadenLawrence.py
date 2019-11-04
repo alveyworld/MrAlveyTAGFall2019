@@ -83,7 +83,8 @@ def random_cliff_text():
     
     
 def create_map():
-    return{
+    return {
+        
         'Farm House':{
             'neighbors':['Field','Town of Zik'],
             'about':"a old house sat on a hill over looking a large ranch it\n"+
@@ -101,6 +102,7 @@ def create_map():
             'stuff':["wheat","hoe"],
             'people':[]
             }
+        
         
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
@@ -284,8 +286,7 @@ def create_map():
             'stuff':[],
             'people':[],
             }
-            
-    }
+         }
 def create_player():
     return {
         'location': 'Field',
