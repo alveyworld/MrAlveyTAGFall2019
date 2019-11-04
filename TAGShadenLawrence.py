@@ -184,7 +184,7 @@ def create_map():
                     'there is a small man bent over an anvil smashing red hot iron\n+'
                     'into a cast to make nails',
             'stuff':[],
-            'people':[],
+            'people':['Blacksmith'],
             },
         
         'River':{
