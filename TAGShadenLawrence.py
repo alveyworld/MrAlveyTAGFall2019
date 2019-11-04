@@ -76,12 +76,13 @@ def render_introduction():
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
+
 import random
 Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
+
 def random_cliff_text():
    random.choice(Cliff_Text) 
-    
-    
+   
 def create_map():
     return {
         
@@ -103,7 +104,6 @@ def create_map():
             'people':[]
             },
         
-        
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
             'about':"Large Field of grass light seems brighter here and life seems happier \n"+
@@ -111,18 +111,21 @@ def create_map():
             'stuff':['wool','eggs'],
             'people':[]
             },
+        
         'Woods 1':{
             'neighbors':['Cavern','Pasture','Woods 3'],
             'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             },
+        
         'Cavern 1':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 1':{
             'neighbors':['Cavern 1',],
             'about':"Calm still waters there might be a ship out there...\n"+
@@ -130,6 +133,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Town of Zik':{
             'neighbors':['Farm house','Woods 2','River','Blacksmith'],
             'about':'A large City full of people from this part of the Germany\n'+
@@ -138,157 +142,187 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Woods 2':{
             'neighbors':['Town of Zik', 'Thief Hideout','Field'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 3':{
             'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Cavern 2':{
             'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 2':{
             'neighbors':['Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Ulga's House"],
-            'about':'The smell of iorn can be smellt',
+            'about':'The smell of iorn can be smelled in the air as you aproch\n'+
+                    'there is a small man bent over an anvil smashing red hot iron\n+'
+                    'into a cast to make nails\n'+
+                    'to the north is the town of Zik to the east is a small River\n'+
+                    'and to the south is a large house with a women outside',
             'stuff':[],
-            'people':[],
+            'people':['Blacksmith'],
             },
+        
         'River':{
             'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Wood w/ River 1':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Cavern 3':{
             'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 4':{
             'neighbors':['Cavern 3','Ocean 3','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 3':{
             'neighbors':['Woods 4'],
             'about':"",
             'stuff':['Gold egg'],
             'people':[],
             },
+        
         "Ulga's House":{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 5':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ginger Bread House':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods w/ River 2':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 4':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Clif 1':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 2':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 3':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 4':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 5':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 6':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 7':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 8':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 9':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
-            }
+            },
          }
+
 def create_player():
     return {
         'location': 'Field',
@@ -328,6 +362,7 @@ def render_player(world):
     inventorty = world['player']['inventory']
     Gold = world['player']['Gold']
         }
+        
 def render_location(world):
     '''
     Consume a world and produce a string describing the location
