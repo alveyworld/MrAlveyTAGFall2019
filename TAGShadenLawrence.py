@@ -180,7 +180,9 @@ def create_map():
         
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Ulga's House"],
-            'about':'The smell of iorn can be smellt\n+',
+            'about':'The smell of iorn can be smelled in the air as you aproch\n'+
+                    'there is a small man bent over an anvil smashing red hot iron\n+'
+                    'into a cast to make nails',
             'stuff':[],
             'people':[],
             },
