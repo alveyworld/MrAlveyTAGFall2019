@@ -111,18 +111,21 @@ def create_map():
             'stuff':['wool','eggs'],
             'people':[]
             },
+        
         'Woods 1':{
             'neighbors':['Cavern','Pasture','Woods 3'],
             'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             },
+        
         'Cavern 1':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 1':{
             'neighbors':['Cavern 1',],
             'about':"Calm still waters there might be a ship out there...\n"+
@@ -130,6 +133,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Town of Zik':{
             'neighbors':['Farm house','Woods 2','River','Blacksmith'],
             'about':'A large City full of people from this part of the Germany\n'+
@@ -138,42 +142,49 @@ def create_map():
             'stuff':[],
             'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
+        
         'Woods 2':{
             'neighbors':['Town of Zik', 'Thief Hideout','Field'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 3':{
             'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Cavern 2':{
             'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 2':{
             'neighbors':['Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Ulga's House"],
             'about':'The smell of iorn can be smellt',
             'stuff':[],
             'people':[],
             },
+        
         'River':{
             'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
             'about':"",
@@ -186,108 +197,125 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Cavern 3':{
             'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 4':{
             'neighbors':['Cavern 3','Ocean 3','Cavern 2'],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 3':{
             'neighbors':['Woods 4'],
             'about':"",
             'stuff':['Gold egg'],
             'people':[],
             },
+        
         "Ulga's House":{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods 5':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ginger Bread House':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Woods w/ River 2':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 4':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Clif 1':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 2':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 3':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Clif 4':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 5':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 6':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 7':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 8':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
+        
         'Ocean 9':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
-            }
+            },
          }
 def create_player():
     return {
