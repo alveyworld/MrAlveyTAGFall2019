@@ -297,11 +297,10 @@ def create_player():
         }
 
 def create_world():
-    return{
-        'Map': create_map()
+    return {
+        'map': create_map(),
         'player': create_player(),
-        'status':"playing"
-        
+        'status': "playing"
     }
 
 def render_visible_stuff(world):
@@ -327,7 +326,7 @@ def render_player(world):
     '''
     inventorty = world['player']['inventory']
     Gold = world['player']['Gold']
-        }
+        
 def render_location(world):
     '''
     Consume a world and produce a string describing the location
@@ -435,7 +434,7 @@ assert_equal(render_introduction().count("\n"),7)
 #   that you've been in your own house the entire game.
 assert_equal("old bones" in render_introduction().lower(), True)
 
-A)
+#A)
 
 ###### 6) Main Function #####
 # Do not modify this area
