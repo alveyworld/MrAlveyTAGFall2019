@@ -77,7 +77,7 @@ def render_introduction():
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
 import random
-Cliff_Text = []
+Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
 def random_cliff_text():
    random.choice(Cliff_Text) 
     
@@ -95,15 +95,17 @@ def create_map():
             
         'Field':{
             'neighbors':['Farm house','Sheep Pasture','Woods 2'],
-            'about':"A large Field of golden wheat\n",
+            'about':"A large Field of golden wheat\n"+
+            'to the West is a old house to the East is a Large Pasture\n'+
+            'and to the south is a dense forest',
             'stuff':["wheat","hoe"],
             'people':[]
             }
         
         'Sheep pasture':{
             'neighbors':['Field','Woods 1'],
-            'about':"Large Field of grass there are some sheep with wool and\n"+
-            'chikens with eggs',
+            'about':"Large Field of grass light seems brighter here and life seems happier \n"+
+            'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
             'people':[]
             }
