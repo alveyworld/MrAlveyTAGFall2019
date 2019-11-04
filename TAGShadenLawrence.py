@@ -180,7 +180,7 @@ def create_map():
         
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Ulga's House"],
-            'about':'The smell of iorn can be smellt',
+            'about':'The smell of iorn can be smellt\n+',
             'stuff':[],
             'people':[],
             },
@@ -195,6 +195,13 @@ def create_map():
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
             'about':"",
             'stuff':[],
+            'people':[],
+            },
+        
+        'hidden Cave':{
+            'neighbors':['Wood w/ River 1'],
+            'about':"a small damp cave hidden by vines in the woods near a river",
+            'stuff':['hidden chest'],
             'people':[],
             },
         
