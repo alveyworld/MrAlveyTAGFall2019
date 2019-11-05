@@ -16,7 +16,7 @@ Be sure to unit test and document your functions.
 __author__ = "21lawresha@washk12.org"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
-'his field who has just thrown down his hoe down win by making 100 gold')
+'his field who has just thrown down his hoe down win by making 10 gold')
 
 # Leave these two fields unchanged
 __version__ = 1
