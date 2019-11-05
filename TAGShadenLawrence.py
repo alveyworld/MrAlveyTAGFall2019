@@ -200,7 +200,7 @@ def create_map():
             },
         
         'Black Smith':{
-            'neighbors':['Town of Zik','River',"Ulga's House"],
+            'neighbors':['Town of Zik','River',"Olga's House"],
             'about':'The smell of iorn can be smelled in the air as you aproch\n'+
                     'there is a small man bent over an anvil smashing red hot iron\n+'
                     'into a cast to make nails',
@@ -249,7 +249,7 @@ def create_map():
             'people':[],
             },
         
-        "Ulga's House":{
+        "Olga's House":{
             'neighbors':['Black Smith','Woods 5','Cliff 1'],
             'about':'A small women sits in front of a very large house\n'+
                     'the house looks very old it has many celtic symbols\n'+
@@ -259,7 +259,7 @@ def create_map():
             },
         
         'Woods 5':{
-            'neighbors':['River',"Ulga's House",'Ginger Bread House','Cliff 2'],
+            'neighbors':['River',"Olga's House",'Ginger Bread House','Cliff 2'],
             'about':"",
             'stuff':[],
             'people':[],
