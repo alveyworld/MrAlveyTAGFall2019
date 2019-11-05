@@ -174,7 +174,7 @@ def create_map():
         'Deep Under Bridge':{
             'neighbors':['Cavern w/ Bridge','Deep In Cavern'],
             'about':"",
-            'stuff':['Gold vein+'],
+            'stuff':['Gold vein'],
             'people':[],
             },
         
