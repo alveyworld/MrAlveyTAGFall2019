@@ -229,14 +229,16 @@ def create_map():
             },
         
         "Ulga's House":{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Black Smith','Woods 5','Cliff 1'],
+            'about':'A small women sits in front of a very large house\n'+
+                    'the house looks very old it has many celtic symbols\n'+
+                    'and many other drudic symbols',
             'stuff':[],
-            'people':[],
+            'people':['Ulga'],
             },
         
         'Woods 5':{
-            'neighbors':[],
+            'neighbors':['River',"Ulga's House",'Ginger Bread House','Cliff 2'],
             'about':"",
             'stuff':[],
             'people':[],
@@ -279,7 +281,10 @@ def create_map():
         
         'Clif 3':{
             'neighbors':[],
-            'about':random_cliff_text(),
+            'about':'The land here is very weird the ground is dry\n'+
+                    'not a animal in sight you aproch the edge of the cliff\n' +
+                    'the water looks nice like it wants to give you a big hug\n'+
+                    random_cliff_text(),
             'stuff':[],
             'people':[],
             },
