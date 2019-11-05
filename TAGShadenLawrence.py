@@ -120,8 +120,8 @@ def create_map():
             },
         
         'Cavern 1':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Woods 1','Ocean 1','Cavern 2'],
+            'about':"It is dark opening underground",
             'stuff':[],
             'people':[],
             },
@@ -164,7 +164,7 @@ def create_map():
             'people':[],
             },
         
-        'Cavern 2':{
+        'Cavern w/ Bridge':{
             'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
             'about':"",
             'stuff':[],
