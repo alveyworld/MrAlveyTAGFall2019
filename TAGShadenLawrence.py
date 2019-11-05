@@ -171,6 +171,27 @@ def create_map():
             'people':[],
             },
         
+        'Deep In Cavern ':{
+            'neighbors':[]
+            'about':"",
+            'stuff':[],
+            'people':[],
+            },
+        
+        ' Deep Under Bridge':{
+            'neighbors':[]
+            'about':"",
+            'stuff':['Gold vein+'],
+            'people':[],
+            },
+        
+        'Goblin Huts':{
+            'neighbors':[]
+            'about':"",
+            'stuff':[],
+            'people':[],
+            },
+        
         'Ocean 2':{
             'neighbors':['Cavern 2'],
             'about':"",
