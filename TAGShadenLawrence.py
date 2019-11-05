@@ -165,28 +165,28 @@ def create_map():
             },
         
         'Cavern w/ Bridge':{
-            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
+            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4','Deep Under Bridge'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Deep In Cavern ':{
-            'neighbors':[]
-            'about':"",
-            'stuff':[],
-            'people':[],
-            },
-        
-        ' Deep Under Bridge':{
-            'neighbors':[]
+        'Deep Under Bridge':{
+            'neighbors':['Cavern w/ Bridge','Deep In Cavern'],
             'about':"",
             'stuff':['Gold vein+'],
             'people':[],
             },
         
+        'Deep In Cavern ':{
+            'neighbors':['Deep under Bridge','Goblin Huts'],
+            'about':"",
+            'stuff':[],
+            'people':[],
+            },
+        
         'Goblin Huts':{
-            'neighbors':[]
+            'neighbors':['Deep In Cavern'],
             'about':"",
             'stuff':[],
             'people':[],
