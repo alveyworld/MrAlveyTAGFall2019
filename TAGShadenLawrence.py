@@ -256,7 +256,7 @@ def create_map():
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols',
             'stuff':[],
-            'people':['Ulga'],
+            'people':['Olga'],
             },
         
         'Woods 5':{
