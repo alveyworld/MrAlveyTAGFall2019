@@ -280,45 +280,45 @@ def create_map():
             },
         
         'Entrance Hall':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         
         'Kitchen':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         
         'Bedroom':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         
         'Alchemy room':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         
         'Library':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         
         'Basement':{
-            '':[],
-            '':'',
-            '':[],
-            '':[],
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
             },
         'Woods w/ River 2':{
             'neighbors':[],
