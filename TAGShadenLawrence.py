@@ -95,7 +95,7 @@ def create_map():
             },
             
         'Field':{
-            'neighbors':['Farm house','Sheep Pasture','Woods 2'],
+            'neighbors':['Farm house','Pasture','Small Clearing'],
             'about':"A large Field of golden wheat\n"+
                     'to the West is a old house to the East is a Large Pasture\n'+
                     'and to the south is a dense forest',
@@ -104,8 +104,8 @@ def create_map():
             },
         
         
-        'Sheep pasture':{
-            'neighbors':['Field','Woods 1'],
+        'Pasture':{
+            'neighbors':['Field','Clearing'],
             'about':"Large Field of grass light seems brighter here and life seems happier \n"+
                     'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
@@ -113,14 +113,14 @@ def create_map():
             },
         
         'Clearing':{
-            'neighbors':['Cavern','Pasture','Woods 3'],
+            'neighbors':['Cavern','Pasture','Large tree'],
             'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             },
         
         'Ravine':{
-            'neighbors':['Woods 1','Ocean 1','Cavern 2'],
+            'neighbors':['Clearing','Calm waters','Ravine w/'],
             'about':"It is dark opening underground",
             'stuff':[],
             'people':[],
@@ -193,8 +193,8 @@ def create_map():
             'people':[],
             },
         
-        'Ocean 2':{
-            'neighbors':['Cavern 2'],
+        'Deep waters':{
+            'neighbors':['Ravine w/ Bridge'],
             'about':"",
             'stuff':[],
             'people':[],
