@@ -112,14 +112,14 @@ def create_map():
             'people':[]
             },
         
-        'Woods 1':{
+        'Clearing':{
             'neighbors':['Cavern','Pasture','Woods 3'],
             'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             },
         
-        'Cavern 1':{
+        'Ravine':{
             'neighbors':['Woods 1','Ocean 1','Cavern 2'],
             'about':"It is dark opening underground",
             'stuff':[],
@@ -157,14 +157,14 @@ def create_map():
             'people':[],
             },
         
-        'Woods 3':{
+        'Woods with a large tree':{
             'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Cavern w/ Bridge':{
+        'Ravine w/ Bridge':{
             'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4','Deep Under Bridge'],
             'about':"",
             'stuff':[],
@@ -228,8 +228,8 @@ def create_map():
             'people':[],
             },
         
-        'Cavern 3':{
-            'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
+        'Cavern':{
+            'neighbors':['Wood w/ River 1','Woods 4','Ravine w/ Bridge'],
             'about':"",
             'stuff':[],
             'people':[],
@@ -250,7 +250,7 @@ def create_map():
             },
         
         "Olga's House":{
-            'neighbors':['Black Smith','Woods 5','Cliff 1'],
+            'neighbors':['Black Smith','Dead forest','Cliff 1'],
             'about':'A small women sits in front of a very large house\n'+
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols',
@@ -258,15 +258,17 @@ def create_map():
             'people':['Olga'],
             },
         
-        'Woods 5':{
+        'Dead forest':{
             'neighbors':['River',"Olga's House",'Ginger Bread House','Cliff 2'],
-            'about':"",
+            'about':'you aproch a what looks like a dead forest.\n'+
+                    'Hundreds of crows sit up high in the leafless trees\n'+
+                    'there eyes fallow you as you walk deeper into there domain',
             'stuff':[],
             'people':[],
             },
         
         'Ginger Bread House':{
-            'neighbors':[],
+            'neighbors':['Wood w/ River',],
             'about':"",
             'stuff':[],
             'people':[],
@@ -320,6 +322,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Woods w/ River 2':{
             'neighbors':[],
             'about':"",
@@ -366,34 +369,6 @@ def create_map():
             },
         
         'Ocean 5':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            },
-        
-        'Ocean 6':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            },
-        
-        'Ocean 7':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            },
-        
-        'Ocean 8':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            },
-        
-        'Ocean 9':{
             'neighbors':[],
             'about':"",
             'stuff':[],
