@@ -144,22 +144,23 @@ def create_map():
             },
         
         'Woods 2':{
-            'neighbors':['Town of Zik', 'Thief Hideout','Field'],
-            'about':"",
+            'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
+            'about':"A small clearing in the woods",
             'stuff':[],
             'people':[],
             },
         
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
-            'about':"",
+            'about':"As you walk through the wood you see some small buildings in the trees"
+            "as you get close you hear a loud thump then you black out",
             'stuff':[],
             'people':[],
             },
         
         'Woods 3':{
             'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
-            'about':"",
+            'about':"A small clearing with a big tree",
             'stuff':[],
             'people':[],
             },
@@ -215,7 +216,7 @@ def create_map():
             'people':[],
             },
         'Wood w/ River 1':{
-            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
+            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
             'about':"",
             'stuff':[],
             'people':[],
