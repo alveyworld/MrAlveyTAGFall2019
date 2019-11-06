@@ -324,35 +324,35 @@ def create_map():
             'people':[],
             },
         
-        'Woods w/ River 2':{
+        'Woods w/ River':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Ocean 4':{
+        'Shark infested waters':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Clif 1':{
+        'High Cliff':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
         
-        'Clif 2':{
+        'Grassy Cliff':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
         
-        'Clif 3':{
+        'Dry Cliff':{
             'neighbors':[],
             'about':'The land here is very weird the ground is dry\n'+
                     'not a animal in sight you aproch the edge of the cliff\n' +
@@ -362,14 +362,14 @@ def create_map():
             'people':[],
             },
         
-        'Clif 4':{
+        'Muddy Cliff ':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
         
-        'Ocean 5':{
+        'Hacker':{
             'neighbors':[],
             'about':"",
             'stuff':[],
