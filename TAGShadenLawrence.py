@@ -121,8 +121,7 @@ def create_map():
         
         'Ravine':{
             'neighbors':['Clearing','Ravine w/ Bridge'],
-<<<<<<< HEAD
-            'about':"",
+            'about':"there is a big crack in the earth that is very deep",
             'stuff':[],
             'people':[],
             },
@@ -130,9 +129,6 @@ def create_map():
         'In Ravine':{
             'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
             'about':'you are in a deep chasm your feet are now damp',
-=======
-            'about':"there is a big crack in the earth that is very deep",
->>>>>>> 2ea3ba7dd6cf89c30166d225a94ae1a37edee1b1
             'stuff':[],
             'people':[],
             },
