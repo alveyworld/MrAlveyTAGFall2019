@@ -121,6 +121,7 @@ def create_map():
         
         'Ravine':{
             'neighbors':['Clearing','Ravine w/ Bridge'],
+<<<<<<< HEAD
             'about':"",
             'stuff':[],
             'people':[],
@@ -129,6 +130,9 @@ def create_map():
         'In Ravine':{
             'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
             'about':'you are in a deep chasm your feet are now damp',
+=======
+            'about':"there is a big crack in the earth that is very deep",
+>>>>>>> 2ea3ba7dd6cf89c30166d225a94ae1a37edee1b1
             'stuff':[],
             'people':[],
             },
@@ -230,7 +234,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
-        'Wood w/ River 1':{
+        'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
             'about':"",
             'stuff':[],
