@@ -121,7 +121,7 @@ def create_map():
         
         'Ravine':{
             'neighbors':['Clearing','Ravine w/ Bridge'],
-            'about':"It is dark opening underground",
+            'about':"",
             'stuff':[],
             'people':[],
             },
