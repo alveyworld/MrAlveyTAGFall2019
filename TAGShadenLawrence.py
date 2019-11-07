@@ -113,20 +113,34 @@ def create_map():
             },
         
         'Clearing':{
-            'neighbors':['Cavern','Pasture','Large tree'],
+            'neighbors':['Pasture','Ravine','Large tree'],
             'about':"You are in a clearing in the forest ",
             'stuff':[],
             'people':[]
             },
         
         'Ravine':{
-            'neighbors':['Clearing','Calm waters','Ravine w/'],
+            'neighbors':['Clearing','Ravine w/ Bridge'],
             'about':"It is dark opening underground",
             'stuff':[],
             'people':[],
             },
         
-        'Ocean 1':{
+        'In Ravine':{
+            'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
+            'about':'you are in a deep chasm your feet are now damp',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Bullywogs Huts':{
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':['Blue Bullywog','Cheff Bullywog']
+            },
+        
+        'Calm waters':{
             'neighbors':['Cavern 1',],
             'about':"Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
@@ -143,7 +157,7 @@ def create_map():
             'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
         
-        'Woods 2':{
+        'Small Clearing':{
             'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
             'about':"A small clearing in the woods",
             'stuff':[],
@@ -159,22 +173,23 @@ def create_map():
             },
         
         'Woods with a large tree':{
-            'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
+            'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
             'about':"A small clearing with a big tree",
             'stuff':[],
             'people':[],
             },
         
         'Ravine w/ Bridge':{
-            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4','Deep Under Bridge'],
+            'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Deep Under Bridge':{
-            'neighbors':['Cavern w/ Bridge','Deep In Cavern'],
-            'about':"",
+        'in Ravine Under Bridge':{
+            'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
+            'about':'you are in a deep Ravine above you is a small rope bridge\n'+
+                    '',
             'stuff':['Gold vein'],
             'people':[],
             },
@@ -251,7 +266,7 @@ def create_map():
             },
         
         "Olga's House":{
-            'neighbors':['Black Smith','Dead forest','Cliff 1'],
+            'neighbors':['Black Smith','Dead forest','High Cliff'],
             'about':'A small women sits in front of a very large house\n'+
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols',
