@@ -141,7 +141,7 @@ def create_map():
             },
         
         'Calm waters':{
-            'neighbors':['Cavern 1',],
+            'neighbors':['Bullywogs'],
             'about':"Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
             'stuff':[],
