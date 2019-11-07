@@ -244,22 +244,29 @@ def create_map():
             'people':[],
             },
         
-        'Cavern':{
-            'neighbors':['Wood w/ River 1','Woods 4','Ravine w/ Bridge'],
+        'Above Cavern':{
+            'neighbors':['Small creek','Ravine w/ Bridge','Woods w/ River', 'Woods with a large tree'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Woods 4':{
-            'neighbors':['Cavern 3','Ocean 3','Cavern 2'],
+        'Woods w/ cliff':{
+            'neighbors':['Ravine w/ Bridge','Sandy beach'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Ocean 3':{
-            'neighbors':['Woods 4'],
+        'Sandy beach':{
+            'neighbors':['Woods w/ cliff' 'Merlock Huts'],
+            'about':'',
+            'stuff'[],
+            'people'[],
+            },
+        
+        'Shallow waters':{
+            'neighbors':['Sandy beach'],
             'about':"",
             'stuff':['Gold egg'],
             'people':[],
