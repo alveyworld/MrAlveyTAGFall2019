@@ -120,8 +120,8 @@ def create_map():
             },
         
         'Ravine':{
-            'neighbors':['Clearing','Calm waters','Ravine w/'],
-            'about':"It is dark opening underground",
+            'neighbors':['Clearing','Calm waters','Ravine w/ Bridge'],
+            'about':"there is a big crack in the earth that is very deep",
             'stuff':[],
             'people':[],
             },
@@ -143,7 +143,7 @@ def create_map():
             'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
         
-        'Woods 2':{
+        'Small Clearing':{
             'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
             'about':"A small clearing in the woods",
             'stuff':[],
@@ -215,7 +215,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
-        'Wood w/ River 1':{
+        'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
             'about':"",
             'stuff':[],
