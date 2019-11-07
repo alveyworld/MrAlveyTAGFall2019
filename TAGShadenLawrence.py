@@ -134,8 +134,8 @@ def create_map():
             },
         
         'Bullywogs Huts':{
-            'neighbors':[],
-            'about':'',
+            'neighbors':['In Ravine','Calm waters','Merlock Huts'],
+            'about':'You walk up to a bunch of small huts as small frogs jump out',
             'stuff':[],
             'people':['Blue Bullywog','Cheff Bullywog']
             },
@@ -149,7 +149,7 @@ def create_map():
             },
         
         'Town of Zik':{
-            'neighbors':['Farm house','Woods 2','River','Blacksmith'],
+            'neighbors':['Farm house','Small Clearing','River','Blacksmith'],
             'about':'A large City full of people from this part of the Germany\n'+
                     'they come in all shapes and sizes some big some small \n'+
                     'But they all seem bigger than you',
@@ -186,7 +186,7 @@ def create_map():
             'people':[],
             },
         
-        'in Ravine Under Bridge':{
+        'In Ravine Under Bridge':{
             'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
             'about':'you are in a deep Ravine above you is a small rope bridge\n'+
                     '',
@@ -194,16 +194,17 @@ def create_map():
             'people':[],
             },
         
-        'Deep In Cavern ':{
-            'neighbors':['Deep under Bridge','Goblin Huts'],
+        
+        'Merlock Huts ':{
+            'neighbors':['Bullywogs Huts','Deep waters','Sandy Beach'],
             'about':"",
             'stuff':[],
             'people':[],
             },
         
-        'Goblin Huts':{
-            'neighbors':['Deep In Cavern'],
-            'about':"",
+        'Goblin Cavern':{
+            'neighbors':['In Ravine Under Bridge',],
+            'about':"you walk into a dark Cavern as red eyes light up",
             'stuff':[],
             'people':[],
             },
@@ -230,6 +231,7 @@ def create_map():
             'stuff':[],
             'people':[],
             },
+        
         'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
             'about':"",
