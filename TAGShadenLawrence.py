@@ -284,7 +284,7 @@ def create_map():
             },
         
         'Dead forest':{
-            'neighbors':['River',"Olga's House",'Ginger Bread House','Cliff 2'],
+            'neighbors':['River',"Olga's House",'Ginger Bread House','Grassy Cliff'],
             'about':'you aproch a what looks like a dead forest.\n'+
                     'Hundreds of crows sit up high in the leafless trees\n'+
                     'there eyes fallow you as you walk deeper into there domain',
@@ -293,28 +293,29 @@ def create_map():
             },
         
         'Ginger Bread House':{
-            'neighbors':['Wood w/ River',],
-            'about':"",
+            'neighbors':['Small Creek','Dead Forest','Woods w/ River','Dry Cliff','Entrance Hall'],
+            'about':"you fallow a path of candy to a house of candy deep in the woods\n"+
+                    'there is a door into the house',
             'stuff':[],
             'people':[],
             },
         
         'Dining Hall':{
-            'neighbors':[],
+            'neighbors':['Entrance Hall'],
             'about':'',
             'stuff':[],
             'people':[],
             },
         
         'Entrance Hall':{
-            'neighbors':[],
+            'neighbors':['Ginger Bread House','Dining hall','Kitchen','Alchemy room'],
             'about':'',
             'stuff':[],
             'people':[],
             },
         
         'Kitchen':{
-            'neighbors':[],
+            'neighbors':['Entrance Hall','Libary'],
             'about':'',
             'stuff':[],
             'people':[],
@@ -349,7 +350,7 @@ def create_map():
             },
         
         'Woods w/ River':{
-            'neighbors':[],
+            'neighbors':['Above Cavern','Ginger Bread House','Shark infested waters','Muddy Cliff'],
             'about':"",
             'stuff':[],
             'people':[],
@@ -357,27 +358,29 @@ def create_map():
         
         'Shark infested waters':{
             'neighbors':[],
-            'about':"",
+            'about':"as you wade out into the water you see a shark fin pop out of the water\n",
             'stuff':[],
             'people':[],
             },
         
         'High Cliff':{
-            'neighbors':[],
-            'about':random_cliff_text(),
+            'neighbors':["Olga's House",'Grassy Cliff'],
+            'about':'you can see farther from this hill near a cliff\n'+
+                    'you can see The town of Zik form here you walk down the hill\n'+
+                    'and look at the cliff'+random_cliff_text(),
             'stuff':[],
             'people':[],
             },
         
         'Grassy Cliff':{
-            'neighbors':[],
+            'neighbors':['Dead Forest','High Cliff','Dry Cliff'],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
             },
         
         'Dry Cliff':{
-            'neighbors':[],
+            'neighbors':['Ginger Bread House','',''],
             'about':'The land here is very weird the ground is dry\n'+
                     'not a animal in sight you aproch the edge of the cliff\n' +
                     'the water looks nice like it wants to give you a big hug\n'+
