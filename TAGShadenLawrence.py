@@ -114,14 +114,16 @@ def create_map():
         
         'Clearing':{
             'neighbors':['Pasture','Ravine','Large tree'],
-            'about':"You are in a clearing in the forest ",
+            'about':"You are in a clearing in the forest you see the forest continues south"
+            + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
             'people':[]
             },
         
         'Ravine':{
             'neighbors':['Clearing','Ravine w/ Bridge'],
-            'about':"there is a big crack in the earth that is very deep",
+            'about':"there is a big crack in the earth that is very deep and it keeps going" +
+            "to the south and woods to the east",
             'stuff':[],
             'people':[],
             },
@@ -159,15 +161,17 @@ def create_map():
         
         'Small Clearing':{
             'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
-            'about':"A small clearing in the woods",
+            'about':"A small clearing in the woods there is a field to the north"
+            + "town to the west and to hear water from the south and see something to"
+            +"the east.",
             'stuff':[],
             'people':[],
             },
         
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
-            'about':"As you walk through the wood you see some small buildings in the trees"
-            "as you get close you hear a loud thump then you black out",
+            'about':"As you walk through the wood you see some small buildings in the" +
+                    "trees as you get close you hear a loud thump then you black out",
             'stuff':[],
             'people':[],
             },
@@ -181,7 +185,8 @@ def create_map():
         
         'Ravine w/ Bridge':{
             'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
-            'about':"",
+            'about':"There is a big Ravine with a small rope Bridge and you can see some woods" +
+            "on the other side",
             'stuff':[],
             'people':[],
             },
