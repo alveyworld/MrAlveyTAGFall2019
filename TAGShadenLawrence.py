@@ -128,16 +128,19 @@ def create_map():
         
         'In Ravine':{
             'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
-            'about':'you are in a deep chasm your feet are now damp',
+            'about':'you are in a deep chasm your feet are now damp\n'+
+                    'to the east is a way up and to the south is deeper into the ravine',
             'stuff':[],
             'people':[],
             },
         
         'Bullywogs Huts':{
             'neighbors':['In Ravine','Calm waters','Merlock Huts'],
-            'about':'You walk up to a bunch of small huts as small frogs jump out',
+            'about':'You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow'+
+                    'to the west is a way down into a deep ravine to the east is the ocean\n'+
+                    'and to the south farther down the beach',
             'stuff':[],
-            'people':['Blue Bullywog','Cheff Bullywog']
+            'people':['Green Bullywog','Yellow Bullywog']
             },
         
         'Calm waters':{
@@ -152,7 +155,9 @@ def create_map():
             'neighbors':['Farm house','Small Clearing','River','Blacksmith'],
             'about':'A large City full of people from this part of the Germany\n'+
                     'they come in all shapes and sizes some big some small \n'+
-                    'But they all seem bigger than you',
+                    'But they all seem bigger than you\n'+
+                    'to the north is a small House to the east is a small forest\n'+
+                    'and to the south is a small house with a forge outside',
             'stuff':[],
             'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
@@ -189,7 +194,8 @@ def create_map():
         'In Ravine Under Bridge':{
             'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
             'about':'you are in a deep Ravine above you is a small rope bridge\n'+
-                    '',
+                    'to the north is farther into the ravine , there is a way up out of the ravine\n'+
+                    'and there is a path into a cave to the SouthWest',
             'stuff':['Gold vein'],
             'people':[],
             },
@@ -197,16 +203,19 @@ def create_map():
         
         'Merlock Huts ':{
             'neighbors':['Bullywogs Huts','Deep waters','Sandy Beach'],
-            'about':"",
+            'about':"as you aproch wooden houses elevated above the water\n"+
+                    'two merlocks jump out of them one white one blue\n'+
+                    'there is a path farther up the beach north \n'+
+                    'a way to the ocean east , and a path down the beach south',
             'stuff':[],
-            'people':[],
+            'people':['white merlock','Blue merlock'],
             },
         
         'Goblin Cavern':{
             'neighbors':['In Ravine Under Bridge',],
-            'about':"you walk into a dark Cavern as red eyes light up",
+            'about':"you walk into a dark Cavern as red eyes light up across the walls",
             'stuff':[],
-            'people':[],
+            'people':['Goblins'],
             },
         
         'Deep waters':{
@@ -220,7 +229,8 @@ def create_map():
             'neighbors':['Town of Zik','River',"Olga's House"],
             'about':'The smell of iorn can be smelled in the air as you aproch\n'+
                     'there is a small man bent over an anvil smashing red hot iron\n+'
-                    'into a cast to make nails',
+                    'into a cast to make nails\n'+
+                    'north is the Town of Zik east is a River and south is a large house',
             'stuff':[],
             'people':['Blacksmith'],
             },
@@ -278,7 +288,9 @@ def create_map():
             'neighbors':['Black Smith','Dead forest','High Cliff'],
             'about':'A small women sits in front of a very large house\n'+
                     'the house looks very old it has many celtic symbols\n'+
-                    'and many other drudic symbols',
+                    'and many other drudic symbols\n'+
+                    'to the north is a small house with a forge outside\n'+
+                    'to the east is a dead forest and to the south is a Hill near a Cliff',
             'stuff':[],
             'people':['Olga'],
             },
@@ -287,7 +299,9 @@ def create_map():
             'neighbors':['River',"Olga's House",'Ginger Bread House','Grassy Cliff'],
             'about':'you aproch a what looks like a dead forest.\n'+
                     'Hundreds of crows sit up high in the leafless trees\n'+
-                    'there eyes fallow you as you walk deeper into there domain',
+                    'there eyes fallow you as you walk deeper into there domain\n'+
+                    'to the north is a river and to the west is a large house\n'+
+                    'to the east is a house made of candy and to the south is a grassy feild',
             'stuff':[],
             'people':[],
             },
