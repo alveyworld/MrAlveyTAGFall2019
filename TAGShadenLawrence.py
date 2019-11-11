@@ -183,7 +183,8 @@ def create_map():
         
         'Woods with a large tree':{
             'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
-            'about':"A small clearing with a big tree",
+            'about':"A small clearing with a big tree there is more woods to the west" +
+            ' and north and opening to the south and a big opening to the east',
             'stuff':[],
             'people':[],
             },
@@ -225,7 +226,8 @@ def create_map():
         
         'Deep waters':{
             'neighbors':['Ravine w/ Bridge'],
-            'about':"",
+            'about':"you look out and see water that goes as far as you can see " +
+            "and there is some huts to the west.",
             'stuff':[],
             'people':[],
             },
@@ -295,7 +297,8 @@ def create_map():
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols\n'+
                     'to the north is a small house with a forge outside\n'+
-                    'to the east is a dead forest and to the south is a Hill near a Cliff',
+                    'to the east is a dead forest and to\n'+
+                    ' the south is a Hill near a Cliff',
             'stuff':[],
             'people':['Olga'],
             },
@@ -423,9 +426,11 @@ def create_map():
             },
          }
 def create_player():
+    
     return {
         'location': 'Field',
         'inventory': [],
+        'Hunger': False
         'Gold': 0
         }
 
@@ -438,20 +443,19 @@ def create_world():
     }
 
 def render_visible_stuff(world):
+    
     location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
     inventory = world['player']['inventory']
-
-    visible_stuff = []
-    for thing in stuff:
-        if thing == 'Grue':
-            if 'flashlight' not in inventory:
-                visible_stuff.append(thing)
-        else:
+    
+    if location == 'Farm House':
+        return "you see a Bowl of Soup"+'and'+'you can a gold coin on the table'
+    else:
+        visible_stuff = []
+        for thing in stuff:
             visible_stuff.append(thing)
-
-    return "You see: " + ', '.join(visible_stuff)
+        return "You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
@@ -460,6 +464,7 @@ def render_player(world):
     '''
     inventorty = world['player']['inventory']
     Gold = world['player']['Gold']
+    Hunger = world['player']['Hunger']
         }
 def render_location(world):
     '''
@@ -468,8 +473,12 @@ def render_location(world):
     location = world['player']['location']
     here = world['map'][location]
     about = here['about']
-
+    
+    return ("You are in "+location+"\n"+
+            about+"\n")
+    
 def render(world):
+    
     return (render_location(world) +
             render_player(world) +
             render_visible_stuff(world))
