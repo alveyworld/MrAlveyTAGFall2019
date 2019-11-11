@@ -226,7 +226,8 @@ def create_map():
         
         'Deep waters':{
             'neighbors':['Ravine w/ Bridge'],
-            'about':"",
+            'about':"you look out and see water that goes as far as you can see " +
+            "and there is some huts to the west.",
             'stuff':[],
             'people':[],
             },
