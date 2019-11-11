@@ -98,30 +98,30 @@ def create_map():
         'lounge' : {
             'about': 'You sit in your regular spot and Hosner comments on your food.',
             'neighbors' : ['classroom'],
-            'stuff': [],
+            'stuff': ['salt', 'pepper'],
             'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
         },
         'car' : {
             'about': 'You sit in your car and turn on the engine.',
             'neighbors' : ['lins', 'home'],
-            'stuff': [],
+            'stuff': ['apron', 'name badge'],
             'people': [],
         },
         'lins' : {
             'about': 'You put on your apron and log into your register',
             'neighbors' : ['car', 'dq'],
-            'stuff': [],
+            'stuff': ['pen', 'spray bottle'],
             'people': ['Ashlee', 'Jeff', 'Collin'],    
         },
         'dq' : {
             'about': 'You yell for help at the dq counter.',
             'neighbors' : ['lins'],
-            'stuff': [],
+            'stuff': ['french fries'],
             'people': random_chillstaff(),    
         },
         'archam' : {
             'neighbors' : ['home'],
-            'stuff': [],
+            'stuff': ['bat-erang', 'clown mask'],
             'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
         },
         'home' : {
@@ -192,10 +192,10 @@ def render_visible_stuff(world):
     if location == 'classroom':
         return "You see a desk that might have something useful to you inside."
     else:
-        stuff_string = ""
+        visible_stuff = []
         for thing in stuff:
-            stuff_string += thing + ', '
-        return "You see" + stuff_string
+            visible_stuff.append(thing)
+        return "You see: " + ', '.join(visible_stuff)
     
 def render(world):
     '''

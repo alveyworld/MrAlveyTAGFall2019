@@ -16,7 +16,7 @@ Be sure to unit test and document your functions.
 __author__ = "21lawresha@washk12.org"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
-'his field who has just thrown down his hoe down win by making 100 gold')
+'his field who has just thrown down his hoe down win by making 10 gold')
 
 # Leave these two fields unchanged
 __version__ = 1
@@ -77,13 +77,14 @@ def render_introduction():
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
 import random
-Cliff_Text = []
+Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
 def random_cliff_text():
    random.choice(Cliff_Text) 
     
     
 def create_map():
-    return{
+    return {
+        
         'Farm House':{
             'neighbors':['Field','Town of Zik'],
             'about':"a old house sat on a hill over looking a large ranch it\n"+
@@ -91,199 +92,336 @@ def create_map():
                      "East is a large Field and to the South there is the town of Zik",
             'stuff':['1 gold','bowl of soup'],
             'people':['Your boss']
-            }
+            },
             
         'Field':{
-            'neighbors':['Farm house','Sheep Pasture','Woods 2'],
-            'about':"A large Field of golden wheat\n",
+            'neighbors':['Farm house','Pasture','Small Clearing'],
+            'about':"A large Field of golden wheat\n"+
+                    'to the West is a old house to the East is a Large Pasture\n'+
+                    'and to the south is a dense forest',
             'stuff':["wheat","hoe"],
             'people':[]
-            }
+            },
         
-        'Sheep pasture':{
-            'neighbors':['Field','Woods 1'],
-            'about':"Large Field of grass there are some sheep with wool and\n"+
-            'chikens with eggs',
+        
+        'Pasture':{
+            'neighbors':['Field','Clearing'],
+            'about':"Large Field of grass light seems brighter here and life seems happier \n"+
+                    'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
             'people':[]
-            }
-        'Woods 1':{
-            'neighbors':['Cavern','Pasture','Woods 3'],
-            'about':"You are in a clearing in the forest ",
+            },
+        
+        'Clearing':{
+            'neighbors':['Pasture','Ravine','Large tree'],
+            'about':"You are in a clearing in the forest you see the forest continues south"
+            + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
             'people':[]
-            }
-        'Cavern 1':{
-            'neighbors':[],
-            'about':"",
+            },
+        
+        'Ravine':{
+            'neighbors':['Clearing','Ravine w/ Bridge'],
+            'about':"there is a big crack in the earth that is very deep and it keeps going" +
+            "to the south and woods to the east",
             'stuff':[],
             'people':[],
-            }
-        'Ocean 1':{
-            'neighbors':['Cavern 1',],
+            },
+        
+        'In Ravine':{
+            'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
+            'about':'you are in a deep chasm your feet are now damp\n'+
+                    'to the east is a way up and to the south is deeper into the ravine',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Bullywogs Huts':{
+            'neighbors':['In Ravine','Calm waters','Merlock Huts'],
+            'about':'You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow'+
+                    'to the west is a way down into a deep ravine to the east is the ocean\n'+
+                    'and to the south farther down the beach',
+            'stuff':[],
+            'people':['Green Bullywog','Yellow Bullywog']
+            },
+        
+        'Calm waters':{
+            'neighbors':['Bullywogs'],
             'about':"Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
             'stuff':[],
             'people':[],
-            }
+            },
+        
         'Town of Zik':{
-            'neighbors':['Farm house','Woods 2','River','Blacksmith'],
-            'about':"",
+            'neighbors':['Farm house','Small Clearing','River','Blacksmith'],
+            'about':'A large City full of people from this part of the Germany\n'+
+                    'they come in all shapes and sizes some big some small \n'+
+                    'But they all seem bigger than you\n'+
+                    'to the north is a small House to the east is a small forest\n'+
+                    'and to the south is a small house with a forge outside',
+            'stuff':[],
+            'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
+            },
+        
+        'Small Clearing':{
+            'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
+            'about':"A small clearing in the woods there is a field to the north"
+            + "town to the west and to hear water from the south and see something to"
+            +"the east.",
             'stuff':[],
             'people':[],
-            }
-        'Woods 2':{
-            'neighbors':['Town of Zik', 'Thief Hideout','Field'],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
+            },
+        
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
+            'about':"As you walk through the wood you see some small buildings in the" +
+                    "trees as you get close you hear a loud thump then you black out",
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Woods with a large tree':{
+            'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
+            'about':"A small clearing with a big tree",
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Ravine w/ Bridge':{
+            'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
+            'about':"There is a big Ravine with a small rope Bridge and you can see some woods" +
+            "on the other side",
+            'stuff':[],
+            'people':[],
+            },
+        
+        'In Ravine Under Bridge':{
+            'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
+            'about':'you are in a deep Ravine above you is a small rope bridge\n'+
+                    'to the north is farther into the ravine , there is a way up out of the ravine\n'+
+                    'and there is a path into a cave to the SouthWest',
+            'stuff':['Gold vein'],
+            'people':[],
+            },
+        
+        
+        'Merlock Huts ':{
+            'neighbors':['Bullywogs Huts','Deep waters','Sandy Beach'],
+            'about':"as you aproch wooden houses elevated above the water\n"+
+                    'two merlocks jump out of them one white one blue\n'+
+                    'there is a path farther up the beach north \n'+
+                    'a way to the ocean east , and a path down the beach south',
+            'stuff':[],
+            'people':['white merlock','Blue merlock'],
+            },
+        
+        'Goblin Cavern':{
+            'neighbors':['In Ravine Under Bridge',],
+            'about':"you walk into a dark Cavern as red eyes light up across the walls",
+            'stuff':[],
+            'people':['Goblins'],
+            },
+        
+        'Deep waters':{
+            'neighbors':['Ravine w/ Bridge'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Woods 3':{
-            'neighbors':['Thief Hideout','Cavern 2','Woods','Large Tree'],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-        'Cavern 2':{
-            'neighbors':['Woods 3','Ocean 2','Cavern','Cavern 2','Woods 4',],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-        'Ocean 2':{
-            'neighbors':['Cavern 2'],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
+            },
+        
         'Black Smith':{
-            'neighbors':[],
-            'about':"",
+            'neighbors':['Town of Zik','River',"Olga's House"],
+            'about':'The smell of iorn can be smelled in the air as you aproch\n'+
+                    'there is a small man bent over an anvil smashing red hot iron\n+'
+                    'into a cast to make nails\n'+
+                    'north is the Town of Zik east is a River and south is a large house',
             'stuff':[],
-            'people':[],
-            }
+            'people':['Blacksmith'],
+            },
+        
         'River':{
             'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Wood w/ River 1':{
-            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River'],
+            },
+        
+        'Small creek':{
+            'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Cavern 3':{
-            'neighbors':['Wood w/ River 1','Woods 4','Cavern 2'],
+            },
+        
+        'hidden Cave':{
+            'neighbors':['Wood w/ River 1'],
+            'about':"a small damp cave hidden by vines in the woods near a river",
+            'stuff':['hidden chest'],
+            'people':[],
+            },
+        
+        'Above Cavern':{
+            'neighbors':['Small creek','Ravine w/ Bridge','Woods w/ River', 'Woods with a large tree'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Woods 4':{
-            'neighbors':['Cavern 3','Ocean 3','Cavern 2'],
+            },
+        
+        'Woods w/ cliff':{
+            'neighbors':['Ravine w/ Bridge','Sandy beach'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Ocean 3':{
-            'neighbors':['Woods 4'],
+            },
+        
+        'Sandy beach':{
+            'neighbors':['Woods w/ cliff' 'Merlock Huts'],
+            'about':'',
+            'stuff'[],
+            'people'[],
+            },
+        
+        'Shallow waters':{
+            'neighbors':['Sandy beach'],
             'about':"",
             'stuff':['Gold egg'],
             'people':[],
-            }
-        "Ulga's House":{
-            'neighbors':[],
-            'about':"",
+            },
+        
+        "Olga's House":{
+            'neighbors':['Black Smith','Dead forest','High Cliff'],
+            'about':'A small women sits in front of a very large house\n'+
+                    'the house looks very old it has many celtic symbols\n'+
+                    'and many other drudic symbols\n'+
+                    'to the north is a small house with a forge outside\n'+
+                    'to the east is a dead forest and to the south is a Hill near a Cliff',
+            'stuff':[],
+            'people':['Olga'],
+            },
+        
+        'Dead forest':{
+            'neighbors':['River',"Olga's House",'Ginger Bread House','Grassy Cliff'],
+            'about':'you aproch a what looks like a dead forest.\n'+
+                    'Hundreds of crows sit up high in the leafless trees\n'+
+                    'there eyes fallow you as you walk deeper into there domain\n'+
+                    'to the north is a river and to the west is a large house\n'+
+                    'to the east is a house made of candy and to the south is a grassy feild',
             'stuff':[],
             'people':[],
-            }
-        'Woods 5':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
+            },
+        
         'Ginger Bread House':{
+            'neighbors':['Small Creek','Dead Forest','Woods w/ River','Dry Cliff','Entrance Hall'],
+            'about':"you fallow a path of candy to a house of candy deep in the woods\n"+
+                    'there is a door into the house',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Dining Hall':{
+            'neighbors':['Entrance Hall'],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Entrance Hall':{
+            'neighbors':['Ginger Bread House','Dining hall','Kitchen','Alchemy room'],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Kitchen':{
+            'neighbors':['Entrance Hall','Libary'],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Bedroom':{
             'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Alchemy room':{
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Library':{
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Basement':{
+            'neighbors':[],
+            'about':'',
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Woods w/ River':{
+            'neighbors':['Above Cavern','Ginger Bread House','Shark infested waters','Muddy Cliff'],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Woods w/ River 2':{
+            },
+        
+        'Shark infested waters':{
             'neighbors':[],
-            'about':"",
+            'about':"as you wade out into the water you see a shark fin pop out of the water\n",
             'stuff':[],
             'people':[],
-            }
-        'Ocean 4':{
-            'neighbors':[],
-            'about':"",
+            },
+        
+        'High Cliff':{
+            'neighbors':["Olga's House",'Grassy Cliff'],
+            'about':'you can see farther from this hill near a cliff\n'+
+                    'you can see The town of Zik form here you walk down the hill\n'+
+                    'and look at the cliff'+random_cliff_text(),
             'stuff':[],
             'people':[],
-            }
-        'Clif 1':{
+            },
+        
+        'Grassy Cliff':{
+            'neighbors':['Dead Forest','High Cliff','Dry Cliff'],
+            'about':random_cliff_text(),
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Dry Cliff':{
+            'neighbors':['Ginger Bread House','',''],
+            'about':'The land here is very weird the ground is dry\n'+
+                    'not a animal in sight you aproch the edge of the cliff\n' +
+                    'the water looks nice like it wants to give you a big hug\n'+
+                    random_cliff_text(),
+            'stuff':[],
+            'people':[],
+            },
+        
+        'Muddy Cliff ':{
             'neighbors':[],
             'about':random_cliff_text(),
             'stuff':[],
             'people':[],
-            }
-        'Clif 2':{
-            'neighbors':[],
-            'about':random_cliff_text(),
-            'stuff':[],
-            'people':[],
-            }
-        'Clif 3':{
-            'neighbors':[],
-            'about':random_cliff_text(),
-            'stuff':[],
-            'people':[],
-            }
-        'Clif 4':{
-            'neighbors':[],
-            'about':random_cliff_text(),
-            'stuff':[],
-            'people':[],
-            }
-        'Ocean 5':{
+            },
+        
+        'Hacker':{
             'neighbors':[],
             'about':"",
             'stuff':[],
             'people':[],
-            }
-        'Ocean 6':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-        'Ocean 7':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-        'Ocean 8':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-        'Ocean 9':{
-            'neighbors':[],
-            'about':"",
-            'stuff':[],
-            'people':[],
-            }
-            
-    }
+            },
+         }
 def create_player():
     return {
         'location': 'Field',
@@ -300,7 +438,7 @@ def create_world():
     }
 
 def render_visible_stuff(world):
-     location = world['player']['location']
+    location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
     inventory = world['player']['inventory']
@@ -347,6 +485,7 @@ def render(world):
     '''
 
 def get_options(world):
+    
     '''
     Consumes a world and produces a list of strings representing the options
     that are available to be chosen given this state.
@@ -357,6 +496,16 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
+     # ...
+    commands = ["Quit"]
+    current_location = world['player']['location']
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    # ...
+    # Add more commands
+    # ...
+    return commands
+
 
 def update(world, command):
     '''

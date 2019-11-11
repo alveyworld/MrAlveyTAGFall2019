@@ -121,7 +121,7 @@ def create_map():
         },
          'arkham' : {
             'neighbors' : ['home'],
-            'stuff' : [bat-erang,'clown mask'],
+            'stuff' : ['bat-erang','clown mask'],
             'people' : ['Joker','Counselor', 'Batman','Gordon','Dent', 'Alfred'],
         },
          'home' : {
@@ -181,6 +181,15 @@ def render_player(world):
     sanity = world['player']['sanity']
     money = world['player']['money']
     
+    statement = ""
+    if hungry:
+        statement += "You are hungry, you should eat soon."
+    if not sanity:
+        statement += "You are going insane, please get help."
+    statement += "You have" + str(money) + "dollars."
+    
+    return statement
+    
     
 def render_visible_stuff():
     '''
@@ -228,6 +237,16 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
+    
+    commands =["Quit"]
+    current_location = world["player"]["location"]
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    
+    for neighbor in neighbors:
+        commands.append("Go to" neighbor)
+
+    
 
 def update(world, command):
     '''
@@ -304,13 +323,13 @@ assert_equal(player['money'], 0)
 
 new_map = create_map()
 
-assert_equal("classroom") in new_map, True)
-assert_equal("lounge") in new_map, True)
-assert_equal("car") in new_map, True)
-assert_equal("lins") in new_map, True)
-assert_equal("dq") in new_map, True)
-assert_equal("arkham") in new_map, True)
-assert_equal("home") in new_map, True)
+assert_equal("classroom" in new_map, True)
+assert_equal("lounge" in new_map, True)
+assert_equal("car" in new_map, True)
+assert_equal("lins" in new_map, True)
+assert_equal("dq" in new_map, True)
+assert_equal("arkham" in new_map, True)
+assert_equal("home" in new_map, True)
 
 ###### 6) Main Function #####
 # Do not modify this area
