@@ -297,7 +297,8 @@ def create_map():
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols\n'+
                     'to the north is a small house with a forge outside\n'+
-                    'to the east is a dead forest and to the south is a Hill near a Cliff',
+                    'to the east is a dead forest and to\n'+
+                    ' the south is a Hill near a Cliff',
             'stuff':[],
             'people':['Olga'],
             },
