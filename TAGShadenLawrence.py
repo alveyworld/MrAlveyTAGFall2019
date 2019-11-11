@@ -425,9 +425,11 @@ def create_map():
             },
          }
 def create_player():
+    
     return {
         'location': 'Field',
         'inventory': [],
+        'Hunger': False
         'Gold': 0
         }
 
@@ -440,20 +442,19 @@ def create_world():
     }
 
 def render_visible_stuff(world):
+    
     location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
     inventory = world['player']['inventory']
-
-    visible_stuff = []
-    for thing in stuff:
-        if thing == 'Grue':
-            if 'flashlight' not in inventory:
-                visible_stuff.append(thing)
-        else:
+    
+    if location == 'Farm House':
+        return "you see a Bowl of Soup"+'and'+'you can a gold coin on the table'
+    else:
+        visible_stuff = []
+        for thing in stuff:
             visible_stuff.append(thing)
-
-    return "You see: " + ', '.join(visible_stuff)
+        return "You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
@@ -462,6 +463,7 @@ def render_player(world):
     '''
     inventorty = world['player']['inventory']
     Gold = world['player']['Gold']
+    Hunger = world['player']['Hunger']
         }
 def render_location(world):
     '''
@@ -470,8 +472,12 @@ def render_location(world):
     location = world['player']['location']
     here = world['map'][location]
     about = here['about']
-
+    
+    return ("You are in "+location+"\n"+
+            about+"\n")
+    
 def render(world):
+    
     return (render_location(world) +
             render_player(world) +
             render_visible_stuff(world))
