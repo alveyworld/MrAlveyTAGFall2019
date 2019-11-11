@@ -273,7 +273,14 @@ def create_map():
 
 
 
-def render_player(world):
+    
+def render_visible_stuff(world):
+     location = world['player']['location']
+    here = world['map'][location]
+    stuff = here['stuff']
+    inventory = world['player']['inventory']
+    
+    if location ==
     
 
 def render(world):
