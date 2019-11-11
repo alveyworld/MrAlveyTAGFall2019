@@ -70,12 +70,16 @@ def render_introduction():
             "Mr. Alvey is sitting in his classroom and the\n" +
             "bell rings for first period.\n" + 
             "Ethan was here")
-def random_student():
-    '''
-Return a random list of students, most sane, some insane
-'''
 
+def random_students():
+    '''
+    Return a random list of students, most sane, some insane
+    '''
+    
 def random_chillstaff():
+    '''
+    Return a random list of dq workers, most sane, some insane
+    '''
 
 def create_map():
     '''
@@ -86,45 +90,45 @@ def create_map():
     '''
     return {
         'classroom' : {
-            'about': 'You\'re at your desk in your classroom. The students are ready to learn',
+            'about': 'You are at your desk in your classroom. The students are ready to learn.', 
             'neighbors' : ['lounge', 'car'],
             'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
-            'people': random_student(),
+            'people': random_students()
         },
         'lounge' : {
-            'about': 'you sit in your regular spot and Hosner commentrs on your food',
+            'about': 'You sit in your regular spot and Hosner comments on your food.',
             'neighbors' : ['classroom'],
-            'stuff': [],
-            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'shaw', 'Dewit', 'B'],
+            'stuff': ['salt','pepper'],
+            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
         },
         'car' : {
-            'about': 'You sit in your car and turn on the engine.'
+            'about': 'You sit in your car and turn on the engine.',
             'neighbors' : ['lins', 'home'],
-            'stuff': [],
-            'people': [],   
+            'stuff': ['apron','name badge'],
+            'people': [],
         },
         'lins' : {
-            'about': 'you put on your apron and log into your register'
-            'neighbors' : ['car','dq'],
-            'stuff': [],
-            'people': ['Ashlee', 'Jeff', 'Collin'],
+            'about': 'You put on your apron and log into your register',
+            'neighbors' : ['car', 'dq'],
+            'stuff': ['pen','spray bottle'],
+            'people': ['Ashlee', 'Jeff', 'Collin'],    
         },
         'dq' : {
-            'about': 'you yell for helpaat the DQ counter',
+            'about': 'You yell for help at the dq counter.',
             'neighbors' : ['lins'],
-            'stuff': [],
-            'people': random_chillstaff(),
+            'stuff': ['french fries'],
+            'people': random_chillstaff(),    
         },
         'archam' : {
             'neighbors' : ['home'],
-            'stuff': [],
-            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred'],
+            'stuff': ['bat-erang','clown mask'],
+            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
         },
         'home' : {
-            'about': 'You made it home to your family. You are safe, you win!'
+            'about': 'You made it home to your family. You are happy. You win',
             'neighbors' : [],
             'stuff': [],
-            'people': [],
+            'people': []
         }
     }
 
@@ -156,6 +160,44 @@ def create_world():
         'status': "playing"
     }
 
+def render_location(world):
+    '''
+    Consume a world and produce a string describing the location
+    '''
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
+    
+    return ("You are in "+location+"\n"+
+            about+"\n")
+
+def render_player(world):
+    '''
+    Consume a world and produce a string describing the player
+    '''
+    
+    hungry = world['player']['hungry']
+    sanity = world['player']['sanity']
+    money = world['player']['money']
+    
+    statement = ""
+    if hungry:
+        statement = "You are hungry, you should eat soon"
+    if not sanity:
+        statement = "You are going insain, please get help."
+    statemnt += "You have " + str(money) +" dollars."
+    
+    
+    return statement
+    
+def render_visible_stuff():
+    '''
+    Consumes a world and produces a string for visible stuff
+    '''
+    location = world['player']['location']
+    here = world['map'][location]
+    about = here['about']
+    
 def render(world):
     '''
     Consumes a world and produces a string that will describe the current state
@@ -167,6 +209,9 @@ def render(world):
     Returns:
         str: A textual description of the world.
     '''
+    return (render_location(world) +
+            render_player(world) +
+            render_visible_stuff(world))
 
 def get_options(world):
     '''
@@ -179,6 +224,13 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
+    commands = ["Quit"]
+    current_location = world["player"]["location"]
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    
+    for neighbor in neighbors:
+        commands.append("Go to" + neighbor)
 
 def update(world, command):
     '''
@@ -235,6 +287,32 @@ from cisc108 import assert_equal
 
 assert_equal("Mr. Alvey" in render_introduction(), True)
 assert_equal("classroom" in render_introduction(), True)
+
+player = create_player()
+# Use the built-in isinstance function to confirm that we made a dictionary
+assert_equal(isinstance(player, dict), True)
+# Does it have the right keys?
+assert_equal(len(player.keys()), 2)
+assert_equal("location" in player, True)
+assert_equal(player['location'], 'classroom')
+assert_equal("inventory" in player, True)
+assert_equal(player['inventory'], [])
+assert_equal("hungry" in player, True)
+assert_equal(player['hungry'], False)
+assert_equal("sanity" in player, True)
+assert_equal(player['sanity'], True)
+assert_equal("money" in player, True)
+assert_equal(player['money'], 0)
+
+new_map = create_map()
+
+assert_equal("classroom" in new_map, True)
+assert_equal("lounge" in new_map, True)
+assert_equal("car" in new_map, True)
+assert_equal("lins" in new_map, True)
+assert_equal("dq" in new_map, True)
+assert_equal("archam" in new_map, True)
+assert_equal("home" in new_map, True)
 
 
 ###### 6) Main Function #####
