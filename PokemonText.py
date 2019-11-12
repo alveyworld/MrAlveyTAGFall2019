@@ -72,7 +72,9 @@ moves = {
     "solar beam": {"name": "solar beam", "power": 120, "type": "grass", "category": "special"},
     "quick attack": {"name": "quick attack", "power": 30, "type": "normal", "category": "special"},
     "iron tail": {"name": "iron tail", "power": 65, "type": "steel", "category": "physical"},
-    "thunder": {"name": "thunder", "power": 90, "type": "electric", "category": "special"}
+    "thunder": {"name": "thunder", "power": 90, "type": "electric", "category": "special"},
+    "defense curl": {"name": "defense curl", "power": 0, "type": "normal", "category": "status", "effect": {"self": {"defense": 1}}},
+    "screech": {"name": "screech", "power": 0, "type": "normal", "category": "status", "effect": {"other": {"defense": -1}}}
     }
 
 def get_moves(string):
@@ -96,8 +98,23 @@ def base_to_real(base, level):
     return stats
         
 def create_mon(name, t, level, base_stats, moves):
+    '''
+    returns mon(dict): {name, level, type, base stats, moves, stats}
+    '''
     stats = base_to_real(base_stats, level)
     mon = {'name': name.title(), 'level': level, 'type': t, 'base': base_stats, 'moves': moves, 'stats': stats}
+    return mon
+
+def refresh(mon):
+    stats = base_to_real(mon['base'], mon['level'])
+    mon['stats'] = stats
+
+def level_up(mon):
+    prev_health = mon['stats']['health']
+    mon['level'] += 1
+    stats = base_to_real(mon['base'], mon['level'])
+    stats['health'] = prev_health
+    mon['stats'] = stats
     return mon
     
 starters = {
@@ -116,6 +133,11 @@ pokemon = [
     create_mon('squirtle', 'water', 5, format_base(44,48,65,50,64,43), get_moves("tackle, bubble, bite, hydro pump")),
     create_mon('bulbasaur', 'grass', 5, format_base(45,49,49,65,65,45), get_moves("tackle, vine whip, razor leaf, solar beam"))
     ]
+
+gyms = {
+    "Pewter City": [create_mon('geodude', ['rock', 'ground'], 12, format_base(40,80,100,30,30,20), get_moves("tackle, defense curl")),
+                    create_mon('onix', ['rock', 'ground'], 14, format_base(35,45,160,30,45,70), get_moves("tackle, screech"))]
+    }
 
 def health(pokemon):
     bar = ''
@@ -156,7 +178,7 @@ def create_world():
         World: The initial state of the world
     '''
     world = {"status": "playing", 
-            "player": {"location": "Home", "inventory": [], "party": [starters['squirtle']], "battle": [pokemon[0], pokemon[1]], "traveling": None, "city": "Pallet Town", "action": None},
+            "player": {"location": "Home", "inventory": [], "party": [starters['squirtle']], "battle": None, "traveling": None, "city": "Pallet Town", "action": None},
             "map": {"Pallet Town": {"about": "first city",
                                     "neighbors": ["Viridian City"],
                                     "stuff": ["travel"]},
@@ -212,9 +234,9 @@ def render(world):
             opp_bar = " " + opp_bar
 
         message = f'''\n---in battle---\n
-                          {opp_bar}[{battle_mon['name']}]
+                          {opp_bar}[{battle_mon['name']} {battle_mon['level']}]
                           
-    [{pokemon['name']}]{health(pokemon)}
+    [{pokemon['name']} {pokemon['level']}]{health(pokemon)}
     '''
     else:
         message = f"\n---at {location}---"
@@ -285,6 +307,23 @@ def calc_damage(attacker, defender, move):
 def attack(world, attack, from_player):
     defender = world['player']['party'][0] if not from_player else world['player']['battle'][0]
     attacker = world['player']['party'][0] if from_player else world['player']['battle'][0]
+
+    try:
+        for stat, effect in attack['effect']['self'].items():
+            if(effect == 1):
+                attacker['stats'][stat] *= 1.5
+            elif(effect == -1):
+                attacker['stats'][stat] *= .66
+    except:
+        pass
+    try:
+        for stat, effect in attack['effect']['other'].items():
+            if(effect == 1):
+                defender['stats'][stat] *= 1.5
+            elif(effect == -1):
+                defender['stats'][stat] *= .66
+    except:
+        pass
     
     damage = calc_damage(attacker, defender, attack)
     defender['stats']['health'] -= damage
@@ -298,10 +337,16 @@ def attack(world, attack, from_player):
 def faint(world, pokemon):
     print(f"\n{pokemon['name']} fainted!")
     battle = world['player']['battle']
-    pokemon['stats']['health'] = base_to_real(pokemon['base'], pokemon['level'])['health']
-    if(len(battle) > 1):
-        print(f"{battle[1]['name']} was sent out!")
-    world['player']['battle'].pop(0)
+    if(pokemon == world['player']['battle'][0]):
+        world['player']['battle'].pop(0)
+        if(len(battle) > 1):
+            print(f"{battle[0]['name']} was sent out!")
+        current_mon = world['player']['party'][0]   
+        print(f"\n{current_mon['name']} leveled up!")
+        level_up(world['player']['party'][0])
+    if(pokemon == world['player']['party'][0]):
+        print("your mon fainted")
+    
 
 def battle(world, command):
     moves = [move['name'] for move in world['player']['party'][0]['moves']]
@@ -310,6 +355,11 @@ def battle(world, command):
         for move in world['player']['party'][0]['moves']:
             if move['name'] == command:
                 attack(world, move, True)
+                try:
+                    attack(world, random.choice(world['player']['battle'][0]['moves']), False)
+                except IndexError:
+                    #no battle
+                    pass
         
         
     if(command == 'fight'):
@@ -328,6 +378,8 @@ def update_battle(world, command):
         battle(world, command)
     elif(command == "battle"):
         world['player']['battle'] = random_encounter()
+    elif(command == 'challenge gym'):
+        world['player']['battle'] = gyms[world['player']['location']]
 
 def update_travel(world, command):
     if(command == "travel"):
@@ -357,6 +409,9 @@ def update_special(world, command):
                           f"So you pick {command}!",
                           "Good choice!",
                           "Now go and start your Pokemon Journey!"])
+    elif(command == 'heal'):
+        for mon in world['player']['party']:
+            mon = refresh(mon)
 
 def update(world, command):
     '''
@@ -439,9 +494,7 @@ def main():
         print(render(world))
         options = get_options(world)
         command = choose(options)
-        msg = update(world, command)
-        if msg:
-            print(msg)
+        update(world, command)
     print(render_ending(world))
 
 if __name__ == '__main__':
