@@ -309,37 +309,40 @@ def create_map():
                     'Hundreds of crows sit up high in the leafless trees\n'+
                     'there eyes fallow you as you walk deeper into there domain\n'+
                     'to the north is a river and to the west is a large house\n'+
-                    'to the east is a house made of candy and to the south is a grassy feild',
+                    'to the east is a Tail made of candy and to the south is a grassy feild',
             'stuff':[],
             'people':[],
             },
         
         'Ginger Bread House':{
             'neighbors':['Small Creek','Dead Forest','Woods w/ River','Dry Cliff','Entrance Hall'],
-            'about':"you fallow a path of candy to a house of candy deep in the woods\n"+
-                    'there is a door into the house',
-            'stuff':[],
+            'about':"as you fallow a path of candy to a house made of candy deep in the woods\n"+
+                    'there is a door into the house and paths made of candy leading in every direction',
+            'stuff':['Candy'],
             'people':[],
             },
         
         'Dining Hall':{
             'neighbors':['Entrance Hall'],
-            'about':'',
-            'stuff':[],
+            'about':'A large room made of candy, a table made of candy,\n '+
+                    'even painting made of candy a door to the East ',
+            'stuff':['candy'],
             'people':[],
             },
         
         'Entrance Hall':{
             'neighbors':['Ginger Bread House','Dining hall','Kitchen','Alchemy room'],
-            'about':'',
-            'stuff':[],
+            'about':'A large hall leading into a house made of candy\n'+
+                    'there is a door to the north and rooms to the east, south, and west',
+            'stuff':['Candy'],
             'people':[],
             },
         
         'Kitchen':{
             'neighbors':['Entrance Hall','Libary'],
-            'about':'',
-            'stuff':[],
+            'about':'a room made of cobblestone there is a large cooking stove\n'+
+                    '',
+            'stuff':['Candy'],
             'people':[],
             },
         
