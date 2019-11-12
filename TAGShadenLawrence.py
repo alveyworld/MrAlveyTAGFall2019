@@ -183,7 +183,7 @@ def create_map():
         
         'Woods with a large tree':{
             'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
-            'about':"A small clearing with a big tree there is more woods to the west" +
+            'about':"A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
             'people':[],
@@ -191,8 +191,8 @@ def create_map():
         
         'Ravine w/ Bridge':{
             'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
-            'about':"There is a big Ravine with a small rope Bridge and you can see some woods" +
-            "on the other side",
+            'about':"There is a big Ravine with a small rope Bridge and you can see some woods \n" +
+            "on the other side to the south east and some woods to the west and south west",
             'stuff':[],
             'people':[],
             },
@@ -200,7 +200,7 @@ def create_map():
         'In Ravine Under Bridge':{
             'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
             'about':'you are in a deep Ravine above you is a small rope bridge\n'+
-                    'to the north is farther into the ravine , there is a way up out of the ravine\n'+
+                    'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
             'stuff':['Gold vein'],
             'people':[],
@@ -226,15 +226,15 @@ def create_map():
         
         'Deep waters':{
             'neighbors':['Ravine w/ Bridge'],
-            'about':"you look out and see water that goes as far as you can see " +
-            "and there is some huts to the west.",
+            'about':"you look out and see water that goes as far as you can see with\n" +
+            "some large waves and you see some huts to the west.",
             'stuff':[],
             'people':[],
             },
         
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Olga's House"],
-            'about':'The smell of iorn can be smelled in the air as you aproch\n'+
+            'about':'The smell of iorn can be smelled in the air as you aproch \n'+
                     'there is a small man bent over an anvil smashing red hot iron\n+'
                     'into a cast to make nails\n'+
                     'north is the Town of Zik east is a River and south is a large house',
@@ -244,14 +244,17 @@ def create_map():
         
         'River':{
             'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
-            'about':"",
+            'about':"there are trees all around you and a small river that flows to \n" +
+            " the east and you see some more woods the the south and a building to the \n"+
+            "west and a Town to the north west.",
             'stuff':[],
             'people':[],
             },
         
         'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
-            'about':"",
+            'about':"there is a small creek with a small river from with lots of tree"
+            "all around and you see wood all around and a small trail of candy to the south.",
             'stuff':[],
             'people':[],
             },
@@ -265,7 +268,7 @@ def create_map():
         
         'Above Cavern':{
             'neighbors':['Small creek','Ravine w/ Bridge','Woods w/ River', 'Woods with a large tree'],
-            'about':"",
+            'about':"there is a small hole in the ground and woods to the south",
             'stuff':[],
             'people':[],
             },
