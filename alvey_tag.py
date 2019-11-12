@@ -256,8 +256,11 @@ def get_options(world):
         commands.append("counseling")
         commands.append("meet joker")
     
+def goto(world, command):
+    new_location = command[len('go to '):]
+    world['player']['location'] = new_location
+    return "You went to " + new_location
     
-
 def update(world, command):
     '''
     Consumes a world and a command and updates the world according to the
@@ -270,6 +273,15 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    if command == "quit":
+        world['status'] = 'quit'
+        return "You quit the game"
+    
+    if command.startswith('go to '):
+        return goto(world, command)
+    
+        
+    return "Unknown command: " + command
 
 def render_ending(world):
     '''

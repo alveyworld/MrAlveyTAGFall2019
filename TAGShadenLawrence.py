@@ -123,7 +123,7 @@ def create_map():
         'Ravine':{
             'neighbors':['Clearing','Ravine w/ Bridge'],
             'about':"there is a big crack in the earth that is very deep and it keeps going" +
-            "to the south and woods to the east",
+            " down to the south and there are some woods to the east",
             'stuff':[],
             'people':[],
             },
@@ -191,8 +191,9 @@ def create_map():
         
         'Ravine w/ Bridge':{
             'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
-            'about':"There is a big Ravine with a small rope Bridge and you can see some woods \n" +
-            "on the other side to the south east and some woods to the west and south west",
+            'about':"There is a big Ravine with a small rope Bridge and you can see it going \n" +
+            "to the north and you some woods on the other side to the south east and some to the \n"+
+            "west and south west.",
             'stuff':[],
             'people':[],
             },
@@ -226,8 +227,8 @@ def create_map():
         
         'Deep waters':{
             'neighbors':['Ravine w/ Bridge'],
-            'about':"you look out and see water that goes as far as you can see with\n" +
-            "some large waves and you see some huts to the west.",
+            'about':"you are swimming in the water and can not touch the bottom and \n" +
+            " you see some huts to the west.",
             'stuff':[],
             'people':[],
             },
@@ -284,15 +285,17 @@ def create_map():
             },
         
         'Sandy beach':{
-            'neighbors':['Woods w/ cliff' 'Merlock Huts'],
-            'about':'',
+            'neighbors':['Woods w/ cliff', 'Merlock Huts','Shallow waters'],
+            'about':'you are standing on the beach and you can see some huts to the north n/'+
+            "and some wood to the west and some water to the east.",
             'stuff'[],
             'people'[],
             },
         
         'Shallow waters':{
             'neighbors':['Sandy beach'],
-            'about':"",
+            'about':"you are standing in the water and see a nest with a egg and you can see \n"+
+            "the beach to the west.",
             'stuff':['Gold egg'],
             'people':[],
             },
@@ -353,28 +356,30 @@ def create_map():
             },
         
         'Bedroom':{
-            'neighbors':[],
-            'about':'',
+            'neighbors':['Alchemy room'],
+            'about':'as you walk in the dark room you see some one on a bed and then \n'+
+            "you see them get up and then they grab you and they tie you up and thay \n"+
+            "throw you down the basement.",
             'stuff':[],
             'people':[],
             },
         
         'Alchemy room':{
-            'neighbors':[],
+            'neighbors':['Bedroom','Library','Entrance hall','Basement'],
             'about':'',
             'stuff':[],
             'people':[],
             },
         
         'Library':{
-            'neighbors':[],
+            'neighbors':['Alchemy room'],
             'about':'',
             'stuff':[],
             'people':[],
             },
         
         'Basement':{
-            'neighbors':[],
+            'neighbors':['Alchemy room'],
             'about':'',
             'stuff':[],
             'people':[],
