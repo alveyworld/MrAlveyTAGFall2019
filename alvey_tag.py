@@ -180,6 +180,15 @@ def render_player(world):
     sanity = world['player']['sanity']
     money = world['player']['money']
     
+    statement = ""
+    if hungry:
+        statement += "You are hungry, you should eat soon. "
+    if not sanity:
+        statement += "You are going insane, please get help."
+    statement += "You have " + str(money) + " dollars."
+    
+    return statement
+    
 def render_visible_stuff(world):
     '''
      Consumes a world and produces a string of visible items
@@ -223,6 +232,31 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
+    
+    commands = ["quit"]
+    current_location = world["player"]["location"]
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    
+    for neighbor in neighbors:
+        commands.append("go to " + neighbor)
+    
+    if current_location == "classroom":
+        commands.append("search desk")
+        commands.append("teach")
+    if current_location == "lounge":
+        commands.append("complain")
+        commands.append("eat")
+    if current_location == "lins":
+        commands.append("ring up")
+    if current_location == "dq":
+        commands.append("eat")
+        commands.append("get icecream")
+    if current_location == "archam":
+        commands.append("counseling")
+        commands.append("meet joker")
+    
+    
 
 def update(world, command):
     '''
