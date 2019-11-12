@@ -347,7 +347,7 @@ def create_map():
         'Kitchen':{
             'neighbors':['Entrance Hall','Libary'],
             'about':'a room made of cobblestone there is a large cooking stove\n'+
-                    'there is something in the stove cooking ',
+                    'there is something in the stove cooking',
             'stuff':['Meat Pie','Golden Fork'],
             'people':[],
             },
@@ -522,16 +522,22 @@ def get_options(world):
     '' = world ['player']['location']
     location = world['map'][current_location]
     neighbors = location['neighbors']
-     
+    
     
     for neighbor in neighbors:
         commands.append("go to " + neighbor)
-        
+    
+    if location == 'Farm house' and '1 Gold piece' in stuff not in inventory:
+        commands.append('pick up 1GP')
     # ...
     # Add more commands
     # ...
     return commands
 
+def goto(world, command):
+    new_location = command[len('go to '):]
+    world['player']['location'] = new_location
+    return "You went to "+new_location
 
 def update(world, command):
     '''
@@ -545,6 +551,14 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    if command == "quit":
+        world['status'] = 'quit'
+        return 'you quit the game'
+    
+    if command.startswith('go to '):
+        return goto(world, command)
+    
+    return 'unknown command: ' + command
 
 def render_ending(world):
     '''
