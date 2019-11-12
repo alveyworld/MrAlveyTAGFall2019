@@ -347,8 +347,8 @@ def create_map():
         'Kitchen':{
             'neighbors':['Entrance Hall','Libary'],
             'about':'a room made of cobblestone there is a large cooking stove\n'+
-                    '',
-            'stuff':['Candy'],
+                    'there is something in the stove cooking ',
+            'stuff':['Meat Pie','Golden Fork'],
             'people':[],
             },
         
@@ -429,9 +429,10 @@ def create_map():
         
         'Hacker':{
             'neighbors':[],
-            'about':"",
+            'about':'Hey what are you doing here wow now you have just sommoned \n'+
+                    'CTHULU!!! WERE ALL DOOMED',
             'stuff':[],
-            'people':[],
+            'people':['Cthulu'],
             },
          }
 def create_player():
@@ -517,8 +518,15 @@ def get_options(world):
      # ...
     commands = ["Quit"]
     current_location = world['player']['location']
+    l = world ['player']['location']
+    '' = world ['player']['location']
     location = world['map'][current_location]
     neighbors = location['neighbors']
+     
+    
+    for neighbor in neighbors:
+        commands.append("go to " + neighbor)
+        
     # ...
     # Add more commands
     # ...
