@@ -253,8 +253,9 @@ def create_map():
         
         'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
-            'about':"there is a small creek with a small river from with lots of tree"
-            "all around and you see wood all around and a small trail of candy to the south.",
+            'about':"there is a small creek with a small river to the west and one going \n"+
+            " to the south east from with lots of tree all around and you see wood \n" +
+            "all around and a small trail of candy to the south.",
             'stuff':[],
             'people':[],
             },
@@ -268,14 +269,16 @@ def create_map():
         
         'Above Cavern':{
             'neighbors':['Small creek','Ravine w/ Bridge','Woods w/ River', 'Woods with a large tree'],
-            'about':"there is a small hole in the ground and woods to the south",
+            'about':"there is a small hole in the ground and some woods to the south and \n"+
+            "to the north you also hear smo water flowing to the west.",
             'stuff':[],
             'people':[],
             },
         
         'Woods w/ cliff':{
             'neighbors':['Ravine w/ Bridge','Sandy beach'],
-            'about':"",
+            'about':"you are in a small group of trees and you see a cliff to the \n"+
+            "south and a bridge to the north east and a beach to the east",
             'stuff':[],
             'people':[],
             },
