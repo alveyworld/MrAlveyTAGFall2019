@@ -228,7 +228,36 @@ def choose(options):
 # The autograder will use these to try out your game
 # WIN_PATH (list[str]): A list of commands that win the game when entered
 # LOSE_PATH (list[str]): A list of commands that lose the game when entered.
+player = create_player()
+# Use the built-in isinstance function to confirm that we made a dictionary
+assert_equal(isinstance(player, dict), True)
+# Does it have the right keys?
+assert_equal(len(player.keys()), 2)
+assert_equal("location" in player, True)
+assert_equal(player['location'], 'classroom')
+assert_equal("hungry" in player, True)
+assert_equal(player['hungry'], false)
+assert_equal("sanity" in player, True)
+assert_equal("money" in player, True)
+assert_equal(player['money'], 0)
 
+
+
+world = create_world()
+# Is the world a dictionary?
+assert_equal(isinstance(world, dict), True)
+# Does the dictionary have the right keys?
+assert_equal("status" in world)
+assert_equal("map" in world)
+assert_equal("player" in world)
+# Is the world's status initially playing?
+assert_equal(world['status'], 'playing')
+# Did we use the create_map function correctly?
+assert_equal(world['map'], create_map())
+# Is the map a dictionary?
+assert_equal(isinstance(world['map'], dict), True)
+
+# ...
 WIN_PATH = []
 LOSE_PATH = []
     

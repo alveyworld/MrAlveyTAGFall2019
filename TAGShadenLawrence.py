@@ -183,7 +183,7 @@ def create_map():
         
         'Woods with a large tree':{
             'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
-            'about':"A small clearing with a big tree there is more woods to the west" +
+            'about':"A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
             'people':[],
@@ -191,8 +191,8 @@ def create_map():
         
         'Ravine w/ Bridge':{
             'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
-            'about':"There is a big Ravine with a small rope Bridge and you can see some woods" +
-            "on the other side",
+            'about':"There is a big Ravine with a small rope Bridge and you can see some woods \n" +
+            "on the other side to the south east and some woods to the west and south west",
             'stuff':[],
             'people':[],
             },
@@ -200,7 +200,7 @@ def create_map():
         'In Ravine Under Bridge':{
             'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
             'about':'you are in a deep Ravine above you is a small rope bridge\n'+
-                    'to the north is farther into the ravine , there is a way up out of the ravine\n'+
+                    'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
             'stuff':['Gold vein'],
             'people':[],
@@ -226,15 +226,15 @@ def create_map():
         
         'Deep waters':{
             'neighbors':['Ravine w/ Bridge'],
-            'about':"you look out and see water that goes as far as you can see " +
-            "and there is some huts to the west.",
+            'about':"you look out and see water that goes as far as you can see with\n" +
+            "some large waves and you see some huts to the west.",
             'stuff':[],
             'people':[],
             },
         
         'Black Smith':{
             'neighbors':['Town of Zik','River',"Olga's House"],
-            'about':'The smell of iorn can be smelled in the air as you aproch\n'+
+            'about':'The smell of iorn can be smelled in the air as you aproch \n'+
                     'there is a small man bent over an anvil smashing red hot iron\n+'
                     'into a cast to make nails\n'+
                     'north is the Town of Zik east is a River and south is a large house',
@@ -244,14 +244,18 @@ def create_map():
         
         'River':{
             'neighbors':['Black Smith','Wood w/ River 1','Town of Zik'],
-            'about':"",
+            'about':"there are trees all around you and a small river that flows to \n" +
+            " the east and you see some more woods the the south and a building to the \n"+
+            "west and a Town to the north west.",
             'stuff':[],
             'people':[],
             },
         
         'Small creek':{
             'neighbors':['River','Cavern 2','Thief Hideout','Wood w/ River','Ginger Bread House'],
-            'about':"",
+            'about':"there is a small creek with a small river to the west and one going \n"+
+            " to the south east from with lots of tree all around and you see wood \n" +
+            "all around and a small trail of candy to the south.",
             'stuff':[],
             'people':[],
             },
@@ -265,14 +269,16 @@ def create_map():
         
         'Above Cavern':{
             'neighbors':['Small creek','Ravine w/ Bridge','Woods w/ River', 'Woods with a large tree'],
-            'about':"",
+            'about':"there is a small hole in the ground and some woods to the south and \n"+
+            "to the north you also hear smo water flowing to the west.",
             'stuff':[],
             'people':[],
             },
         
         'Woods w/ cliff':{
             'neighbors':['Ravine w/ Bridge','Sandy beach'],
-            'about':"",
+            'about':"you are in a small group of trees and you see a cliff to the \n"+
+            "south and a bridge to the north east and a beach to the east",
             'stuff':[],
             'people':[],
             },
@@ -309,37 +315,40 @@ def create_map():
                     'Hundreds of crows sit up high in the leafless trees\n'+
                     'there eyes fallow you as you walk deeper into there domain\n'+
                     'to the north is a river and to the west is a large house\n'+
-                    'to the east is a house made of candy and to the south is a grassy feild',
+                    'to the east is a Tail made of candy and to the south is a grassy feild',
             'stuff':[],
             'people':[],
             },
         
         'Ginger Bread House':{
             'neighbors':['Small Creek','Dead Forest','Woods w/ River','Dry Cliff','Entrance Hall'],
-            'about':"you fallow a path of candy to a house of candy deep in the woods\n"+
-                    'there is a door into the house',
-            'stuff':[],
+            'about':"as you fallow a path of candy to a house made of candy deep in the woods\n"+
+                    'there is a door into the house and paths made of candy leading in every direction',
+            'stuff':['Candy'],
             'people':[],
             },
         
         'Dining Hall':{
             'neighbors':['Entrance Hall'],
-            'about':'',
-            'stuff':[],
+            'about':'A large room made of candy, a table made of candy,\n '+
+                    'even painting made of candy a door to the East ',
+            'stuff':['candy'],
             'people':[],
             },
         
         'Entrance Hall':{
             'neighbors':['Ginger Bread House','Dining hall','Kitchen','Alchemy room'],
-            'about':'',
-            'stuff':[],
+            'about':'A large hall leading into a house made of candy\n'+
+                    'there is a door to the north and rooms to the east, south, and west',
+            'stuff':['Candy'],
             'people':[],
             },
         
         'Kitchen':{
             'neighbors':['Entrance Hall','Libary'],
-            'about':'',
-            'stuff':[],
+            'about':'a room made of cobblestone there is a large cooking stove\n'+
+                    'there is something in the stove cooking ',
+            'stuff':['Meat Pie','Golden Fork'],
             'people':[],
             },
         
@@ -420,9 +429,10 @@ def create_map():
         
         'Hacker':{
             'neighbors':[],
-            'about':"",
+            'about':'Hey what are you doing here wow now you have just sommoned \n'+
+                    'CTHULU!!! WERE ALL DOOMED',
             'stuff':[],
-            'people':[],
+            'people':['Cthulu'],
             },
          }
 def create_player():
@@ -508,8 +518,15 @@ def get_options(world):
      # ...
     commands = ["Quit"]
     current_location = world['player']['location']
+    l = world ['player']['location']
+    '' = world ['player']['location']
     location = world['map'][current_location]
     neighbors = location['neighbors']
+     
+    
+    for neighbor in neighbors:
+        commands.append("go to " + neighbor)
+        
     # ...
     # Add more commands
     # ...
