@@ -554,7 +554,7 @@ def get_options(world):
     return commands
 
 def goto(world, command):
-    new_location = command[len('go to '):]
+    new_location = command[len('goto '):]
     world['player']['location'] = new_location
     return "You went to "+new_location
 
