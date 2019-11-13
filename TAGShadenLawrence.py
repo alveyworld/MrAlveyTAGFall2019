@@ -637,7 +637,7 @@ def choose(options):
     '''
     command = input("type a command: ")
     while command not in options:
-        command = input("Invalid Cammand \n\nType a command ")
+        command = input("Invalid Cammand \n\nType a command: ")
     return commands
 
 ###### 4) Win/Lose Paths #####
