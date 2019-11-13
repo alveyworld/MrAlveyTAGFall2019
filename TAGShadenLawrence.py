@@ -76,10 +76,11 @@ def render_introduction():
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
             "== Objective Gained ==\n" + "== Get 10 gold==")
+
 import random
-Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
 def random_cliff_text():
-   random.choice(Cliff_Text) 
+    Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
+    return random.choice(Cliff_Text) 
     
     
 def create_map():
@@ -455,17 +456,16 @@ def create_map():
             },
          }
 def create_player():
-    
     return {
         'location': 'Field',
         'inventory': [],
-        'Hunger': False
+        'Hunger': False,
         'Gold': 0
         }
 
 def create_world():
     return{
-        'Map': create_map()
+        'map': create_map(),
         'player': create_player(),
         'status':"playing"
         
@@ -491,10 +491,11 @@ def render_player(world):
     '''
     Consume a world and produce a string describing the player
     '''
-    inventorty = world['player']['inventory']
+    inventory = world['player']['inventory']
     Gold = world['player']['Gold']
     Hunger = world['player']['Hunger']
-        }
+    return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
+
 def render_location(world):
     '''
     Consume a world and produce a string describing the location
@@ -537,8 +538,7 @@ def get_options(world):
      # ...
     commands = ["Quit"]
     current_location = world['player']['location']
-    l = world ['player']['location']
-    '' = world ['player']['location']
+    l = current_location
     location = world['map'][current_location]
     neighbors = location['neighbors']
     
@@ -597,11 +597,11 @@ def render_ending(world):
         return "You quit."
     
 def render_ending_lost(world):
-    if in world['player'] ['location'] == 'Thief Hideout' :
+    if world['player'] ['location'] == 'Thief Hideout' :
         return ("As you walk through the wood you see some small buildings in the \n" +
                 "trees as you get close you hear a loud thump then you black out")
          
-    if in world['player'] ['location'] == 'goblin cavern' :
+    if world['player'] ['location'] == 'goblin cavern' :
         return("you walk into a dark Cavern as red eyes light up across the walls")
     
     if in world['player'] ['location'] == 'Bedroom' :
@@ -611,6 +611,10 @@ def render_ending_lost(world):
     
     if in world['player'] ['location'] == 'Shark infested waters' :
         return("as you wade out into the water you see a shark fin pop out of the water\n")
+
+    if world['player'] ['location'] == 'goblin cavern' :
+        return('')
+
     
     return ("You were eaten by a Grue.\n"+
                 "You lose!")
@@ -657,7 +661,7 @@ assert_equal(render_introduction().count("\n"),7)
 #   that you've been in your own house the entire game.
 assert_equal("old bones" in render_introduction().lower(), True)
 
-A)
+
 
 ###### 6) Main Function #####
 # Do not modify this area
