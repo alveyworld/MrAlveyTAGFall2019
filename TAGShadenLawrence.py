@@ -386,31 +386,40 @@ def create_map():
             },
         
         'Woods w/ River':{
-            'neighbors':['Above Cavern','Ginger Bread House','Shark infested waters','Muddy Cliff'],
-            'about':"",
+            'neighbors':['Above Cavern','Ginger Bread House','Shark infested waters','Muddy Cliff','Small Creek'],
+            'about':"A Forest of dead trees and insects with a candy path cutting through\n"+
+                    'untell the path reaches a large Stream were it turns into a cobble stone Bridge\n'+
+                    'the river continues untell it passes down the beach into the ocean \n'+
+                    'you could fallow the river up to the North Weast, East into the sea,\n'+
+                    'you could fallow the path West toward a cottege in the woods,\n'+
+                    'or head North along the path before it turns into woods',
             'stuff':[],
-            'people':[],
+            'people':['Troll'],
             },
         
         'Shark infested waters':{
-            'neighbors':[],
+            'neighbors':['Woods w/ River'],
             'about':"as you wade out into the water you see a shark fin pop out of the water\n",
             'stuff':[],
-            'people':[],
+            'people':['Shark'],
             },
         
         'High Cliff':{
             'neighbors':["Olga's House",'Grassy Cliff'],
             'about':'you can see farther from this hill near a cliff\n'+
                     'you can see The town of Zik form here you walk down the hill\n'+
-                    'and look at the cliff'+random_cliff_text(),
+                    'and look at the cliff' + random_cliff_text() '\n' +
+                    '',
             'stuff':[],
             'people':[],
             },
         
         'Grassy Cliff':{
             'neighbors':['Dead Forest','High Cliff','Dry Cliff'],
-            'about':random_cliff_text(),
+            'about':'you are standing in a feild of grass as high as your head you walk a bit south\n'+
+                    'Where you see you are standing on a cliff when you yip and say'+ ' " ' + random_cliff_text() + ' "' +
+                    'you get up on a rock and can see that you can head North to a forest of dead trees,\n'+
+                    'or head West or East to another cliff',
             'stuff':[],
             'people':[],
             },
@@ -420,14 +429,18 @@ def create_map():
             'about':'The land here is very weird the ground is dry\n'+
                     'not a animal in sight you aproch the edge of the cliff\n' +
                     'the water looks nice like it wants to give you a big hug\n'+
-                    random_cliff_text(),
+                    random_cliff_text() + 'you can head North to a small cottage in the woods,\n'+
+                    'West into a feild of grass, or East to another cliff in the distance',
             'stuff':[],
             'people':[],
             },
         
         'Muddy Cliff ':{
             'neighbors':[],
-            'about':random_cliff_text(),
+            'about':'the land here is slippery and slick \n' +
+                    'your feet find it hard to find perches in the mud\n' +
+                    'you fall and slide toward a Cliff face' + random_cliff_text() +
+                    '',
             'stuff':[],
             'people':[],
             },
