@@ -175,7 +175,7 @@ def create_map():
         
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
-            'about':,
+            'about':'',
             'stuff':[],
             'people':[],
             },
@@ -219,7 +219,7 @@ def create_map():
         
         'Goblin Cavern':{
             'neighbors':['In Ravine Under Bridge',],
-            'about':,
+            'about':'',
             'stuff':[],
             'people':['Goblins'],
             },
@@ -287,8 +287,8 @@ def create_map():
             'neighbors':['Woods w/ cliff', 'Merlock Huts','Shallow waters'],
             'about':'you are standing on the beach and you can see some huts to the north n/'+
             "and some wood to the west and some water to the east.",
-            'stuff'[],
-            'people'[],
+            'stuff':[],
+            'people':[],
             },
         
         'Shallow waters':{
@@ -410,8 +410,9 @@ def create_map():
             'neighbors':["Olga's House",'Grassy Cliff'],
             'about':'you can see farther from this hill near a cliff\n'+
                     'you can see The town of Zik form here you walk down the hill\n'+
-                    'and look at the cliff' + random_cliff_text() '\n' +
-                    '',
+                    'and look at the cliff' + random_cliff_text() +
+                    'you can head North to a large house \n' +
+                    'and east to another cliff',
             'stuff':[],
             'people':[],
             },
