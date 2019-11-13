@@ -175,8 +175,7 @@ def create_map():
         
         'Thief Hideout':{
             'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
-            'about':"As you walk through the wood you see some small buildings in the" +
-                    "trees as you get close you hear a loud thump then you black out",
+            'about':,
             'stuff':[],
             'people':[],
             },
@@ -220,7 +219,7 @@ def create_map():
         
         'Goblin Cavern':{
             'neighbors':['In Ravine Under Bridge',],
-            'about':"you walk into a dark Cavern as red eyes light up across the walls",
+            'about':,
             'stuff':[],
             'people':['Goblins'],
             },
@@ -357,23 +356,26 @@ def create_map():
         
         'Bedroom':{
             'neighbors':['Alchemy room'],
-            'about':'as you walk in the dark room you see some one on a bed and then \n'+
-            "you see them get up and then they grab you and they tie you up and thay \n"+
-            "throw you down the basement.",
+            'about':'as you walk in the dark room you see some one and then \n'+
+            "you see them look at you and then they grab you and tie you up \n"+
+            "and then thay throw you down the basement.",
             'stuff':[],
             'people':[],
             },
         
         'Alchemy room':{
             'neighbors':['Bedroom','Library','Entrance hall','Basement'],
-            'about':'',
+            'about':"you look around the room and see bottles of all colors and sizes \n"+
+            "and there are four door you can see one to the north one to the south \n"+
+            "one to the west and one to the east",
             'stuff':[],
             'people':[],
             },
         
         'Library':{
             'neighbors':['Alchemy room'],
-            'about':'',
+            'about':'you look around and see shelves of books lots and lots of books \n'+
+            "and you can see a door to the west.",
             'stuff':[],
             'people':[],
             },
@@ -575,6 +577,26 @@ def render_ending(world):
     Returns:
         str: The ending text of your game to be displayed.
     '''
+    if world['status'] == 'won':
+        return "You won!"
+    elif world['status'] == 'lost':
+        return "You lost."
+    elif world['status'] == 'quit':
+        return "You quit."
+    
+def render_ending_lost(world):
+    if in world['player'] ['location'] == 'Thief Hideout' :
+        return ("As you walk through the wood you see some small buildings in the \n" +
+                "trees as you get close you hear a loud thump then you black out")
+         
+    if in world['player'] ['location'] == 'goblin cavern' :
+        return("you walk into a dark Cavern as red eyes light up across the walls")
+    
+    if in world['player'] ['location'] == 'goblin cavern' :
+    
+    return ("You were eaten by a Grue.\n"+
+                "You lose!")
+    
 
 def choose(options):
     '''
@@ -591,6 +613,10 @@ def choose(options):
     Returns:
         str: The command that was selected by the user.
     '''
+    command = input("type a command: ")
+    while command not in options:
+        command = input("Invalid Cammand \n\nType a command ")
+    return commands
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
