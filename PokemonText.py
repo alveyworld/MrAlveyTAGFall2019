@@ -62,7 +62,7 @@ moves = {
     "scratch": {"name": "scratch", "power": 40, "type": "normal", "category": "physical", },
     "ember": {"name": "ember", "power": 40, "type": "fire", "category": "special"},
     "fire fang": {"name": "fire fang", "power": 65, "type": "fire", "category": "physical"},
-    "flamethrower": {"name": "flamethrower", "damage": 90, "type": "fire", "category": "special"},
+    "flamethrower": {"name": "flamethrower", "power": 90, "type": "fire", "category": "special"},
     "tackle": {"name": "tackle", "power": 40, "type": "normal", "category": "physical"},
     "bubble": {"name": "bubble", "power": 40, "type": "water", "category": "special"},
     "bite": {"name": "bite", "power": 66, "type": "dark", "category": "physical"},
@@ -102,12 +102,14 @@ def create_mon(name, t, level, base_stats, moves):
     returns mon(dict): {name, level, type, base stats, moves, stats}
     '''
     stats = base_to_real(base_stats, level)
-    mon = {'name': name.title(), 'level': level, 'type': t, 'base': base_stats, 'moves': moves, 'stats': stats}
+    mon = {'name': name.title(), 'level': level, 'type': t, 'base': base_stats, 'moves': moves, 'stats': stats, 'fainted': False}
     return mon
 
 def refresh(mon):
     stats = base_to_real(mon['base'], mon['level'])
     mon['stats'] = stats
+    mon['fainted'] = False
+    return mon
 
 def level_up(mon):
     prev_health = mon['stats']['health']
@@ -128,10 +130,10 @@ starters = {
 
 pokemon = [
 #    "pikachu": {"name": "Pikachu", "type": ["electric"], "level": 5,"stats": format_base(35,55,40,50,50,90), "moves": get_moves("tackle, quick attack, iron tail, thunder")}
-    create_mon('pikachu', 'electric', 5, format_base(35,55,40,50,50,90), get_moves("tackle, quick attack, iron tail, thunder")),
-    create_mon('charmander', 'fire', 5, format_base(39,52,43,60,50,65), get_moves("scratch, ember, fire fang, flamethrower")),
-    create_mon('squirtle', 'water', 5, format_base(44,48,65,50,64,43), get_moves("tackle, bubble, bite, hydro pump")),
-    create_mon('bulbasaur', 'grass', 5, format_base(45,49,49,65,65,45), get_moves("tackle, vine whip, razor leaf, solar beam"))
+    create_mon('pikachu', 'electric', 7, format_base(35,55,40,50,50,90), get_moves("tackle, quick attack")),
+    create_mon('charmander', 'fire', 7, format_base(39,52,43,60,50,65), get_moves("scratch, ember")),
+    create_mon('squirtle', 'water', 7, format_base(44,48,65,50,64,43), get_moves("tackle, bubble")),
+    create_mon('bulbasaur', 'grass', 7, format_base(45,49,49,65,65,45), get_moves("tackle, vine whip"))
     ]
 
 gyms = {
@@ -156,7 +158,7 @@ def say(name, strings):
         time.sleep(1)
         
 def random_encounter():
-    return [pokemon[0].copy()]
+    return [refresh(random.choice(pokemon))]
 
 def render_introduction():
     '''
@@ -178,7 +180,7 @@ def create_world():
         World: The initial state of the world
     '''
     world = {"status": "playing", 
-            "player": {"location": "Home", "inventory": [], "party": [starters['squirtle']], "battle": None, "traveling": None, "city": "Pallet Town", "action": None},
+            "player": {"location": "Home", "inventory": [], "party": [], "battle": None, "traveling": None, "city": "Pallet Town", "action": None},
             "map": {"Pallet Town": {"about": "first city",
                                     "neighbors": ["Viridian City"],
                                     "stuff": ["travel"]},
@@ -240,6 +242,8 @@ def render(world):
     '''
     else:
         message = f"\n---at {location}---"
+    if(world['player']['action'] == 'choose_mon'):
+        message += "\n---Switch Pokemon---\n"
     return message
 
 #------OPTIONS-------
@@ -253,6 +257,11 @@ def battle_options(world):
         options = [item['name'] for item in world['player']['inventory'][0]['moves']]
     elif action == 'pokemon':
         pass
+    elif action == 'choose_mon':
+        options = []
+        for mon in world['player']['party']:
+            if not mon['fainted']:
+                options.append(mon['name'].lower())
     else:
         options = ['fight', 'bag', 'pokemon', 'run']
     return options
@@ -331,35 +340,52 @@ def attack(world, attack, from_player):
     print(f"\n{attacker['name']} used {attack['name']}")
     print(f"\nIt did {damage} damage!")
     
-    if(defender['stats']['health'] <= 0):
-        faint(world, defender)
-        
-def faint(world, pokemon):
-    print(f"\n{pokemon['name']} fainted!")
-    battle = world['player']['battle']
-    if(pokemon == world['player']['battle'][0]):
-        world['player']['battle'].pop(0)
-        if(len(battle) > 1):
-            print(f"{battle[0]['name']} was sent out!")
-        current_mon = world['player']['party'][0]   
-        print(f"\n{current_mon['name']} leveled up!")
-        level_up(world['player']['party'][0])
-    if(pokemon == world['player']['party'][0]):
-        print("your mon fainted")
-    
+def faint(world, party, mon):
+    mon['fainted'] = True   
+    print(f"\n{mon['name']} fainted!")
 
+    party = world['player']['party']
+    battle = world['player']['battle']
+    if mon in battle:
+        level_up(world['player']['party'][0])
+    if(battle[0]['fainted']):
+        battle.pop(0)
+    elif(party[0]['fainted']):
+        world['player']['action'] = 'choose_mon'
+        
+def check_fainted(world, party):
+    all_faint = True
+    for mon in party:
+        if not mon['fainted']:
+            if mon['stats']['health'] <= 0:
+                faint(world, party, mon)
+
+    for mon in party:
+        if not mon['fainted']:
+            all_faint = False
+    return all_faint
+        
 def battle(world, command):
     moves = [move['name'] for move in world['player']['party'][0]['moves']]
-    
+
     if command in moves:
         for move in world['player']['party'][0]['moves']:
             if move['name'] == command:
                 attack(world, move, True)
-                try:
+                if(check_fainted(world, world['player']['battle'])):
+                    #won battle
+                    for mon in world['player']['battle']:
+                        refresh(mon)
+                    world['player']['battle'] = None
+                    
+                if(world['player']['battle']):
                     attack(world, random.choice(world['player']['battle'][0]['moves']), False)
-                except IndexError:
-                    #no battle
-                    pass
+                    if(check_fainted(world, world['player']['party'])):
+                        world['player']['action'] = None
+                        world['player']['battle'] = None
+                        for mon in world['player']['party']:
+                            refresh(mon)
+
         
         
     if(command == 'fight'):
@@ -367,19 +393,28 @@ def battle(world, command):
     elif(command == 'run'):
         world['player']['battle'] = False
     elif(command == 'pokemon'):
-        world['player']['action'] = 'pokemon'
+        world['player']['action'] = 'choose_mon'
     elif(command == 'bag'):
         world['player']['action'] = 'bag'
         
 #---------UPDATE----------
 
 def update_battle(world, command):
+    party = world['player']['party']
+    available_mons = [mon['name'].lower() for mon in party]
     if(world['player']['battle']):
         battle(world, command)
-    elif(command == "battle"):
+    if(command == "battle"):
         world['player']['battle'] = random_encounter()
-    elif(command == 'challenge gym'):
+    if(command == 'challenge gym'):
         world['player']['battle'] = gyms[world['player']['location']]
+    if(command in available_mons):
+        for mon in party:
+            if mon['name'].lower() == command:
+                switch_index = party.index(mon)
+                party[0], party[switch_index] = party[switch_index], party[0]
+                world['player']['action'] = None
+        
 
 def update_travel(world, command):
     if(command == "travel"):
@@ -400,18 +435,20 @@ def update_special(world, command):
     if(command == 'Viridian City' and not world['player']['party']):
         world['player']['location'] = 'Professors Lab'
         world['player']['traveling'] = False
+        world['player']['battle'] = None
         say("Proffessor", ["Wait!",
                            "You can't go out there just yet!",
                            "You need a Pokemon"])
-    elif(command in starters):
+    elif(not world['player']['battle'] and command in starters):
         world['player']['party'].append(starters[command])
         say('Professor', ["Oh!",
                           f"So you pick {command}!",
                           "Good choice!",
                           "Now go and start your Pokemon Journey!"])
+        world['player']['location'] = 'Pallet Town'
     elif(command == 'heal'):
         for mon in world['player']['party']:
-            mon = refresh(mon)
+            refresh(mon)
 
 def update(world, command):
     '''
@@ -427,9 +464,10 @@ def update(world, command):
     '''
     if(command == 'quit'):
         world['status'] = command
-    update_special(world,command)
     update_battle(world, command)
     update_travel(world, command)
+    update_special(world,command)
+
 
 def render_ending(world):
     '''
@@ -494,6 +532,7 @@ def main():
         print(render(world))
         options = get_options(world)
         command = choose(options)
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         update(world, command)
     print(render_ending(world))
 
