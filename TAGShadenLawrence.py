@@ -604,12 +604,12 @@ def render_ending_lost(world):
     if world['player'] ['location'] == 'goblin cavern' :
         return("you walk into a dark Cavern as red eyes light up across the walls")
     
-    if in world['player'] ['location'] == 'Bedroom' :
+    if world['player'] ['location'] == 'Bedroom' :
         return("as you walk in the dark room you see some one and then \n"+
             "you see them look at you and then they grab you and tie you up \n"+
             "and then thay throw you down the basement.")
     
-    if in world['player'] ['location'] == 'Shark infested waters' :
+    if world['player'] ['location'] == 'Shark infested waters' :
         return("as you wade out into the water you see a shark fin pop out of the water\n")
 
     if world['player'] ['location'] == 'goblin cavern' :
