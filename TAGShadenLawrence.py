@@ -457,12 +457,11 @@ def create_map():
             },
          }
 def create_player():
-    
     return {
         'location': 'Field',
         'inventory': [],
-        'Hunger': False
-        'Gold': 0
+        'Hunger': False,
+        'Gold':[0]
         }
 
 def create_world():
