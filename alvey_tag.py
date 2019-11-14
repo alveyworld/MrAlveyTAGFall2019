@@ -68,8 +68,7 @@ def render_introduction():
             "After getting to school Mr. Alvey must earn\n" +
             "enough money to get home without going insane.\n" +
             "Mr. Alvey is sitting in his classroom and the\n" +
-            "bell rings for first period.\n" + 
-            "Ethan was here")
+            "bell rings for first period.\n")
 
 def random_students():
     '''
@@ -255,9 +254,13 @@ def get_options(world):
     if current_location == "archam":
         commands.append("counseling")
         commands.append("meet joker")
+    return commands
     
+def goto(world, command):
+    new_location = command[len('go to '):]
+    world['player']['location'] = new_location
+    return "You went to " + new_location
     
-
 def update(world, command):
     '''
     Consumes a world and a command and updates the world according to the
@@ -270,7 +273,19 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    if command == "quit":
+        world['status'] = 'quit'
+        return "You quit the game"
+    
+    if command.startswith('go to '):
+        return goto(world, command)
+    
+        
+    return "Unknown command: " + command
 
+def render_ending_lost(world):
+    return "You lost."
+    
 def render_ending(world):
     '''
     Create the message to be displayed at the end of your game.
@@ -281,6 +296,12 @@ def render_ending(world):
     Returns:
         str: The ending text of your game to be displayed.
     '''
+    if world['status'] == 'won':
+        return "You won!"
+    elif world['status'] == 'lost':
+        return render_ending_lost(world)
+    elif world['status'] == 'quit':
+        return "You quit."
 
 def choose(options):
     '''
@@ -297,6 +318,14 @@ def choose(options):
     Returns:
         str: The command that was selected by the user.
     '''
+    print("Available commands:")
+    for option in options:
+        print(option)
+        
+    command = input("Type a command: ")
+    while command not in options:
+        command = input("Invalid Command\n\nType a command: ")
+    return command
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
