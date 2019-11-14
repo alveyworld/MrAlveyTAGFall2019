@@ -90,7 +90,8 @@ def create_map():
             'neighbors':['Field','Town of Zik'],
             'about':"a old house sat on a hill over looking a large ranch it\n"+
                      "looks like it has not seen much use but there is a table nearby\n"+
-                     "East is a large Field and to the South there is the town of Zik",
+                    'on the table is 1 gold coin and a bowl of soup\n' +
+                     "East is a large field and to the South there is the town of zik",
             'stuff':['1 gold coin','bowl of soup'],
             'people':['Your boss']
             },
@@ -546,14 +547,23 @@ def get_options(world):
     for neighbor in neighbors:
         commands.append("go to " + neighbor)
     
-    if location == 'farm house' and '1 gold coin' in stuff not in inventory:
+    if location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
         commands.append('pick up gold coin')
         
-    if location == 'farm house' and 'bowl of soup' in stuff not in inventory:
+    if location == 'farm house' and 'bowl of soup' in stuff and 'bowl of soup' not in inventory:
         commands.append('pick up bowl of soup')
         
     if location == 'field' and 'wheat' in stuff and 'wheat' not in inventory and 'hoe' in inventory:
         commands.append('pick up wheat')
+        
+    if location == 'field' and 'hoe' in stuff and 'hoe' not in inventory:
+        commands.append('pick up hoe')
+        
+    if location == 'pasture' and 'wool' in stuff and 'wool' not in inventory and 'shears' in inventory:
+        commands.append('shear sheep')
+        
+    if location == 'pasture' and 'eggs' in stuff and 'eggs' not in inventory:
+        commands.append('pick up eggs')
         
     return commands
 
