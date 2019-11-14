@@ -460,7 +460,7 @@ def create_player():
     return {
         'location': 'Field',
         'inventory': [],
-        'Hunger': False,
+        'Hunger': False ,
         'Gold': 0
         }
 
@@ -485,7 +485,7 @@ def render_visible_stuff(world):
         visible_stuff = []
         for thing in stuff:
             visible_stuff.append(thing)
-        return "You see: " + ', '.join(visible_stuff)
+        return " You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
