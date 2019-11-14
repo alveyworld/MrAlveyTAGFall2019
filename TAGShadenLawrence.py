@@ -550,6 +550,12 @@ def get_options(world):
         commands.append("go to " + neighbor)
         
     for item in stuff:
+        if item == 'wheat' and not 'hoe' in inventory:
+            continue
+        if item == 'wool' and not 'shears' in inventory:
+            continue
+        if item == 'raw gold' and not 'pickaxe' in inventory:
+            continue
         commands.append(f"pick up {item}")
         
 #    if current_location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
