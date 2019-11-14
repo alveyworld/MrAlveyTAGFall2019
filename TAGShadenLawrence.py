@@ -91,7 +91,7 @@ def create_map():
             'about':"a old house sat on a hill over looking a large ranch it\n"+
                      "looks like it has not seen much use but there is a table nearby\n"+
                      "East is a large Field and to the South there is the town of Zik",
-            'stuff':['1 gold','bowl of soup'],
+            'stuff':['1 gold coin','bowl of soup'],
             'people':['Your boss']
             },
             
@@ -447,7 +447,7 @@ def create_map():
             'people':[],
             },
         
-        'Hacker':{
+        'hacker':{
             'neighbors':[],
             'about':'Hey what are you doing here wow now you have just sommoned \n'+
                     'CTHULU!!! WERE ALL DOOMED',
@@ -546,11 +546,15 @@ def get_options(world):
     for neighbor in neighbors:
         commands.append("go to " + neighbor)
     
-    if location == 'Farm house' and '1 Gold piece' in stuff not in inventory:
-        commands.append('pick up 1GP')
-    # ...
-    # Add more commands
-    # ...
+    if location == 'farm house' and '1 gold coin' in stuff not in inventory:
+        commands.append('pick up gold coin')
+        
+    if location == 'farm house' and 'bowl of soup' in stuff not in inventory:
+        commands.append('pick up bowl of soup')
+        
+    if location == 'field' and 'wheat' in stuff and 'wheat' not in inventory and 'hoe' in inventory:
+        commands.append('')
+        
     return commands
 
 def goto(world, command):
