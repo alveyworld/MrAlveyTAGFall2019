@@ -86,7 +86,7 @@ def random_cliff_text():
 def create_map():
     return {
         
-        'Farm House':{
+        'farm house':{
             'neighbors':['Field','Town of Zik'],
             'about':"a old house sat on a hill over looking a large ranch it\n"+
                      "looks like it has not seen much use but there is a table nearby\n"+
