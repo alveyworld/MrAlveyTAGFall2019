@@ -290,16 +290,67 @@ def render(world):
 
 
 def get_options(world):
-    '''
-    Consumes a world and produces a list of strings representing the options
-    that are available to be chosen given this state.
-    
-    Args:
-        world (World): The current world to get options for.
-    
-    Returns:
-        list[str]: The list of commands that the user can choose from.
-    '''
+  if current_location == 'interance ':
+        commands.append('search')
+  if current_location == 'livingroom':
+        commands.append('search')
+  if current_location == 'outside':
+        commands.append('search')
+  if current_location == 'woods':
+        commands.append('search')
+  if current_location == 'cabin':
+        commands.append('search')
+  if current_location == 'living room':
+        commands.append('search')
+  if current_location == 'back room':
+        commands.append('')
+  if current_location == 'bedroom':
+        commands.append('search')
+  if current_location == 'basement':
+        commands.append('search')
+  if current_location == 'underground':
+        commands.append('')
+  if current_location == 'tunnel':
+        commands.append('')
+  if current_location == 'door':
+        commands.append('')
+  if current_location == 'cave':
+        commands.append('')
+  if current_location == 'hole1':
+        commands.append('')
+  if current_location == 'hole2':
+        commands.append('')
+  if current_location == 'storage':
+        commands.append('')
+  if current_location == 'tunnel2':
+        commands.append('')
+  if current_location == 'docks':
+        commands.append('')
+  if current_location == 'island':
+        commands.append('')
+  if current_location == 'struggled path':
+        commands.append('')
+  if current_location == 'hiddenpath':
+        commands.append('')
+  if current_location == 'kitchen':
+        commands.append('')
+  if current_location == 'hallway':
+        commands.append('')
+  if current_location == 'basement':
+        commands.append('')
+  if current_location == 'studys':
+        commands.append('')
+  if current_location == 'upstairs_hallway':
+        commands.append('')
+  if current_location == 'addic':
+        commands.append('')
+  if current_location == 'room1':
+        commands.append('')
+  if current_location == 'room2':
+        commands.append('')
+  if current_location == 'room3':
+        commands.append('')
+
 
 def update(world, command):
     '''
