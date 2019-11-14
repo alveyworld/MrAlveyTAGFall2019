@@ -601,7 +601,7 @@ def render_ending(world):
         return "You quit."
     
 def render_ending_lost(world):
-    if world['player'] ['location'] == 'Thief Hideout' :
+    if world['player']['location'] == 'Thief Hideout' :
         return ("As you walk through the wood you see some small buildings in the \n" +
                 "trees as you get close you hear a loud thump then you black out")
          
