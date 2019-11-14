@@ -96,7 +96,7 @@ def create_map():
             },
             
         'Field':{
-            'neighbors':['Farm house','Pasture','Small Clearing'],
+            'neighbors':['farm house','Pasture','Small Clearing'],
             'about':"A large Field of golden wheat\n"+
                     'to the West is a old house to the East is a Large Pasture\n'+
                     'and to the south is a dense forest',
@@ -642,7 +642,7 @@ def choose(options):
     command = input("type a command: ")
     while command not in options:
         command = input("Invalid Cammand \n\nType a command: ")
-    return commands
+    return command
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
