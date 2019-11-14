@@ -553,7 +553,7 @@ def get_options(world):
         commands.append('pick up bowl of soup')
         
     if location == 'field' and 'wheat' in stuff and 'wheat' not in inventory and 'hoe' in inventory:
-        commands.append('')
+        commands.append('pick up wheat')
         
     return commands
 
