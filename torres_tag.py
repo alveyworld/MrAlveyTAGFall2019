@@ -51,7 +51,7 @@ Records:
                            this location. 
 '''
 
-##### 3) Core Game Functions #####
+ ##### 3) Core Game Functions #####
 # Implement the following to create your game.
 
 def render_introduction():
@@ -174,7 +174,7 @@ LOSE_PATH = []
 
 from cisc108 import assert_equal
 
-
+assert_
 ###### 6) Main Function #####
 # Do not modify this area
 
