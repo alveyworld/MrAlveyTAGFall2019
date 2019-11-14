@@ -87,35 +87,36 @@ def create_map():
     return {
         
         'farm house':{
-            'neighbors':['Field','Town of Zik'],
+            'neighbors':['field','town of zik'],
             'about':"a old house sat on a hill over looking a large ranch it\n"+
-                     "looks like it has not seen much use but there is a table nearby\n"+
+                    "looks like it has not seen much use but there is a table nearby\n"+
                     'on the table is 1 gold coin and a bowl of soup\n' +
-                     "East is a large field and to the South there is the town of zik",
+                    "East is a large field and to the South there is the town of zik",
             'stuff':['1 gold coin','bowl of soup'],
             'people':['Your boss']
             },
             
-        'Field':{
-            'neighbors':['farm house','Pasture','Small Clearing'],
+        'field':{
+            'neighbors':['farm house','pasture','small clearing'],
             'about':"A large Field of golden wheat\n"+
                     'to the West is a old house to the East is a Large Pasture\n'+
+                    'there is a hoe at your feet and wheat all around you\n' +
                     'and to the south is a dense forest',
-            'stuff':["wheat","hoe"],
+            'stuff':['wheat','hoe'],
             'people':[]
             },
         
         
-        'Pasture':{
-            'neighbors':['Field','Clearing'],
+        'pasture':{
+            'neighbors':['field','clearing'],
             'about':"Large Field of grass light seems brighter here and life seems happier \n"+
                     'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
             'people':[]
             },
         
-        'Clearing':{
-            'neighbors':['Pasture','Ravine','Large tree'],
+        'clearing':{
+            'neighbors':['pasture','ravine','large tree'],
             'about':"You are in a clearing in the forest you see the forest continues south"
             + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
@@ -458,7 +459,7 @@ def create_map():
          }
 def create_player():
     return {
-        'location': 'Field',
+        'location': 'field',
         'inventory': [],
         'Hunger': False,
         'Gold': 0
@@ -542,28 +543,32 @@ def get_options(world):
     l = current_location
     location = world['map'][current_location]
     neighbors = location['neighbors']
-    
+    stuff = location['stuff']
+    inventory = world['player']['inventory']
     
     for neighbor in neighbors:
         commands.append("go to " + neighbor)
-    
-    if location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
-        commands.append('pick up gold coin')
         
-    if location == 'farm house' and 'bowl of soup' in stuff and 'bowl of soup' not in inventory:
-        commands.append('pick up bowl of soup')
+    for item in stuff:
+        commands.append(f"pick up {item}")
         
-    if location == 'field' and 'wheat' in stuff and 'wheat' not in inventory and 'hoe' in inventory:
-        commands.append('pick up wheat')
-        
-    if location == 'field' and 'hoe' in stuff and 'hoe' not in inventory:
-        commands.append('pick up hoe')
-        
-    if location == 'pasture' and 'wool' in stuff and 'wool' not in inventory and 'shears' in inventory:
-        commands.append('shear sheep')
-        
-    if location == 'pasture' and 'eggs' in stuff and 'eggs' not in inventory:
-        commands.append('pick up eggs')
+#    if current_location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
+#        commands.append('pick up gold coin')
+#        
+#    if current_location == 'farm house' and 'bowl of soup' in stuff and 'bowl of soup' not in inventory:
+#        commands.append('pick up bowl of soup')
+#        
+#    if current_location == 'field' and 'wheat' in stuff and 'wheat' not in inventory and 'hoe' in inventory:
+#        commands.append('pick up wheat')
+#        
+#    if current_location == 'field' and 'hoe' in stuff and 'hoe' not in inventory:
+#        commands.append('pick up hoe')
+#        
+#    if current_location == 'pasture' and 'wool' in stuff and 'wool' not in inventory and 'shears' in inventory:
+#        commands.append('shear sheep')
+#        
+#    if current_location == 'pasture' and 'eggs' in stuff and 'eggs' not in inventory:
+#        commands.append('pick up eggs')
         
     return commands
 
@@ -584,6 +589,11 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    current_location = world['player']['location']
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    inventory = world['player']['inventory']
+    
     if command == "quit":
         world['status'] = 'quit'
         return 'you quit the game'
@@ -591,7 +601,15 @@ def update(world, command):
     if command.startswith('go to '):
         return goto(world, command)
     
-    return 'unknown command: ' + command
+    #command = 'pick up hoe'
+    #location['stuff'] = ['wheat', 'hoe']
+    
+    if command.startswith('pick up '):
+        index = location['stuff'].index(command[8:])
+        item = location['stuff'].pop(index)
+        inventory.append(item)
+    
+    return 'you chose ' + command
 
 def render_ending(world):
     '''
@@ -649,7 +667,10 @@ def choose(options):
     Returns:
         str: The command that was selected by the user.
     '''
+    for option in options:
+        print(option)
     command = input("type a command: ")
+        
     while command not in options:
         command = input("Invalid Cammand \n\nType a command: ")
     return command
