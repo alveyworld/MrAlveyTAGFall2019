@@ -70,16 +70,15 @@ def render_introduction():
             "Mr. Alvey is sitting in his classroom and the\n" +
             "bell rings for first period.\n" + 
             "Ethan was here")
-def random_students
+
+def random_students():
     '''
-    return a random list of students who are insane
-    
+    Return a random list of students, most sane, some insane
     '''
     
-def random_chillstaff
+def random_chillstaff():
     '''
-    return a random list of dq workers who are insane
-    
+    Return a random list of dq workers, most sane, some insane
     '''
 
 def create_map():
@@ -89,50 +88,50 @@ def create_map():
     Returns:
         Map
     '''
-    return{
-        'about' : 'you are at you desk in your classroom. The students are ready to learn.',
-        'classroom':{
-            'neighbors': ['loughe', 'car'],
-            'stuff': ['ibprofen', 'cliff bar','lottery ticket'],
-            'people': random_students:()
+    return {
+        'classroom' : {
+            'about': 'You are at your desk in your classroom. The students are ready to learn.', 
+            'neighbors' : ['lounge', 'car'],
+            'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
+            'people': random_students()
         },
-    },
-    'louge' : {
-        'about' : 'you sit at your regular spot and daniel comments on your food'
-        'neighbors' : [neighbor]
-        'stuff' : [],
-        'people' :( 'billy', 'bob', 'joe', 'leo', 'jake', 'daniel', 'jack', 'chris') 
+        'lounge' : {
+            'about': 'You sit in your regular spot and Hosner comments on your food.',
+            'neighbors' : ['classroom'],
+            'stuff': [],
+            'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
         },
         'car' : {
-        'about' : 'you sit in your car and turn on the engine' 
-        'neighbors': ['lins', 'home'],
+            'about': 'You sit in your car and turn on the engine.',
+            'neighbors' : ['lins', 'home'],
             'stuff': [],
-            'people' :[],
+            'people': [],
         },
         'lins' : {
-            'about' : 'you put on apron and log in to your register'
-            'neighbors': ['car','dq'],
+            'about': 'You put on your apron and log into your register',
+            'neighbors' : ['car', 'dq'],
             'stuff': [],
-            'people'['billy', 'bob', 'joe', 'leo']
+            'people': ['Ashlee', 'Jeff', 'Collin'],    
         },
         'dq' : {
-            'about' : ' you yell for help at the dq counter'
-            'neighbors': ['car','do'],
+            'about': 'You yell for help at the dq counter.',
+            'neighbors' : ['lins'],
             'stuff': [],
-            'people': random_chillstaff(),
+            'people': random_chillstaff(),    
         },
         'archam' : {
-            'neighbors': ['home'],
+            'neighbors' : ['home'],
             'stuff': [],
-            'people': ['Joker', 'Counselor', 'Batman', 'Dent', 'Alfred']
+            'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
         },
         'home' : {
-            'about' : ' you made it home to yoyur family, you win.'
-            'neighbors': [],
+            'about': 'You made it home to your family. You are safe. You win',
+            'neighbors' : [],
             'stuff': [],
             'people': []
-            }
-               
+        }
+    }
+
 def create_player():
     '''
     Creates a dictionary of the player
@@ -140,6 +139,7 @@ def create_player():
     Returns:
         Player
     '''
+    
     return {
         'location': 'classroom',
         'inventory': [],
