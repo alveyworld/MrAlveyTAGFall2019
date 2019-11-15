@@ -556,6 +556,8 @@ def get_options(world):
             continue
         if item == 'raw gold' and not 'pickaxe' in inventory:
             continue
+        
+        
         commands.append(f"pick up {item}")
         
         
@@ -631,31 +633,33 @@ def render_ending(world):
     '''
     if world['status'] == 'won':
         return "You won!"
+    
     elif world['status'] == 'lost':
         return "You lost."
+    
     elif world['status'] == 'quit':
         return "You quit."
     
 def render_ending_lost(world):
-    if world['player']['location'] == 'Thief Hideout' :
+    
+    current_location = world['player']['location']
+    location = world['map'][current_location]
+    
+    if curent_location == 'the dark woods':
         return ("As you walk through the wood you see some small buildings in the \n" +
                 "trees as you get close you hear a loud thump then you black out")
          
-    if world['player'] ['location'] == 'goblin cavern' :
+    if world['player'] ['location'] == 'cavern' :
         return("you walk into a dark Cavern as red eyes light up across the walls")
     
-    if world['player'] ['location'] == 'Bedroom' :
+    if world['player'] ['location'] == 'bedroom' :
         return("as you walk in the dark room you see some one and then \n"+
             "you see them look at you and then they grab you and tie you up \n"+
             "and then thay throw you down the basement.")
     
-    if world['player'] ['location'] == 'Shark infested waters' :
+    if world['player'] ['location'] == 'big waves' :
         return("as you wade out into the water you see a shark fin pop out of the water\n")
 
-    if world['player'] ['location'] == 'goblin cavern' :
-        return('')
-
-    
     return ("You were eaten by a Grue.\n"+
                 "You lose!")
     
