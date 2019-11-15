@@ -93,7 +93,7 @@ def create_map():
                     'on the table is 1 gold coin and a bowl of soup\n' +
                     "East is a large field and to the South there is the town of zik",
             'stuff':['1 gold coin','bowl of soup'],
-            'people':['Your boss']
+            'people':['your boss']
             },
             
         'field':{
@@ -131,33 +131,33 @@ def create_map():
             'people':[],
             },
         
-        'In Ravine':{
-            'neighbors':['Bullywogs Huts','in Ravine Under Bridge'],
+        'in ravine':{
+            'neighbors':['bullywogs huts','in ravine under bridge'],
             'about':'\n you are in a deep chasm your feet are now damp\n'+
                     'to the east is a way up and to the south is deeper into the ravine',
             'stuff':[],
             'people':[],
             },
         
-        'Bullywogs Huts':{
-            'neighbors':['In Ravine','Calm waters','Merlock Huts'],
+        'bullywogs huts':{
+            'neighbors':['in ravine','calm waters','merlock huts'],
             'about':'\n You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow'+
                     'to the west is a way down into a deep ravine to the east is the ocean\n'+
                     'and to the south farther down the beach',
             'stuff':[],
-            'people':['Green Bullywog','Yellow Bullywog']
+            'people':['green bullywog','yellow bullywog']
             },
         
         'Calm waters':{
-            'neighbors':['Bullywogs'],
+            'neighbors':['bullywogs'],
             'about':"\n Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
             'stuff':[],
             'people':[],
             },
         
-        'Town of Zik':{
-            'neighbors':['Farm house','Small Clearing','River','Blacksmith'],
+        'town of zik':{
+            'neighbors':['farm house','small clearing','river','blacksmith'],
             'about':'\n A large City full of people from this part of the Germany\n'+
                     'they come in all shapes and sizes some big some small \n'+
                     'But they all seem bigger than you\n'+
@@ -167,8 +167,8 @@ def create_map():
             'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
             },
         
-        'Small Clearing':{
-            'neighbors':['Town of Zik', 'Thief Hideout','Field','River'],
+        'small clearing':{
+            'neighbors':['town of zik', 'the dark woods','field','river'],
             'about':"\n A small clearing in the woods there is a field to the north"
             + "town to the west and to hear water from the south and see something to"
             +"the east.",
@@ -176,22 +176,22 @@ def create_map():
             'people':[],
             },
         
-        'Thief Hideout':{
-            'neighbors':['Woods 2','woods 3','Wood w/ River 1'],
+        'the dark woods':{
+            'neighbors':['small clearing','large tree','small creek'],
             'about':'',
             'stuff':[],
             'people':[],
             },
         
-        'Woods with a large tree':{
-            'neighbors':['Clearing','Thief Hideout','Ravine w/ Bridge','Above Cavern'],
+        'large tree':{
+            'neighbors':['clearing','thief hideout','ravine w/ bridge','above cavern'],
             'about':"\n A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
             'people':[],
             },
         
-        'Ravine w/ Bridge':{
+        'ravine w/ bridge':{
             'neighbors':['Ravine','in Ravine Under Bridge','Woods w/ Cliff','Above Cavern','Large tree'],
             'about':"\n There is a big Ravine with a small rope Bridge and you can see it going \n" +
             "to the north and you some woods on the other side to the south east and some to the \n"+
@@ -200,8 +200,8 @@ def create_map():
             'people':[],
             },
         
-        'In Ravine Under Bridge':{
-            'neighbors':['Ravine w/ Bridge','Goblin Cavern'],
+        'in ravine under bridge':{
+            'neighbors':['ravine w/ bridge','goblin cavern'],
             'about':'\n you are in a deep Ravine above you is a small rope bridge\n'+
                     'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
