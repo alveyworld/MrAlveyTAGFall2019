@@ -558,6 +558,10 @@ def get_options(world):
             continue
         commands.append(f"pick up {item}")
         
+    if current_location == 'ginger bread house':
+        commands.append('enter door')
+        
+        
 #    if current_location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
 #        commands.append('pick up gold coin')
 #        
@@ -614,6 +618,9 @@ def update(world, command):
         index = location['stuff'].index(command[8:])
         item = location['stuff'].pop(index)
         inventory.append(item)
+        
+    if command == 'enter door':
+        return current_location == 'entrance hall'
     
     return 'you chose ' + command
 
