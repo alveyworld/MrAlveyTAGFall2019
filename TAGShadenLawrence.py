@@ -123,8 +123,8 @@ def create_map():
             'people':[]
             },
         
-        'Ravine':{
-            'neighbors':['Clearing','Ravine w/ Bridge'],
+        'ravine':{
+            'neighbors':['clearing','ravine w/ bridge'],
             'about':"\n there is a big crack in the earth that is very deep and it keeps going" +
             " down to the south and there are some woods to the east",
             'stuff':[],
