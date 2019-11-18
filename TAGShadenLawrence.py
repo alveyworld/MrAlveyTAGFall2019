@@ -249,7 +249,12 @@ def create_map():
                     'into a cast to make nails\n'+
                     'north is the Town of Zik east is a River and south is a large house',
             'stuff':[],
-            'people':['Blacksmith'],
+            'people':[
+                    {'name': 'Blacksmith',
+                    'about':'',
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
+                    'buys':[]}
+                    ],
             },
         
         'river':{
@@ -465,12 +470,21 @@ def create_map():
             'about':'\n Hey what are you doing here wow now you have just sommoned \n'+
                     'CTHULU!!! WERE ALL DOOMED',
             'stuff':[],
-            'people':['Cthulu'],
+            'people':[],
             },
          }
+
+def create_people(world):
+    return
+
+    {'blacksmith':{
+        'about':'',
+        'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
+        'buys':[]
+        }}
 def create_player():
     return {
-        'location': 'field',
+        'location': 'black smith',
         'inventory': [],
         'Hunger': False ,
         'Gold': 0
@@ -571,9 +585,15 @@ def get_options(world):
             continue
         if item == 'raw gold' and not 'pickaxe' in inventory:
             continue
-        
-        
         commands.append(f"pick up {item}")
+        
+    for person in world['map'][current_location]['people']:
+        for item in person['sells']:
+            commands.append(f"buy {item} from {person['name']}")
+        for item in person['buys']:
+            commands.append(f"sell {item} to {person['name']}")
+        
+
         
         
         
