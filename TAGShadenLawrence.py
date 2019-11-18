@@ -178,7 +178,7 @@ def create_map():
         
         'the dark woods':{
             'neighbors':['small clearing','large tree','small creek'],
-            'about':'',
+            'about':' a dark forest',
             'stuff':[],
             'people':[],
             },
@@ -246,7 +246,7 @@ def create_map():
             },
         
         'river':{
-            'neighbors':['black smith','Small creek','town of zik'],
+            'neighbors':['black smith','small creek','town of zik'],
             'about':"\n there are trees all around you and a small river that flows to \n" +
             " the east and you see some more woods the the south and a building to the \n"+
             "west and a Town to the north west.",
@@ -255,7 +255,7 @@ def create_map():
             },
         
         'small creek':{
-            'neighbors':['river','well','the dark woods','wood w/ river','ginger bread house'],
+            'neighbors':['river','well','the dark woods','wood w/ river','ginger bread house','hidden cave'],
             'about':"\n there is a small creek with a small river to the west and one going \n"+
             " to the south east from with lots of tree all around and you see wood \n" +
             "all around and a small trail of candy to the south.",
@@ -263,14 +263,14 @@ def create_map():
             'people':[],
             },
         
-        'hidden Cave':{
+        'hidden cave':{
             'neighbors':['small creek'],
             'about':"\n a small damp cave hidden by vines in the woods near a river",
             'stuff':['hidden chest'],
             'people':[],
             },
         
-        'Well':{
+        'well':{
             'neighbors':['small creek','ravine w/ bridge','woods w/ river', 'large tree'],
             'about':"\n There is a old broken well in the middle of a clearing \n"+
             "to the north is a large tree you also hear some water flowing to the west and south.",
@@ -405,14 +405,14 @@ def create_map():
             },
         
         'big waves':{
-            'neighbors':['Woods w/ River'],
+            'neighbors':['woods w/ river'],
             'about':'',
             'stuff':[],
             'people':['Shark'],
             },
         
-        'High Cliff':{
-            'neighbors':["Olga's House",'Grassy Cliff'],
+        'high cliff':{
+            'neighbors':["olga's house",'grassy cliff'],
             'about':'\n you can see farther from this hill near a cliff\n'+
                     'you can see The town of Zik form here you walk down the hill\n'+
                     'and look at the cliff' + random_cliff_text() +
@@ -422,8 +422,8 @@ def create_map():
             'people':[],
             },
         
-        'Grassy Cliff':{
-            'neighbors':['Dead Forest','High Cliff','Dry Cliff'],
+        'grassy cliff':{
+            'neighbors':['dead forest','high cliff','dry cliff'],
             'about':'\n you are standing in a feild of grass as high as your head you walk a bit south\n'+
                     'Where you see you are standing on a cliff when you yip and say'+ ' " ' + random_cliff_text() + ' "' +
                     'you get up on a rock and can see that you can head North to a forest of dead trees,\n'+
@@ -432,8 +432,8 @@ def create_map():
             'people':[],
             },
         
-        'Dry Cliff':{
-            'neighbors':['Ginger Bread House','',''],
+        'dry cliff':{
+            'neighbors':['ginger bread house','grassy cliff','muddy cliff'],
             'about':'\n The land here is very weird the ground is dry\n'+
                     'not a animal in sight you aproch the edge of the cliff\n' +
                     'the water looks nice like it wants to give you a big hug\n'+
@@ -443,8 +443,8 @@ def create_map():
             'people':[],
             },
         
-        'Muddy Cliff ':{
-            'neighbors':[],
+        'muddy cliff ':{
+            'neighbors':['dry cliff','wodds w/ river'],
             'about':'\n the land here is slippery and slick \n' +
                     'your feet find it hard to find perches in the mud\n' +
                     'you fall and slide toward a Cliff face' + random_cliff_text() +
