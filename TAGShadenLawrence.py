@@ -157,7 +157,7 @@ def create_map():
             },
         
         'town of zik':{
-            'neighbors':['farm house','small clearing','river','blacksmith'],
+            'neighbors':['farm house','small clearing','river','black smith'],
             'about':'\n A large City full of people from this part of the Germany\n'+
                     'they come in all shapes and sizes some big some small \n'+
                     'But they all seem bigger than you\n'+
@@ -437,7 +437,7 @@ def create_map():
             'about':'\n The land here is very weird the ground is dry\n'+
                     'not a animal in sight you aproch the edge of the cliff\n' +
                     'the water looks nice like it wants to give you a big hug\n'+
-                    random_cliff_text() + 'you can head North to a small cottage in the woods,\n'+
+                    random_cliff_text() + ' you can head North to a small cottage in the woods,\n'+
                     'West into a feild of grass, or East to another cliff in the distance',
             'stuff':[],
             'people':[],
