@@ -184,7 +184,7 @@ def create_map():
             },
         
         'large tree':{
-            'neighbors':['clearing','thief hideout','ravine w/ bridge','well'],
+            'neighbors':['clearing','the dark woods','ravine w/ bridge','well'],
             'about':"\n A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
