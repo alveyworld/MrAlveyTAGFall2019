@@ -596,6 +596,12 @@ def get_options(world):
 def goto(world, command):
     new_location = command[len('goto '):]
     world['player']['location'] = new_location
+    
+    if new_location == "the dark woods" or \
+       new_location == "big waves" or \
+       new_location == "cavern" or \
+       new_location == "bedroom":
+        world['status'] = "lost"
     return "You went to "+new_location
 
 def update(world, command):
@@ -646,7 +652,7 @@ def render_ending(world):
         return "You won!"
     
     elif world['status'] == 'lost':
-        return "You lost."
+        return render_ending_lost(world)
     
     elif world['status'] == 'quit':
         return "You quit."
@@ -656,23 +662,20 @@ def render_ending_lost(world):
     current_location = world['player']['location']
     location = world['map'][current_location]
     
-    if curent_location == 'the dark woods':
+    if current_location == 'the dark woods':
         return ("As you walk through the wood you see some small buildings in the \n" +
-                "trees as you get close you hear a loud thump then you black out")
+                "trees as you get close you hear a loud thump then you black out. You lose.")
          
-    if world['player'] ['location'] == 'cavern' :
-        return("you walk into a dark Cavern as red eyes light up across the walls")
+    if current_location == 'cavern' :
+        return("you walk into a dark Cavern as red eyes light up across the walls. You lose.")
     
-    if world['player'] ['location'] == 'bedroom' :
+    if current_location == 'bedroom' :
         return("as you walk in the dark room you see some one and then \n"+
             "you see them look at you and then they grab you and tie you up \n"+
-            "and then thay throw you down the basement.")
+            "and then thay throw you down the basement. You lose.")
     
-    if world['player'] ['location'] == 'big waves' :
-        return("as you wade out into the water you see a shark fin pop out of the water\n")
-
-    return ("You were eaten by a Grue.\n"+
-                "You lose!")
+    if current_location == 'big waves' :
+        return("as you wade out into the water you see a shark fin pop out of the water. You lose\n")
     
 
 def choose(options):
