@@ -184,10 +184,17 @@ def create_map():
             },
         
         'large tree':{
-            'neighbors':['clearing','the dark woods','ravine w/ bridge','well'],
+            'neighbors':['clearing','the dark woods','ravine w/ bridge','well','up tree'],
             'about':"\n A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
+            'people':[],
+            },
+        
+        'up tree':{
+            'neighbors':['large tree'],
+            'about':'you climb up the tree you see a nest with many diffrent eggs a few shine ',
+            'stuff':['sliver egg'],
             'people':[],
             },
         
@@ -551,7 +558,7 @@ def get_options(world):
     inventory = world['player']['inventory']
     
     for neighbor in neighbors:
-        commands.append("go to " + neighbor)
+        commands.append("goto " + neighbor)
         
     for item in stuff:
         if item == 'wheat' and not 'hoe' in inventory:
@@ -587,7 +594,7 @@ def get_options(world):
     return commands
 
 def goto(world, command):
-    new_location = command[len('go to '):]
+    new_location = command[len('goto '):]
     world['player']['location'] = new_location
     return "You went to "+new_location
 
@@ -612,7 +619,7 @@ def update(world, command):
         world['status'] = 'quit'
         return 'you quit the game'
     
-    if command.startswith('go to '):
+    if command.startswith('goto '):
         return goto(world, command)
     
     #command = 'pick up hoe'
