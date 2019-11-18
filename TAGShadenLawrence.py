@@ -507,6 +507,10 @@ def render_player(world):
     inventory = world['player']['inventory']
     Gold = world['player']['Gold']
     Hunger = world['player']['Hunger']
+    
+    if Gold == 10:
+        world['status'] = "won"
+        
     return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
 
 def render_location(world):
