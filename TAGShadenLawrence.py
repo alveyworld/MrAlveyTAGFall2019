@@ -589,9 +589,9 @@ def get_options(world):
         
     for person in world['map'][current_location]['people']:
         for item in person['sells']:
-            commands.append(f"buy {item} from {person['name']}")
+            commands.append(f"buy {item}")
         for item in person['buys']:
-            commands.append(f"sell {item} to {person['name']}")
+            commands.append(f"sell {item}")
         
 
         
@@ -659,6 +659,23 @@ def update(world, command):
         index = location['stuff'].index(command[8:])
         item = location['stuff'].pop(index)
         inventory.append(item)
+        
+    if command.startswith('buy'):
+        item = command[4:]
+        for person in location['people']:
+            avail_to_buy = person['sells']
+            if item in avail_to_buy.keys():
+                if world['player']['Gold'] >= avail_to_buy[item]['amount']:
+                    #able to buy
+                    purchased = avail_to_buy.pop(item)
+                    world['player']['inventory'].append(purchased)
+                    world['player']['Gold'] -= purchased['amount']
+                    
+                else:
+                    #not able to buy
+                    return "not enough gold"
+                
+    
         
     return 'you chose ' + command
 
