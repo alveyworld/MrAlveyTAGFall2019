@@ -75,7 +75,7 @@ def render_introduction():
             ' your old bones hurt then you hear it again "Ben!" this time more angry\n '+
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
-            "== Objective Gained ==\n" + "== Get 10 gold==")
+            "== Objective Gained ==\n" + "== Get 10 gold== \n")
 
 import random
 def random_cliff_text():
@@ -212,7 +212,7 @@ def create_map():
             'about':'\n you are in a deep Ravine above you is a small rope bridge\n'+
                     'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
-            'stuff':['Gold vein'],
+            'stuff':['gold vein'],
             'people':[],
             },
         
@@ -536,7 +536,7 @@ def render_location(world):
     about = here['about']
     
     return ("You are in "+location+"\n"+
-            about+"\n")
+            about +"\n")
     
 def render(world):
     
@@ -583,7 +583,7 @@ def get_options(world):
             continue
         if item == 'wool' and not 'shears' in inventory:
             continue
-        if item == 'raw gold' and not 'pickaxe' in inventory:
+        if item == 'gold vein' and not 'pickaxe' in inventory:
             continue
         commands.append(f"pick up {item}")
         
