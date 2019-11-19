@@ -245,7 +245,7 @@ def create_map():
         'black smith':{
             'neighbors':['town of zik','river',"olga's house"],
             'about':'\n The smell of iorn can be smelled in the air as you aproch \n'+
-                    'there is a small man bent over an anvil smashing red hot iron\n+'
+                    'there is a small man bent over an anvil smashing red hot iron\n'+
                     'into a cast to make nails\n'+
                     'north is the Town of Zik east is a River and south is a large house',
             'stuff':[],
