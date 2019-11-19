@@ -67,7 +67,17 @@ def create_player():
     return {
         'location': 'interance',
         'inventory': [],
+        'health': 100
     }
+def render_player(world):
+    health = world['player']['health']
+    inventory = world['player']['inventory']
+    
+    statement = ""
+    if health:
+        statement += "You are low in health. Need to rest"
+    return statement
+
 def render_location(world):
     location = world['player']['location']
     here = world['map'][location]
@@ -75,7 +85,8 @@ def render_location(world):
     
     return ("You are in "+location+"\n"+
             about+"\n")
-
+def random_twin():
+    
 def create_map():
     return {
         'interance': {
@@ -83,7 +94,7 @@ def create_map():
             'about': "When you open up the door you felt like there is an Evil talking over the house.\n"+
                      "You know that you not safe",
             'stuff': ["flashlight"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'livingroom': {
             'neighbors': ['interance', 'kitchen', 'outside'],
@@ -101,19 +112,19 @@ def create_map():
             'neighbors': ['outside', 'cabin'],
             'about': "The woods is a nice place to be right? as you walk deeper into the woods your body feels cold. like someone already killed you.",
             'stuff': ["wood"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'cabin': {
             'neighbors': ['woods', 'living room'],
             'about': "A cabin in the woods seems to be the best place to be, but is it?",
             'stuff': ["generator"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'living room': {
             'neighbors': ['bedroom', 'back room', 'basement'],
             'about': "As you walk into the living room things feels like death, but you don't know why.",
             'stuff': ["oil can"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'back room': {
             'neighbors': ['living room']
@@ -131,19 +142,19 @@ def create_map():
             'neighbors':['underground'],
             'about': "As you creep your way through the place you show this basement. What is down here.",
             'stuff': ["nails", "metal"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'underground': {
            'neighbors': ['tunnel', 'basement']
            'about': "You show a hole that lead to on opening. There is a in the distance.",
            'stuff': [],
-           'people': ["minikane", "dragondirgel"],
+           'people': random_twin(),
         }
         'tunnel': {
             'neighbors': ['door', 'underground'],
             'about': "You wounder how far this goes.",
             'stuff': [],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'door': {
             'neighbors': ['tunnel', 'cave'],
@@ -154,7 +165,7 @@ def create_map():
             'neighbors': ['door', 'hole1', 'hole2', 'storage'],
             'about': "When you enter the door you show blood everywhere. You paniced. You head rocks shifted."
             'stuff': ["tesla coils"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'hole1': {
             'neighbors': ['cave'],
@@ -172,7 +183,7 @@ def create_map():
             'neighbor': ['tunnel2', 'cave'],
             'about': "The storage is where they kept their tools. Bloody... bloody tools.",
             'stuff': ["wires"],
-            'poeple': ["minikane", "dragondirgel"],
+            'poeple': random_twin(),
         }
         'tunnel2': {
             'neighbors': ['storage', 'docks'],
@@ -184,19 +195,19 @@ def create_map():
             'neighbors': ['basement', 'island', 'tunnel2'],
             'about': "As you exits the tunnel you walk on a dark and misty dock. You can't see anything but a bout. 'Mmmmm I wounder where this goes,' you thought to yourself.",
             'stuff': ["oil"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'island': {
             'neigbors': ['dock', 'hidden path', 'struggled path'],
             'about': "You get of the bout and looked around. You see a trail that looks like someone was struggling to drag something, and another trail that looks hidden in the bushes",
             'stuff': ["gears"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'struggled path': {
             'neighbors': ['island'],
             'about': "As you follow the struggled path you start to see a hole. When you get closer to the hole you can see bodys. You hesitated. You walk closer to the hole. The hole presented more bodys you began to be desgusted. You don't know what to do.",
             'stuff': [],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'hidden path': {
             'neighbors': ['island'],
@@ -224,13 +235,13 @@ def create_map():
             'neighbors': ['interance', 'studies', 'basement', 'stairs'],
             'about': "Where to go",
             'stuff': [],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'basement': {
             'neighbors': ['hallway'],
             'about': "This is were they did their experiments. There is blood everywhere",
             'stuff' ["saw"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'studys': {
             'neighbors': ['interance'],
@@ -242,7 +253,7 @@ def create_map():
             'neighbors': ['hallway', 'addic', 'room 1', 'room 2', 'room 3'],
             'about': "More doors."
             'stuff': [],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
         'addic': {
             'neighbors': ['upstairs_hallway'],
@@ -266,7 +277,7 @@ def create_map():
             'neighbors': ['upstairs_hallway'],
             'about': "This must be where they play games",
             'stuff': ["key"],
-            'people': ["minikane", "dragondirgel"],
+            'people': random_twin(),
         }
   }
 
@@ -274,123 +285,131 @@ def create_map():
 
 
     
+
+
+
 def render_visible_stuff(world):
      location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
     inventory = world['player']['inventory']
     
-    if location ==
-    
-
 def render(world):
     return (render_location(world) +
             render_player(world) +
             render_visible_stuff(world))
 
-
 def get_options(world):
-  if current_location == 'interance ':
+    commands = ["quit"]
+    current_location = world["player"]["location"]
+    location = world['map'][current_location]
+    neighbors = location['neighbors']
+    
+    for neighbor in neighbors:
+        commands.append("go to " + neighbor)
+    
+  
+  
+    if current_location == 'interance ':
         commands.append('search')
-  if current_location == 'livingroom':
+    if current_location == 'livingroom':
         commands.append('search')
-  if current_location == 'outside':
+    if current_location == 'outside':
         commands.append('search')
-  if current_location == 'woods':
+    if current_location == 'woods':
         commands.append('search')
-  if current_location == 'cabin':
+    if current_location == 'cabin':
         commands.append('search')
-  if current_location == 'living room':
+    if current_location == 'living room':
         commands.append('search')
-  if current_location == 'back room':
+    if current_location == 'back room':
         commands.append('')
-  if current_location == 'bedroom':
+    if current_location == 'bedroom':
         commands.append('search')
-  if current_location == 'basement':
+    if current_location == 'basement':
         commands.append('search')
-  if current_location == 'underground':
+    if current_location == 'underground':
         commands.append('')
-  if current_location == 'tunnel':
+    if current_location == 'tunnel':
         commands.append('')
-  if current_location == 'door':
+    if current_location == 'door':
         commands.append('')
-  if current_location == 'cave':
+    if current_location == 'cave':
+        commands.append('search')
+    if current_location == 'hole1':
         commands.append('')
-  if current_location == 'hole1':
+    if current_location == 'hole2':
         commands.append('')
-  if current_location == 'hole2':
+    if current_location == 'storage':
+        commands.append('search')
+    if current_location == 'tunnel2':
         commands.append('')
-  if current_location == 'storage':
+    if current_location == 'docks':
+        commands.append('search')
+    if current_location == 'island':
+        commands.append('search')
+    if current_location == 'struggled path':
         commands.append('')
-  if current_location == 'tunnel2':
+    if current_location == 'hiddenpath':
         commands.append('')
-  if current_location == 'docks':
+    if current_location == 'kitchen':
         commands.append('')
-  if current_location == 'island':
+    if current_location == 'hallway':
         commands.append('')
-  if current_location == 'struggled path':
+    if current_location == 'basement':
+        commands.append('search')
+    if current_location == 'studys':
+        commands.append('search')
+    if current_location == 'upstairs_hallway':
         commands.append('')
-  if current_location == 'hiddenpath':
+    if current_location == 'addic':
+        commands.append('rest')
+    if current_location == 'room1':
+        commands.append('search')
+    if current_location == 'room2':
         commands.append('')
-  if current_location == 'kitchen':
-        commands.append('')
-  if current_location == 'hallway':
-        commands.append('')
-  if current_location == 'basement':
-        commands.append('')
-  if current_location == 'studys':
-        commands.append('')
-  if current_location == 'upstairs_hallway':
-        commands.append('')
-  if current_location == 'addic':
-        commands.append('')
-  if current_location == 'room1':
-        commands.append('')
-  if current_location == 'room2':
-        commands.append('')
-  if current_location == 'room3':
-        commands.append('')
+    if current_location == 'room3':
+        commands.append('search')
+    return commands
 
+
+def goto(world, command):
+    new_location = command[len('go to '):]
+    world['player']['location'] = new_location
+    return "You went to " + new_location
 
 def update(world, command):
-    '''
-    Consumes a world and a command and updates the world according to the
-    command, also producing a message about the update that occurred. This
-    function should modify the world given, not produce a new one.
+    if command == "quit":
+        world['status'] = 'quit'
+        return "You quit the game"
     
-    Args:
-        world (World): The current world to modify.
+    if command.startswith('go to '):
+        return goto(world, command)
     
-    Returns:
-        str: A message describing the change that occurred in the world.
-    '''
+        
+    return "Unknown command: " + command
+
+def render_ending_lost(world):
+    return "You Lost. Nice try."
 
 def render_ending(world):
-    '''
-    Create the message to be displayed at the end of your game.
-    
-    Args:
-        world (World): The final world state to use in describing the ending.
-    
-    Returns:
-        str: The ending text of your game to be displayed.
-    '''
+    if world['status'] == 'won':
+        return "You won! Now you get the twins owo."
+    elif world['status'] == 'lost':
+        return render_ending_lost(world)
+    elif world['status'] == 'quit':
+        return "You quit the game, but why?"
 
 def choose(options):
-    '''
-    Consumes a list of commands, prints them for the user, takes in user input
-    for the command that the user wants (prompting repeatedly until a valid
-    command is chosen), and then returns the command that was chosen.
-    
-    Note:
-        Use your answer to Programming Problem #42.3
-    
-    Args:
-        options (list[str]): The potential commands to select from.
-    
-    Returns:
-        str: The command that was selected by the user.
-    '''
+    print("Available commands:")
+    for option in options:
+        print(option)
+        
+    command = input("Type a command: ")
+    while command not in options:
+        command = input("Invalid Command\n\nType a command: ")
+    return command
+
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
