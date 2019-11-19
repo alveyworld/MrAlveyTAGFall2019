@@ -92,7 +92,7 @@ def create_map():
                     "looks like it has not seen much use but there is a table nearby\n"+
                     'on the table is 1 gold coin and a bowl of soup\n' +
                     "East is a large field and to the South there is the town of zik",
-            'stuff':['1 gold coin','bowl of soup'],
+            'stuff':['1 gold coin','bowl of soup','shears'],
             'people':['your boss']
             },
             
@@ -102,7 +102,7 @@ def create_map():
                     'to the West is a old house to the East is a Large Pasture\n'+
                     'there is a hoe at your feet and wheat all around you\n' +
                     'and to the south is a dense forest',
-            'stuff':['wheat','hoe'],
+            'stuff':['wheat','hoe',],
             'people':[]
             },
         
@@ -164,7 +164,7 @@ def create_map():
                     'to the north is a small House to the east is a small forest\n'+
                     'and to the south is a small house with a forge outside',
             'stuff':[],
-            'people':['Tailor','Coining Store','Food vendor 1','Food vendor 2'],
+            'people':['Tailor','Coining Store','Food Market'],
             },
         
         'small clearing':{
@@ -194,7 +194,7 @@ def create_map():
         'up tree':{
             'neighbors':['large tree'],
             'about':'you climb up the tree you see a nest with many diffrent eggs a few shine ',
-            'stuff':['sliver egg'],
+            'stuff':['silver egg'],
             'people':[],
             },
         
