@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "zack.alvey@washk12.org"
+__author__ = "20anderdevj@washk12.org"
 __title__ = "Name of your game goes here"
 __description__ = "Replace this with a quick description of your game."
 
@@ -297,11 +297,11 @@ def render_ending(world):
         str: The ending text of your game to be displayed.
     '''
     if world['status'] == 'won':
-        return "You won!"
+        return "You won, I love you (no homo)!"
     elif world['status'] == 'lost':
         return render_ending_lost(world)
     elif world['status'] == 'quit':
-        return "You quit."
+        return "You quit, you are the big gay."
 
 def choose(options):
     '''
