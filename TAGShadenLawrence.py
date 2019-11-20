@@ -68,7 +68,7 @@ def render_introduction():
     '''...'''
     return ("== Ben ? ==\n"+
             "= By Shaden Lawrence =\n"+
-            "\n"+
+            "\n" +
             ".... *Nothing* ... *Something* Light your flying through space on a long voyage\n"+
             ' *Smack* ... your awake ... your hear in the distance "Ben ?"\n'+
             " you get up. your in a field your old. you dust your self off\n"+
