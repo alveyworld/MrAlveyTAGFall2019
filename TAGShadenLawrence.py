@@ -476,8 +476,8 @@ def create_map():
 
 def create_player():
     return {
-        'location': 'field',
-        'inventory': [''],
+        'location': 'black smith',
+        'inventory': ['golden fork'],
         'Hunger': False ,
         'Gold': 0
         }
