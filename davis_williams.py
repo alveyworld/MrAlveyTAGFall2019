@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "20anderdevj@washk12.org"
+__author__ = "21willidavs@washk12.org"
 __title__ = "Name of your game goes here"
 __description__ = "Replace this with a quick description of your game."
 
@@ -52,6 +52,7 @@ Records:
       name (str): The person’s name
       annoying (bool): True if the person is annoying and causes insanity
 '''
+import random
 
 ##### 3) Core Game Functions #####
 # Implement the following to create your game.
@@ -118,7 +119,8 @@ def create_map():
             'stuff': ['french fries'],
             'people': random_chillstaff(),    
         },
-        'archam' : {
+        'arkham' : {
+            'about': "You scream as they put your straight jacket on!",
             'neighbors' : ['home'],
             'stuff': ['bat-erang', 'clown mask'],
             'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
@@ -181,10 +183,10 @@ def render_player(world):
     
     statement = ""
     if hungry:
-        statement += "You are hungry, you should eat soon. "
+        statement += "You are hungry, you should eat soon.\n"
     if not sanity:
-        statement += "You are going insane, please get help."
-    statement += "You have " + str(money) + " dollars."
+        statement += "You are going insane, please get help.\n"
+    statement += "You have " + str(money) + " dollars.\n"
     
     return statement
     
@@ -251,16 +253,42 @@ def get_options(world):
     if current_location == "dq":
         commands.append("eat")
         commands.append("get icecream")
-    if current_location == "archam":
+    if current_location == "arkham":
         commands.append("counseling")
         commands.append("meet joker")
     return commands
     
 def goto(world, command):
     new_location = command[len('go to '):]
+    sanity = world['player']['sanity']
+    if new_location == "home" and not sanity:
+        world['player']['location'] = "arkham"
+        return "you went to arkham BEWARE!"
     world['player']['location'] = new_location
     return "You went to " + new_location
+
+def take_roll():
+    '''
+    Read the file students.txt and randomly chooses a student.
+    if the student is Braden, you go insane.
     
+    Return True if you start sane stay sane and False if you are insane.
+    '''
+    
+    fin = open("students.txt", "r")
+    students = []
+    for line in fin:
+        students.append(line.strip())
+    fin.close()
+    student = random.choice(students)
+    
+    if student == "Braden":
+        print("Braden showed up to class and you went INSANE.")
+        return False
+    
+    print("You kept your sanity and finished taking roll.")
+    return True
+
 def update(world, command):
     '''
     Consumes a world and a command and updates the world according to the
@@ -277,15 +305,51 @@ def update(world, command):
         world['status'] = 'quit'
         return "You quit the game"
     
+    if command == "teach":
+        sanity = world['player']['sanity']
+        world['player']['money'] += 1
+        if sanity:
+            world['player']['sanity'] = take_roll()
+        return "you earned a dollar!"
+    
+    if command == "ring up":
+        world['player']['money'] += 1
+        return "you earned a dollar!"
+        
+    
     if command.startswith('go to '):
         return goto(world, command)
     
+    if command == "get icecream":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
         
+        return "You enjoy an icecream cone and feel much better."
+    if command == "eat":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
+    
+        return "You enjoy some food and are feeling energetic again!"
+    if command == "meet joker":
+        world['status'] = 'lost'
+        return "You shared a cell with joker and died of laughter!"
+    if command == "counseling":
+        world['player']['money'] -= 2
+        world['player']['sanity'] = True
+        return "You are well again and can continue working!"
+    
+    
+    if command == "search desk":
+        world['player']['money'] += 4
+        return "WOW you have found $4!"
+    
+    
+    
+    
     return "Unknown command: " + command
-
 def render_ending_lost(world):
     return "You lost."
-    
+
 def render_ending(world):
     '''
     Create the message to be displayed at the end of your game.
@@ -297,11 +361,11 @@ def render_ending(world):
         str: The ending text of your game to be displayed.
     '''
     if world['status'] == 'won':
-        return "You won, I love you (no homo)!"
+        return "You won!"
     elif world['status'] == 'lost':
         return render_ending_lost(world)
     elif world['status'] == 'quit':
-        return "You quit, you are the big gay."
+        return "You quit."
 
 def choose(options):
     '''
@@ -366,7 +430,7 @@ assert_equal("lounge" in new_map, True)
 assert_equal("car" in new_map, True)
 assert_equal("lins" in new_map, True)
 assert_equal("dq" in new_map, True)
-assert_equal("archam" in new_map, True)
+assert_equal("arkham" in new_map, True)
 assert_equal("home" in new_map, True)
 
 
