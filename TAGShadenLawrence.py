@@ -92,7 +92,7 @@ def create_map():
                     "looks like it has not seen much use but there is a table nearby\n"+
                     'on the table is 1 gold coin and a bowl of soup\n' +
                     "East is a large field and to the South there is the town of zik",
-            'stuff':['1 gold coin','bowl of soup','shears'],
+            'stuff':['Green cap mushroom','bowl of soup','shears'],
             'people':['your boss']
             },
             
@@ -474,20 +474,12 @@ def create_map():
             },
          }
 
-def create_people(world):
-    return
-
-    {'blacksmith':{
-        'about':'',
-        'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
-        'buys':[]
-        }}
 def create_player():
     return {
-        'location': 'black smith',
-        'inventory': ['golden fork'],
+        'location': 'field',
+        'inventory': [''],
         'Hunger': False ,
-        'Gold': 1
+        'Gold': 0
         }
 
 def create_world():
