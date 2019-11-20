@@ -253,8 +253,8 @@ def create_map():
                     {'name': 'Blacksmith',
                     'about':'',
                     'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
-                    'buys':[]}
-                    ],
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'}},
+                    }],
             },
         
         'river':{
@@ -485,9 +485,9 @@ def create_people(world):
 def create_player():
     return {
         'location': 'black smith',
-        'inventory': [],
+        'inventory': ['golden fork'],
         'Hunger': False ,
-        'Gold': 0
+        'Gold': 1
         }
 
 def create_world():
@@ -588,10 +588,14 @@ def get_options(world):
         commands.append(f"pick up {item}")
         
     for person in world['map'][current_location]['people']:
+        
         for item in person['sells']:
-            commands.append(f"buy {item}")
+            item_data = person['sells'][item]
+            commands.append(f"buy {item} for {item_data['amount']} {item_data['currency']}")
         for item in person['buys']:
-            commands.append(f"sell {item}")
+            item_data = person['buys'][item]
+            if item in inventory:
+                commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
 
         
@@ -661,7 +665,8 @@ def update(world, command):
         inventory.append(item)
         
     if command.startswith('buy'):
-        item = command[4:]
+        end = command.index("for ") - 1
+        item = command[4:end]
         for person in location['people']:
             avail_to_buy = person['sells']
             if item in avail_to_buy.keys():
@@ -670,10 +675,25 @@ def update(world, command):
                     purchased = avail_to_buy.pop(item)
                     world['player']['inventory'].append(purchased)
                     world['player']['Gold'] -= purchased['amount']
-                    
                 else:
                     #not able to buy
                     return "not enough gold"
+                
+    if command.startswith('sell'):
+        end = command.index("for ") - 1
+        item = command[5:end]
+        for person in location['people']:
+            avail_to_sell = person['buys']
+            if item in avail_to_sell.keys():
+                item_data = avail_to_sell[item]
+                #remove item from inventory
+                pos = world['player']['inventory'].index(item)
+                popped_item = world['player']['inventory'].pop(pos)
+                #adds item to vendors selling list
+                person['sells'][item] = item_data
+                #gives gold to player
+                world['player']['Gold'] += item_data['amount']
+            
                 
     
         
