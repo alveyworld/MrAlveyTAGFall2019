@@ -65,7 +65,7 @@ def create_world():
 
 def create_player():
     return {
-        'location': 'interance',
+        'location': 'entrance',
         'inventory': [],
         'health': 100
     }
@@ -91,7 +91,7 @@ def random_twin():
     
 def create_map():
     return {
-        'interance': {
+        'entrance': {
             'neighbors': ['hallway', 'living room'],
             'about': "When you open up the door you felt like there is an Evil talking over the house.\n"+
                      "You know that you not safe",
@@ -99,7 +99,7 @@ def create_map():
             'people': random_twin(),
         },
         'livingroom': {
-            'neighbors': ['interance', 'kitchen', 'outside'],
+            'neighbors': ['entrance', 'kitchen', 'outside'],
             'about': "As you walk into the room and you look around you fell like there is something in the shadows.",
             'stuff': ["note"],
             'people': [],
@@ -234,7 +234,7 @@ def create_map():
             'people': ["minikane"],
         },
         'hallway': {
-            'neighbors': ['interance', 'studies', 'basement', 'stairs'],
+            'neighbors': ['entrance', 'studies', 'basement', 'upstairs'],
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -251,32 +251,32 @@ def create_map():
             'stuff': ["book"],
             'people': ["dragondigel"],
         },
-        'upstairs_hallway': {
+        'upstairs': {
             'neighbors': ['hallway', 'addic', 'room 1', 'room 2', 'room 3'],
             'about': "More doors.",
             'stuff': [],
             'people': random_twin(),
         },
         'addic': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "I'm safe up here.",
             'stuff': ["rest"],
             'people': [],
         },
         'room 1': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "Oh no this is Dragon's room",
             'stuff': ["noise maker"],
             'people': ["dragondirgel"],
         },
         'room 2': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "Crap this is Mini's room",
             'stuff': [],
             'people': ["minikane"],
         },
         'room 3': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "This must be where they play games",
             'stuff': ["key"],
             'people': random_twin(),
@@ -293,7 +293,15 @@ def searching(world):
     if number == 3:
         world['player']['health'] -= 5
         return "You were attacked!"
-    return "You safely searched"
+    location = world['player']['location']
+    here = world['map'][location]
+    stuff = here['stuff']
+    
+    item = random.choice(stuff)
+    
+    world['player']['inventory'].append(item)
+    
+    return "You safely searched. You found the " + item + "!"
 
 def render_visible_stuff(world):
     location = world['player']['location']
@@ -318,7 +326,7 @@ def get_options(world):
         commands.append("go to " + neighbor)
     
   
-    if current_location == 'interance':
+    if current_location == 'entrance':
         commands.append('search')
     if current_location == 'livingroom':
         commands.append('search')
@@ -368,15 +376,15 @@ def get_options(world):
         commands.append('search')
     if current_location == 'studys':
         commands.append('search')
-    if current_location == 'upstairs_hallway':
+    if current_location == 'upstairs':
         commands.append('search')
     if current_location == 'addic':
         commands.append('rest')
-    if current_location == 'room1':
+    if current_location == 'room 1':
         commands.append('search')
-    if current_location == 'room2':
+    if current_location == 'room 2':
         commands.append('search')
-    if current_location == 'room3':
+    if current_location == 'room 3':
         commands.append('search')
     return commands
 
@@ -384,12 +392,12 @@ def get_options(world):
 def goto(world, command):
     new_location = command[len('go to '):]
     world['player']['location'] = new_location
-    return "You went to " + new_location
+    return  "You went to " + new_location
 
 def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
-        return "You quit the game"
+        return "You quit the game, but why?"
     
     if command.startswith('go to '):
         return goto(world, command)
@@ -411,7 +419,7 @@ def render_ending(world):
     elif world['status'] == 'lost':
         return render_ending_lost(world)
     elif world['status'] == 'quit':
-        return "You quit the game, but why?"
+        return ""
 
 def choose(options):
     print("Available commands:")
