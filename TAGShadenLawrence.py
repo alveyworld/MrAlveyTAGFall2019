@@ -95,7 +95,7 @@ def create_map():
             'stuff':['mushroom','bowl of soup','shears'],
             'people':[{
                 'name':'your boss',
-                'about':'he says to you boo',
+                'about':'What are you doing Ben aw i dont care as long as i get money',
                 'sells':{},
                 'buys':{}
                 }]
@@ -223,7 +223,7 @@ def create_map():
                 'name':'Food Market',
                 'about':'',
                 'sells':{},
-                'buys':{}
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}}
                 }],
             },
         
@@ -684,9 +684,9 @@ def render_location(world):
     try:
         if names[0]:
             for person in people:
-                message += f"\n{person['name']}: {person['about']}\n"
+                message += f"\n\n{person['name']}: {person['about']}\n\n"
         else:
-            message += "\nNobody's here\n"
+            message += "\n\nNobody's here\n\n"
     except IndexError:
         #No People
         message += "\nNobody's here\n"
