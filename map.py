@@ -828,6 +828,7 @@ turtle.left(90)
 turtle.goto(-300,200)
 
 def you():
+    turtle.color('red')
     turtle.circle(10)
     
 def location_FH():
@@ -1020,6 +1021,6 @@ def location_MC():
     turtle.pendown()
     you()
 
-
+location_MC()
 
 turtle.done()
