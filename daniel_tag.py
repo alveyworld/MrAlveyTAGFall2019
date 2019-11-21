@@ -228,7 +228,11 @@ def create_map():
             'people': ["minikane"],
         },
         'hallway': {
+<<<<<<< HEAD
             'neighbors': ['entrance', 'studies', 'basement', 'stairs'],
+=======
+            'neighbors': ['entrance', 'studies', 'basement', 'upstairs'],
+>>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -245,32 +249,32 @@ def create_map():
             'stuff': ["book"],
             'people': ["dragondigel"],
         },
-        'upstairs_hallway': {
+        'upstairs': {
             'neighbors': ['hallway', 'addic', 'room 1', 'room 2', 'room 3'],
             'about': "More doors.",
             'stuff': [],
             'people': random_twin(),
         },
         'addic': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "I'm safe up here.",
             'stuff': ["rest"],
             'people': [],
         },
         'room 1': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "Oh no this is Dragon's room",
             'stuff': ["noise maker"],
             'people': ["dragondirgel"],
         },
         'room 2': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "Crap this is Mini's room",
             'stuff': [],
             'people': ["minikane"],
         },
         'room 3': {
-            'neighbors': ['upstairs_hallway'],
+            'neighbors': ['upstairs'],
             'about': "This must be where they play games",
             'stuff': ["key"],
             'people': random_twin(),
@@ -287,7 +291,15 @@ def searching(world):
     if number == 3:
         world['player']['health'] -= 5
         return "You were attacked!"
-    return "You safely searched"
+    location = world['player']['location']
+    here = world['map'][location]
+    stuff = here['stuff']
+    
+    item = random.choice(stuff)
+    
+    world['player']['inventory'].append(item)
+    
+    return "You safely searched. You found the " + item + "!"
 
 def render_visible_stuff(world):
     location = world['player']['location']
@@ -362,15 +374,15 @@ def get_options(world):
         commands.append('search')
     if current_location == 'studys':
         commands.append('search')
-    if current_location == 'upstairs_hallway':
+    if current_location == 'upstairs':
         commands.append('search')
     if current_location == 'addic':
         commands.append('rest')
-    if current_location == 'room1':
+    if current_location == 'room 1':
         commands.append('search')
-    if current_location == 'room2':
+    if current_location == 'room 2':
         commands.append('search')
-    if current_location == 'room3':
+    if current_location == 'room 3':
         commands.append('search')
     return commands
 
@@ -378,15 +390,18 @@ def get_options(world):
 def goto(world, command):
     new_location = command[len('go to '):]
     world['player']['location'] = new_location
-    return "You went to " + new_location
+    return  "You went to " + new_location
 
 def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game, but why?"
+<<<<<<< HEAD
     if world['player']['health'] <= 0:
         world['status'] = 'lost'
         return "You lost to much blood. You died."
+=======
+>>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
     
     if command.startswith('go to '):
         return goto(world, command)
