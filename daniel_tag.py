@@ -65,7 +65,7 @@ def create_world():
 
 def create_player():
     return {
-        'location': 'interance',
+        'location': 'entrance',
         'inventory': [],
         'health': 100
     }
@@ -75,7 +75,7 @@ def render_player(world):
     
     statement = "you have " + str(health) + " health. "
     if health < 50:
-        statement += "You are low in health, you Need to rest. "
+        statement += "You are low in health, you need to rest. "
     return statement
 
 def render_location(world):
@@ -91,7 +91,7 @@ def random_twin():
     
 def create_map():
     return {
-        'interance': {
+        'entrance': {
             'neighbors': ['hallway', 'living room'],
             'about': "When you open up the door you felt like there is an Evil talking over the house.\n"+
                      "You know that you not safe",
@@ -99,7 +99,7 @@ def create_map():
             'people': random_twin(),
         },
         'livingroom': {
-            'neighbors': ['interance', 'kitchen', 'outside'],
+            'neighbors': ['entrance', 'kitchen', 'outside'],
             'about': "As you walk into the room and you look around you fell like there is something in the shadows.",
             'stuff': ["note"],
             'people': [],
@@ -123,7 +123,7 @@ def create_map():
             'people': random_twin(),
         },
         'living room': {
-            'neighbors': ['bedroom', 'back room', 'basement'],
+            'neighbors': ['bedroom', 'back room', 'underground'],
             'about': "As you walk into the living room things feels like death, but you don't know why.",
             'stuff': ["oil can"],
             'people': random_twin(),
@@ -140,16 +140,10 @@ def create_map():
             'stuff': ["straps"],
             'people': [],
         },
-        'basement': {
-            'neighbors':['underground'],
-            'about': "As you creep your way through the place you show this basement. What is down here.",
-            'stuff': ["nails", "metal"],
-            'people': random_twin(),
-        },
         'underground': {
-           'neighbors': ['tunnel', 'basement'],
-           'about': "You show a hole that lead to on opening. There is a in the distance.",
-           'stuff': [],
+           'neighbors': ['tunnel', 'living room'],
+           'about': "As you creep your way through the place you show this basement. What is down here.",
+           'stuff': ["nails", "metal"],
            'people': random_twin(),
         },
         'tunnel': {
@@ -234,7 +228,7 @@ def create_map():
             'people': ["minikane"],
         },
         'hallway': {
-            'neighbors': ['interance', 'studies', 'basement', 'stairs'],
+            'neighbors': ['entrance', 'studies', 'basement', 'stairs'],
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -318,7 +312,7 @@ def get_options(world):
         commands.append("go to " + neighbor)
     
   
-    if current_location == 'interance':
+    if current_location == 'entrance':
         commands.append('search')
     if current_location == 'livingroom':
         commands.append('search')
@@ -334,7 +328,7 @@ def get_options(world):
         commands.append('search')
     if current_location == 'bedroom':
         commands.append('search')
-    if current_location == 'basement':
+    if current_location == 'basement2':
         commands.append('search')
     if current_location == 'underground':
         commands.append('search')
@@ -389,7 +383,10 @@ def goto(world, command):
 def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
-        return "You quit the game"
+        return "You quit the game, but why?"
+    if world['player']['health'] <= 0:
+        world['status'] = 'lost'
+        return "You lost to much blood. You died."
     
     if command.startswith('go to '):
         return goto(world, command)
@@ -402,16 +399,13 @@ def update(world, command):
     
     return "Unknown command: " + command
 
-def render_ending_lost(world):
-    return "You Lost. Nice try."
-
 def render_ending(world):
     if world['status'] == 'won':
         return "You won! Now you get the twins owo."
     elif world['status'] == 'lost':
-        return render_ending_lost(world)
+        return "You lost."
     elif world['status'] == 'quit':
-        return "You quit the game, but why?"
+        return ""
 
 def choose(options):
     print("Available commands:")
@@ -431,7 +425,6 @@ def choose(options):
 
 WIN_PATH = []
 LOSE_PATH = []
-    
 ###### 5) Unit Tests #####
 # Write unit tests here
 
