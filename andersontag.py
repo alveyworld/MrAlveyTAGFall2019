@@ -280,11 +280,15 @@ def update(world, command):
     if command.startswith('go to '):
         return goto(world, command)
     
+    if command == "teach":
+        pass
+        
+    
         
     return "Unknown command: " + command
 
 def render_ending_lost(world):
-    return "You lost."
+    return "You lost, Jeffery Epstein didn't kill himself."
     
 def render_ending(world):
     '''
@@ -301,7 +305,7 @@ def render_ending(world):
     elif world['status'] == 'lost':
         return render_ending_lost(world)
     elif world['status'] == 'quit':
-        return "You quit, you are the big gay."
+        return "You are the big gay."
 
 def choose(options):
     '''
