@@ -68,8 +68,7 @@ def render_introduction():
             "After getting to school Mr. Alvey must earn\n" +
             "enough money to get home without going insane.\n" +
             "Mr. Alvey is sitting in his classroom and the\n" +
-            "bell rings for first period.\n" + 
-            "Ethan was here")
+            "bell rings for first period.\n")
 
 def random_students():
     '''
@@ -98,19 +97,19 @@ def create_map():
         'lounge' : {
             'about': 'You sit in your regular spot and Hosner comments on your food.',
             'neighbors' : ['classroom'],
-            'stuff': ['salt','pepper'],
+            'stuff': ['salt', 'pepper'],
             'people': ['Kreitzer', 'Holt', 'Roberts', 'Hosner', 'Shaw', 'Dewitt', 'B']   
         },
         'car' : {
             'about': 'You sit in your car and turn on the engine.',
             'neighbors' : ['lins', 'home'],
-            'stuff': ['apron','name badge'],
+            'stuff': ['apron', 'name badge'],
             'people': [],
         },
         'lins' : {
             'about': 'You put on your apron and log into your register',
             'neighbors' : ['car', 'dq'],
-            'stuff': ['pen','spray bottle'],
+            'stuff': ['pen', 'spray bottle'],
             'people': ['Ashlee', 'Jeff', 'Collin'],    
         },
         'dq' : {
@@ -121,7 +120,7 @@ def create_map():
         },
         'archam' : {
             'neighbors' : ['home'],
-            'stuff': ['bat-erang','clown mask'],
+            'stuff': ['bat-erang', 'clown mask'],
             'people': ['Joker', 'Counselor', 'Batman', 'Gordon', 'Dent', 'Alfred']    
         },
         'home' : {
@@ -182,21 +181,29 @@ def render_player(world):
     
     statement = ""
     if hungry:
-        statement = "You are hungry, you should eat soon"
+        statement += "You are hungry, you should eat soon. "
     if not sanity:
-        statement = "You are going insain, please get help."
-    statemnt += "You have " + str(money) +" dollars."
-    
+        statement += "You are going insane, please get help."
+    statement += "You have " + str(money) + " dollars."
     
     return statement
     
-def render_visible_stuff():
+def render_visible_stuff(world):
     '''
-    Consumes a world and produces a string for visible stuff
-    '''
+     Consumes a world and produces a string of visible items
+     '''
     location = world['player']['location']
     here = world['map'][location]
-    about = here['about']
+    stuff = here['stuff']
+    inventory = world['player']['inventory']
+    
+    if location == 'classroom':
+        return "You see a desk that might have something useful to you inside."
+    else:
+        visible_stuff = []
+        for thing in stuff:
+            visible_stuff.append(thing)
+        return "You see: " + ', '.join(visible_stuff)
     
 def render(world):
     '''
@@ -224,14 +231,36 @@ def get_options(world):
     Returns:
         list[str]: The list of commands that the user can choose from.
     '''
-    commands = ["Quit"]
+    
+    commands = ["quit"]
     current_location = world["player"]["location"]
     location = world['map'][current_location]
     neighbors = location['neighbors']
     
     for neighbor in neighbors:
-        commands.append("Go to" + neighbor)
-
+        commands.append("go to " + neighbor)
+    
+    if current_location == "classroom":
+        commands.append("search desk")
+        commands.append("teach")
+    if current_location == "lounge":
+        commands.append("complain")
+        commands.append("eat")
+    if current_location == "lins":
+        commands.append("ring up")
+    if current_location == "dq":
+        commands.append("eat")
+        commands.append("get icecream")
+    if current_location == "archam":
+        commands.append("counseling")
+        commands.append("meet joker")
+    return commands
+    
+def goto(world, command):
+    new_location = command[len('go to '):]
+    world['player']['location'] = new_location
+    return "You went to " + new_location
+    
 def update(world, command):
     '''
     Consumes a world and a command and updates the world according to the
@@ -244,7 +273,19 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    if command == "quit":
+        world['status'] = 'quit'
+        return "You quit the game"
+    
+    if command.startswith('go to '):
+        return goto(world, command)
+    
+        
+    return "Unknown command: " + command
 
+def render_ending_lost(world):
+    return "You lost."
+    
 def render_ending(world):
     '''
     Create the message to be displayed at the end of your game.
@@ -255,6 +296,12 @@ def render_ending(world):
     Returns:
         str: The ending text of your game to be displayed.
     '''
+    if world['status'] == 'won':
+        return "You won!"
+    elif world['status'] == 'lost':
+        return render_ending_lost(world)
+    elif world['status'] == 'quit':
+        return "You quit."
 
 def choose(options):
     '''
@@ -271,6 +318,14 @@ def choose(options):
     Returns:
         str: The command that was selected by the user.
     '''
+    print("Available commands:")
+    for option in options:
+        print(option)
+        
+    command = input("Type a command: ")
+    while command not in options:
+        command = input("Invalid Command\n\nType a command: ")
+    return command
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
@@ -334,3 +389,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
