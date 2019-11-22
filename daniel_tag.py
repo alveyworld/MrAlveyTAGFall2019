@@ -75,7 +75,7 @@ def render_player(world):
     
     statement = "you have " + str(health) + " health. "
     if health < 50:
-        statement += "You are low in health, you Need to rest. "
+        statement += "You are low in health, you need to rest. "
     return statement
 
 def render_location(world):
@@ -123,7 +123,7 @@ def create_map():
             'people': random_twin(),
         },
         'living room': {
-            'neighbors': ['bedroom', 'back room', 'basement'],
+            'neighbors': ['bedroom', 'back room', 'underground'],
             'about': "As you walk into the living room things feels like death, but you don't know why.",
             'stuff': ["oil can"],
             'people': random_twin(),
@@ -140,16 +140,10 @@ def create_map():
             'stuff': ["straps"],
             'people': [],
         },
-        'basement': {
-            'neighbors':['underground'],
-            'about': "As you creep your way through the place you show this basement. What is down here.",
-            'stuff': ["nails", "metal"],
-            'people': random_twin(),
-        },
         'underground': {
-           'neighbors': ['tunnel', 'basement'],
-           'about': "You show a hole that lead to on opening. There is a in the distance.",
-           'stuff': [],
+           'neighbors': ['tunnel', 'living room'],
+           'about': "As you creep your way through the place you show this basement. What is down here.",
+           'stuff': ["nails", "metal"],
            'people': random_twin(),
         },
         'tunnel': {
@@ -234,7 +228,11 @@ def create_map():
             'people': ["minikane"],
         },
         'hallway': {
+<<<<<<< HEAD
+            'neighbors': ['entrance', 'studies', 'basement', 'stairs'],
+=======
             'neighbors': ['entrance', 'studies', 'basement', 'upstairs'],
+>>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -342,7 +340,7 @@ def get_options(world):
         commands.append('search')
     if current_location == 'bedroom':
         commands.append('search')
-    if current_location == 'basement':
+    if current_location == 'basement2':
         commands.append('search')
     if current_location == 'underground':
         commands.append('search')
@@ -398,6 +396,12 @@ def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game, but why?"
+<<<<<<< HEAD
+    if world['player']['health'] <= 0:
+        world['status'] = 'lost'
+        return "You lost to much blood. You died."
+=======
+>>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
     
     if command.startswith('go to '):
         return goto(world, command)
@@ -410,14 +414,11 @@ def update(world, command):
     
     return "Unknown command: " + command
 
-def render_ending_lost(world):
-    return "You Lost. Nice try."
-
 def render_ending(world):
     if world['status'] == 'won':
         return "You won! Now you get the twins owo."
     elif world['status'] == 'lost':
-        return render_ending_lost(world)
+        return "You lost."
     elif world['status'] == 'quit':
         return ""
 
@@ -439,7 +440,6 @@ def choose(options):
 
 WIN_PATH = []
 LOSE_PATH = []
-    
 ###### 5) Unit Tests #####
 # Write unit tests here
 

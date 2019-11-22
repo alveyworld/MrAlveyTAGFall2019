@@ -92,8 +92,13 @@ def create_map():
                     "looks like it has not seen much use but there is a table nearby\n"+
                     'on the table is 1 gold coin and a bowl of soup\n' +
                     "East is a large field and to the South there is the town of zik",
-            'stuff':['Green cap mushroom','bowl of soup','shears'],
-            'people':['your boss']
+            'stuff':['mushroom','bowl of soup','shears'],
+            'people':[{
+                'name':'your boss',
+                'about':'What are you doing Ben aw i dont care as long as i get money',
+                'sells':{},
+                'buys':{}
+                }]
             },
             
         'field':{
@@ -103,7 +108,12 @@ def create_map():
                     'there is a hoe at your feet and wheat all around you\n' +
                     'and to the south is a dense forest',
             'stuff':['wheat','hoe',],
-            'people':[]
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }]
             },
         
         
@@ -112,7 +122,12 @@ def create_map():
             'about':"\n Large Field of grass light seems brighter here and life seems happier \n"+
                     'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
-            'people':[]
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }]
             },
         
         'clearing':{
@@ -120,7 +135,12 @@ def create_map():
             'about':"\n You are in a clearing in the forest you see the forest continues south"
             + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
-            'people':[]
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }]
             },
         
         'ravine':{
@@ -128,7 +148,12 @@ def create_map():
             'about':"\n there is a big crack in the earth that is very deep and it keeps going" +
             " down to the south and there are some woods to the east",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'in ravine':{
@@ -136,7 +161,12 @@ def create_map():
             'about':'\n you are in a deep chasm your feet are now damp\n'+
                     'to the east is a way up and to the south is deeper into the ravine',
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'bullywogs huts':{
@@ -145,15 +175,30 @@ def create_map():
                     'to the west is a way down into a deep ravine to the east is the ocean\n'+
                     'and to the south farther down the beach',
             'stuff':[],
-            'people':['green bullywog','yellow bullywog']
+            'people':[{
+                'name':'green bullywog',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                },{
+                'name':'yellow bullywog',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }]
             },
         
         'calm waters':{
-            'neighbors':['bullywogs'],
+            'neighbors':['bullywogs huts'],
             'about':"\n Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'town of zik':{
@@ -164,7 +209,22 @@ def create_map():
                     'to the north is a small House to the east is a small forest\n'+
                     'and to the south is a small house with a forge outside',
             'stuff':[],
-            'people':['Tailor','Coining Store','Food Market'],
+            'people':[{
+                'name':'Tailor',
+                'about':'',
+                'sells':{},
+                'buys':{'wool':{"amount": 2, "currency": 'gold'},}
+                },{
+                'name':'Coining Store',
+                'about':'',
+                'sells':{},
+                'buys':{'gold vien':{'amount': 3, 'currency': 'gold'}}
+                },{
+                'name':'Food Market',
+                'about':'',
+                'sells':{},
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}}
+                }],
             },
         
         'small clearing':{
@@ -173,14 +233,24 @@ def create_map():
             + "town to the west and to hear water from the south and see something to"
             +"the east.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'the dark woods':{
             'neighbors':['small clearing','large tree','small creek'],
             'about':' a dark forest',
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'large tree':{
@@ -188,14 +258,24 @@ def create_map():
             'about':"\n A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'up tree':{
             'neighbors':['large tree'],
             'about':'you climb up the tree you see a nest with many diffrent eggs a few shine ',
             'stuff':['silver egg'],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'ravine w/ bridge':{
@@ -204,7 +284,12 @@ def create_map():
             "to the north and you some woods on the other side to the south east and some to the \n"+
             "west and south west.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'in ravine under bridge':{
@@ -213,7 +298,12 @@ def create_map():
                     'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
             'stuff':['gold vein'],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         
@@ -224,14 +314,29 @@ def create_map():
                     'there is a path farther up the beach north \n'+
                     'a way to the ocean east , and a path down the beach south',
             'stuff':[],
-            'people':['white merlock','Blue merlock'],
+            'people':[{
+                'name':'white merlock',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                },{
+                'name':'Blue merlock',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'cavern':{
             'neighbors':['in ravine under bridge',],
             'about':'',
             'stuff':[],
-            'people':['Goblins'],
+            'people':[{
+                'name':'Goblins',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'deep waters':{
@@ -239,7 +344,12 @@ def create_map():
             'about':"\n you are swimming in the water and can not touch the bottom and \n" +
             " you see some huts to the west.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'black smith':{
@@ -263,23 +373,38 @@ def create_map():
             " the east and you see some more woods the the south and a building to the \n"+
             "west and a Town to the north west.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'small creek':{
-            'neighbors':['river','well','the dark woods','wood w/ river','ginger bread house','hidden cave'],
+            'neighbors':['river','well','the dark woods','woods w/ river','ginger bread house','hidden cave'],
             'about':"\n there is a small creek with a small river to the west and one going \n"+
             " to the south east from with lots of tree all around and you see wood \n" +
             "all around and a small trail of candy to the south.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'hidden cave':{
             'neighbors':['small creek'],
             'about':"\n a small damp cave hidden by vines in the woods near a river",
             'stuff':['hidden chest'],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'well':{
@@ -287,7 +412,12 @@ def create_map():
             'about':"\n There is a old broken well in the middle of a clearing \n"+
             "to the north is a large tree you also hear some water flowing to the west and south.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'woods w/ cliff':{
@@ -295,7 +425,12 @@ def create_map():
             'about':"\n you are in a small group of trees and you see a cliff to the \n"+
             "south and a bridge to the north east and a beach to the east",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'sandy beach':{
@@ -303,7 +438,12 @@ def create_map():
             'about':'\n you are standing on the beach and you can see some huts to the north n/'+
             "and some wood to the west and some water to the east.",
             'stuff':[],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'shallow waters':{
@@ -311,7 +451,12 @@ def create_map():
             'about':"\n you are standing in the water and see a nest with a egg and you can see \n"+
             "the beach to the west.",
             'stuff':['Gold egg'],
-            'people':[],
+            'people':[{
+                'name':'',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         "olga's house":{
@@ -323,7 +468,12 @@ def create_map():
                     'to the east is a dead forest and to\n'+
                     ' the south is a Hill near a Cliff',
             'stuff':[],
-            'people':['Olga'],
+            'people':[{
+                'name':'Olga',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'dead forest':{
@@ -405,7 +555,7 @@ def create_map():
             },
         
         'woods w/ river':{
-            'neighbors':['above cavern','ginger bread house','big waves','muddy cliff','Small Creek'],
+            'neighbors':['above cavern','ginger bread house','big waves','muddy cliff','small creek'],
             'about':"\n A Forest of dead trees and insects with a candy path cutting through\n"+
                     'untell the path reaches a large Stream were it turns into a cobble stone Bridge\n'+
                     'the river continues untell it passes down the beach into the ocean \n'+
@@ -476,8 +626,8 @@ def create_map():
 
 def create_player():
     return {
-        'location': 'black smith',
-        'inventory': ['golden fork'],
+        'location': 'field',
+        'inventory': [''],
         'Hunger': False ,
         'Gold': 0
         }
@@ -514,7 +664,7 @@ def render_player(world):
     Gold = world['player']['Gold']
     Hunger = world['player']['Hunger']
     
-    if Gold == 10:
+    if Gold >= 2:
         world['status'] = "won"
         
     return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
@@ -526,9 +676,24 @@ def render_location(world):
     location = world['player']['location']
     here = world['map'][location]
     about = here['about']
+    people = here['people']
     
-    return ("You are in "+location+"\n"+
-            about +"\n")
+    names = [p['name'] for p in people]
+
+    message = f"You are in {location} \n{about}"
+    try:
+        if names[0]:
+            for person in people:
+                message += f"\n\n{person['name']}: {person['about']}\n\n"
+        else:
+            message += "\n\nNobody's here\n\n"
+    except IndexError:
+        #No People
+        message += "\nNobody's here\n"
+    
+    return message
+#    return ("You are in "+location+"\n"+
+#            about +"\n")
     
 def render(world):
     
