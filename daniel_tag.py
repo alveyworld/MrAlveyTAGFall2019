@@ -228,11 +228,7 @@ def create_map():
             'people': ["minikane"],
         },
         'hallway': {
-<<<<<<< HEAD
             'neighbors': ['entrance', 'studies', 'basement', 'stairs'],
-=======
-            'neighbors': ['entrance', 'studies', 'basement', 'upstairs'],
->>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -294,7 +290,7 @@ def searching(world):
     location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
-    
+  
     item = random.choice(stuff)
     
     world['player']['inventory'].append(item)
@@ -391,17 +387,23 @@ def goto(world, command):
     new_location = command[len('go to '):]
     world['player']['location'] = new_location
     return  "You went to " + new_location
-
+    
+    
+    
+    #number = random.randint(0,3)
+    #if number == 3:
+        #world['player']['health'] -= 5
+        #return "You were attacked when you entered the room."
+    
+    
 def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game, but why?"
-<<<<<<< HEAD
+
     if world['player']['health'] <= 0:
         world['status'] = 'lost'
         return "You lost to much blood. You died."
-=======
->>>>>>> 7313d04f1a474f765309378d92d2e4d0d84ba6c9
     
     if command.startswith('go to '):
         return goto(world, command)
@@ -420,7 +422,7 @@ def render_ending(world):
     elif world['status'] == 'lost':
         return "You lost."
     elif world['status'] == 'quit':
-        return ""
+        return "You quit the game, but why?"
 
 def choose(options):
     print("Available commands:")
@@ -443,7 +445,7 @@ LOSE_PATH = []
 ###### 5) Unit Tests #####
 # Write unit tests here
 
-from cisc108 import assert_equal
+# from cisc108 import assert_equal
 
 
 ###### 6) Main Function #####
