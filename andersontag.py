@@ -277,11 +277,44 @@ def update(world, command):
         world['status'] = 'quit'
         return "You quit the game"
     
+    if command == "teach":
+        sanity = world['player']['sanity']
+        world['player']['money'] += 1
+        if sanity:
+            world['player']['sanity'] = take_roll()
+        return "you earned a single dollar!"
+    
+    if command == "ring up":
+        world['player']['money'] += 1
+        return "you earned a single dollar!"
+        
+    
     if command.startswith('go to '):
         return goto(world, command)
     
-    if command == "teach":
-        pass
+    if command == "get icecream":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
+        
+        return "You enjoy an icecream cone and feel much better."
+    if command == "eat":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
+    
+        return "You enjoy some food and are feeling energetic again!"
+    if command == "meet joker":
+        world['status'] = 'lost'
+        return "You shared a cell with joker and died of laughter!"
+    if command == "counseling":
+        world['player']['money'] -= 2
+        world['player']['sanity'] = True
+        return "You are well again and can continue working!"
+    
+    
+    if command == "search desk":
+        world['player']['money'] += 4
+        return "WOW you have found $4!"
+    
         
     
         
