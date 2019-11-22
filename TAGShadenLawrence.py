@@ -63,6 +63,7 @@ Records:
 
 ##### 3) Core Game Functions #####
 # Implement the following to create your game.
+import map
 
 def render_introduction():
     '''...'''
@@ -562,13 +563,15 @@ def create_map():
             'people':[],
             },
          }
-def map_item():
-    import Map.py
+def map_item(current_location):
+    
+    map.main(current_location)
+
     
 def create_player():
     return {
         'location': 'field',
-        'inventory': ['map'],
+        'inventory': [''],
         'Hunger': False ,
         'Gold': 0
         }
@@ -756,7 +759,9 @@ def update(world, command):
         return goto(world, command)
     
     if command == 'open map':
-        map_item()
+        map_item(current_location)
+        
+        
         
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']
