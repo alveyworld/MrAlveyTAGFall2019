@@ -752,6 +752,7 @@ def update(world, command):
     if command.startswith('goto '):
         return goto(world, command)
     
+    
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']
     

@@ -1021,6 +1021,4 @@ def location_MC():
     turtle.pendown()
     you()
 
-location_MC()
-
 turtle.done()
