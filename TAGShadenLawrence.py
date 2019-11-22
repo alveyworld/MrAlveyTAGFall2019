@@ -302,7 +302,7 @@ def create_map():
                     {'name': 'Blacksmith',
                     'about':'',
                     'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'}},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},},
                     }],
             },
         
@@ -411,7 +411,7 @@ def create_map():
                 'name':'Olga',
                 'about':'',
                 'sells':{},
-                'buys':{}
+                'buys':{'kids': {"amount": 5, "currency": 'gold'}}
                 }],
             },
         
@@ -562,11 +562,14 @@ def create_map():
             'people':[],
             },
          }
-
+def map_item():
+    import Map.py
+    open (Map.py)
+    
 def create_player():
     return {
         'location': 'field',
-        'inventory': [''],
+        'inventory': ['map'],
         'Hunger': False ,
         'Gold': 0
         }
@@ -603,7 +606,7 @@ def render_player(world):
     Gold = world['player']['Gold']
     Hunger = world['player']['Hunger']
     
-    if Gold >= 6:
+    if Gold >= 39:
         world['status'] = "won"
         
     return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
@@ -693,7 +696,8 @@ def get_options(world):
             if item in inventory:
                 commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
-
+    if 'map' in inventory:
+        commands.append("open map")
         
         
         
@@ -752,7 +756,9 @@ def update(world, command):
     if command.startswith('goto '):
         return goto(world, command)
     
-    
+    if command == 'open map':
+        map_item()
+        
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']
     
