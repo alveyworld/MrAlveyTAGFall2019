@@ -564,7 +564,6 @@ def create_map():
          }
 def map_item():
     import Map.py
-    open (Map.py)
     
 def create_player():
     return {
