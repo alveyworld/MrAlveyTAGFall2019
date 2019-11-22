@@ -95,7 +95,7 @@ def create_map():
             'stuff':['mushroom','bowl of soup','shears'],
             'people':[{
                 'name':'your boss',
-                'about':'he says to you boo',
+                'about':'What are you doing Ben aw i dont care as long as i get money',
                 'sells':{},
                 'buys':{}
                 }]
@@ -108,12 +108,7 @@ def create_map():
                     'there is a hoe at your feet and wheat all around you\n' +
                     'and to the south is a dense forest',
             'stuff':['wheat','hoe',],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }]
+            'people':[],
             },
         
         
@@ -122,12 +117,7 @@ def create_map():
             'about':"\n Large Field of grass light seems brighter here and life seems happier \n"+
                     'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }]
+            'people':[],
             },
         
         'clearing':{
@@ -135,12 +125,7 @@ def create_map():
             'about':"\n You are in a clearing in the forest you see the forest continues south"
             + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }]
+            'people':[],
             },
         
         'ravine':{
@@ -148,12 +133,7 @@ def create_map():
             'about':"\n there is a big crack in the earth that is very deep and it keeps going" +
             " down to the south and there are some woods to the east",
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'in ravine':{
@@ -161,25 +141,23 @@ def create_map():
             'about':'\n you are in a deep chasm your feet are now damp\n'+
                     'to the east is a way up and to the south is deeper into the ravine',
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'bullywogs huts':{
             'neighbors':['in ravine','calm waters','merlock huts'],
-            'about':'\n You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow'+
+            'about':'\n You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow \n'+
                     'to the west is a way down into a deep ravine to the east is the ocean\n'+
                     'and to the south farther down the beach',
             'stuff':[],
             'people':[{
                 'name':'green bullywog',
-                'about':'',
+                'about':'*ribit* hello there my nice fellow *ribit*\n'+
+                        'can you help us some slimmy fish stole are flys\n'+
+                        '*ribit* will you go get them back. well give back *ribit*\n'+
+                        'there seaweed its just in are pond to the east',
                 'sells':{},
-                'buys':{}
+                'buys':{'jar of flies':{"amount": 3, "currency": 'gold'}}
                 },{
                 'name':'yellow bullywog',
                 'about':'',
@@ -192,13 +170,8 @@ def create_map():
             'neighbors':['bullywogs huts'],
             'about':"\n Calm still waters there might be a ship out there...\n"+
             'But probably not thats the edge of the world',
-            'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'stuff':['tasty seaweed'],
+            'people':[],
             },
         
         'town of zik':{
@@ -223,7 +196,7 @@ def create_map():
                 'name':'Food Market',
                 'about':'',
                 'sells':{},
-                'buys':{}
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}}
                 }],
             },
         
@@ -233,24 +206,14 @@ def create_map():
             + "town to the west and to hear water from the south and see something to"
             +"the east.",
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'the dark woods':{
             'neighbors':['small clearing','large tree','small creek'],
             'about':' a dark forest',
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'large tree':{
@@ -258,24 +221,14 @@ def create_map():
             'about':"\n A small clearing with a big tree there is more woods to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'up tree':{
             'neighbors':['large tree'],
             'about':'you climb up the tree you see a nest with many diffrent eggs a few shine ',
             'stuff':['silver egg'],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'ravine w/ bridge':{
@@ -284,30 +237,20 @@ def create_map():
             "to the north and you some woods on the other side to the south east and some to the \n"+
             "west and south west.",
             'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         'in ravine under bridge':{
-            'neighbors':['ravine w/ bridge','cavern'],
+            'neighbors':['ravine w/ bridge','cavern','in ravine'],
             'about':'\n you are in a deep Ravine above you is a small rope bridge\n'+
                     'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
             'stuff':['gold vein'],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'people':[],
             },
         
         
-        'merlock huts ':{
+        'merlock huts':{
             'neighbors':['bullywogs huts','deep waters','sandy beach'],
             'about':"\n as you aproch wooden houses elevated above the water\n"+
                     'two merlocks jump out of them one white one blue\n'+
@@ -316,9 +259,10 @@ def create_map():
             'stuff':[],
             'people':[{
                 'name':'white merlock',
-                'about':'',
+                'about':'Hey you big guy can you help us some frogs to the north stole from us\n' +
+                'can you get us back are seaweed well give you there flys there to the east in are sea town',
                 'sells':{},
-                'buys':{}
+                'buys':{'tasty seaweed':{"amount": 3, "currency": 'gold'}}
                 },{
                 'name':'Blue merlock',
                 'about':'',
@@ -333,23 +277,18 @@ def create_map():
             'stuff':[],
             'people':[{
                 'name':'Goblins',
-                'about':'',
+                'about':'a wut dus u think u doing here Grab him',
                 'sells':{},
                 'buys':{}
                 }],
             },
         
         'deep waters':{
-            'neighbors':['ravine w/ bridge'],
+            'neighbors':['merlock huts'],
             'about':"\n you are swimming in the water and can not touch the bottom and \n" +
             " you see some huts to the west.",
-            'stuff':[],
-            'people':[{
-                'name':'',
-                'about':'',
-                'sells':{},
-                'buys':{}
-                }],
+            'stuff':['jar of flies'],
+            'people':[],
             },
         
         'black smith':{
@@ -363,7 +302,7 @@ def create_map():
                     {'name': 'Blacksmith',
                     'about':'',
                     'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'}},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},},
                     }],
             },
         
@@ -472,7 +411,7 @@ def create_map():
                 'name':'Olga',
                 'about':'',
                 'sells':{},
-                'buys':{}
+                'buys':{'kids': {"amount": 5, "currency": 'gold'}}
                 }],
             },
         
@@ -623,11 +562,13 @@ def create_map():
             'people':[],
             },
          }
-
+def map_item():
+    import Map.py
+    
 def create_player():
     return {
         'location': 'field',
-        'inventory': [''],
+        'inventory': ['map'],
         'Hunger': False ,
         'Gold': 0
         }
@@ -664,7 +605,7 @@ def render_player(world):
     Gold = world['player']['Gold']
     Hunger = world['player']['Hunger']
     
-    if Gold >= 2:
+    if Gold >= 39:
         world['status'] = "won"
         
     return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
@@ -684,12 +625,12 @@ def render_location(world):
     try:
         if names[0]:
             for person in people:
-                message += f"\n{person['name']}: {person['about']}\n"
+                message += f"\n\n{person['name']}: {person['about']}\n\n"
         else:
-            message += "\nNobody's here\n"
+            message += "\n\nNobody's here\n\n"
     except IndexError:
         #No People
-        message += "\nNobody's here\n"
+        message += "\n\nNobody's here\n\n"
     
     return message
 #    return ("You are in "+location+"\n"+
@@ -754,7 +695,8 @@ def get_options(world):
             if item in inventory:
                 commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
-
+    if 'map' in inventory:
+        commands.append("open map")
         
         
         
@@ -813,6 +755,9 @@ def update(world, command):
     if command.startswith('goto '):
         return goto(world, command)
     
+    if command == 'open map':
+        map_item()
+        
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']
     
