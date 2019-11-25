@@ -577,9 +577,8 @@ def map_item(current_location):
     
 def create_player():
     return {
-        'location': "olga's house",
-        'inventory': ['map'],
-        'Hunger': False ,
+        'location': 'field',
+        'inventory': [''],
         'Gold': 0
         }
 
@@ -613,12 +612,11 @@ def render_player(world):
     '''
     inventory = world['player']['inventory']
     Gold = world['player']['Gold']
-    Hunger = world['player']['Hunger']
     
     if Gold >= 39:
         world['status'] = "won"
         
-    return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
+    return "Gold: " + str(Gold)
 
 def render_location(world):
     '''
