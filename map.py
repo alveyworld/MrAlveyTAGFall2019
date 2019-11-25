@@ -133,8 +133,60 @@ def main(current_location):
     if current_location == "ravine w/ bridge":
         location_RwB()
    
-   if current_location == "in ravine under bridge":
+    if current_location == "in ravine under bridge":
         location_iRUB()
+    
+    if current_location == "merlock huts":
+        location_MH()
+    
+    if current_location == "deep waters":
+        location_DW()
+    
+    if current_location == "black smith":
+        location_BS()
+    
+    if current_location == "river":
+        location_Ri()
+    
+    if current_location == "small creek":
+        location_SC()
+    
+    if current_location == "well":
+        location_W()
+    
+    if current_location == "cavern":
+        location_C()
+    
+    if current_location == "woods w/ cliff":
+        location_WwC()
+    
+    if current_location == "sandy beach":
+        location_SB()
+    
+    if current_location == "shallow waters":
+        location_SW()
+    
+    if current_location == "olga's House":
+        location_OH()
+    
+    if current_location == "dead forest":
+        location_DF()
+    
+    if current_location == "ginger bread house":
+        location_GBH()
+        
+    if current_location == "woods w/ river":
+        location_WwR()
+        
+    if current_location == "big waves":
+        location_BW()
+        
+    if current_location == "high cliff":
+        location_HC()
+    
+    if current_location == "grassy cliff":
+        location_GC()
+    
     
         
     turtle.done()
