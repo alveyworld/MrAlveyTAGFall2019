@@ -85,7 +85,7 @@ def random_cliff_text():
     
     
 def create_map():
-    return {
+    m = {
         
         'farm house':{
             'neighbors':['field','town of zik'],
@@ -302,7 +302,7 @@ def create_map():
             'people':[
                     {'name': 'Blacksmith',
                     'about':'',
-                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':1, 'currency': 'gold'}},
                     'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},},
                     }],
             },
@@ -410,7 +410,10 @@ def create_map():
             'stuff':[],
             'people':[{
                 'name':'Olga',
-                'about':'',
+                'about':'* a lady sits on the steps of a huge house crying*\n' +
+                        'Hello Mr.Ben im sorry i look this way my makup dripin and all\n' +
+                        'but my kids went missing two days ago and nobody seems to care\n' +
+                        '* her tears seem to let up wait ',
                 'sells':{},
                 'buys':{'kids': {"amount": 5, "currency": 'gold'}}
                 }],
@@ -563,6 +566,10 @@ def create_map():
             'people':[],
             },
          }
+    for location in m.values():
+        location['visited'] = False
+    return m
+
 def map_item(current_location):
     
     map.main(current_location)
@@ -570,8 +577,8 @@ def map_item(current_location):
     
 def create_player():
     return {
-        'location': 'field',
-        'inventory': [''],
+        'location': "olga's house",
+        'inventory': ['map'],
         'Hunger': False ,
         'Gold': 0
         }
@@ -625,15 +632,18 @@ def render_location(world):
     names = [p['name'] for p in people]
 
     message = f"You are in {location} \n{about}"
-    try:
-        if names[0]:
-            for person in people:
-                message += f"\n\n{person['name']}: {person['about']}\n\n"
-        else:
+    
+    if(not here['visited']):
+        try:
+            if names[0]:
+                for person in people:
+                    message += f"\n\n{person['name']}: {person['about']}\n\n"
+            else:
+                message += "\n\nNobody's here\n\n"
+        except IndexError:
+            #No People
             message += "\n\nNobody's here\n\n"
-    except IndexError:
-        #No People
-        message += "\n\nNobody's here\n\n"
+        here['visited'] = True
     
     return message
 #    return ("You are in "+location+"\n"+
