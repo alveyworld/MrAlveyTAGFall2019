@@ -113,7 +113,7 @@ def location_FH():
     
 def location_F():
     turtle.penup()
-    turtle.goto(-205,190)
+    turtle.goto(-205,165)
     turtle.pendown()
     you()
     
@@ -294,4 +294,3 @@ def location_MC():
     turtle.goto(-60,-50)
     turtle.pendown()
     you()
-
