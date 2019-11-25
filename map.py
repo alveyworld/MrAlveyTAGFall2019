@@ -112,8 +112,30 @@ def main(current_location):
     if current_location == "in ravine":
         location_iR()
         
-    if current_location == "bullywags huts":
+    if current_location == "bullywogs huts":
         location_BH()
+   
+    if current_location == "calm waters":
+        location_CW()
+        
+    if current_location == "town of zik":
+        location_ToZ()
+    
+    if current_location == "small clearing":
+        location_SC()
+    
+    if current_location == "the dark woods":
+        location_tDW()
+    
+    if current_location == "large tree":
+        location_LT()
+    
+    if current_location == "ravine w/ bridge":
+        location_RwB()
+   
+   if current_location == "in ravine under bridge":
+        location_iRUB()
+    
         
     turtle.done()
 
