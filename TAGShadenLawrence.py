@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "21lawresha@washk12.org"
+__author__ = "21lawresha@washk12.org &"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
 'his field who has just thrown down his hoe down win by making 10 gold')
@@ -68,7 +68,7 @@ import map
 def render_introduction():
     '''...'''
     return ("== Ben ? ==\n"+
-            "= By Shaden Lawrence =\n"+
+            "= By Shaden Lawrence & Raegon Tailbot =\n"+
             "\n" +
             ".... *Nothing* ... *Something* Light your flying through space on a long voyage\n"+
             ' *Smack* ... your awake ... your hear in the distance "Ben ?"\n'+
