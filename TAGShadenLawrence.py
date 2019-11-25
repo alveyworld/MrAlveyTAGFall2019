@@ -452,7 +452,7 @@ def create_map():
             },
         
         'kitchen':{
-            'neighbors':['entrance hall','libary'],
+            'neighbors':['entrance hall','library'],
             'about':'\n a room made of cobblestone there is a large cooking stove\n'+
                     'there is something in the stove cooking',
             'stuff':['Meat Pie','Golden Fork'],
@@ -476,7 +476,7 @@ def create_map():
             },
         
         'library':{
-            'neighbors':['alchemy room'],
+            'neighbors':['alchemy room','kitchen'],
             'about':'\n you look around and see shelves of books lots and lots of books \n'+
             "and you can see a door to the west.",
             'stuff':[],
