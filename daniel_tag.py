@@ -54,7 +54,8 @@ def render_introduction():
             "\n"+
             "The twins invited you over to their house.\n"+
             "When you arrive to Whales Englind it was dark and cold.\n"+
-            "You had a taxi drive you  over to their address.")
+            "You had a taxi drive you  over to their address.\n"+
+            "")
 
 def create_world():
     return {
@@ -84,6 +85,7 @@ def render_location(world):
     about = here['about']
     
     return ("You are in "+location+"\n"+
+            "\n"+
             about+"\n")
 
 def random_twin():
@@ -94,7 +96,7 @@ def create_map():
         'entrance': {
             'neighbors': ['hallway', 'living room'],
             'about': "When you open up the door you felt like there is an Evil talking over the house.\n"+
-                     "You know that you not safe",
+                     "You know that you not safe.",
             'stuff': ["flashlight"],
             'people': random_twin(),
         },
@@ -222,13 +224,13 @@ def create_map():
             'people': [],
         },
         'kitchen': {
-            'neighbors': ['living room', 'hallway'],
+            'neighbors': ['livingroom', 'hallway'],
             'about': "There might be something usefull",
             'stuff': [],
             'people': ["minikane"],
         },
         'hallway': {
-            'neighbors': ['entrance', 'studies', 'basement', 'stairs'],
+            'neighbors': ['entrance', 'studies', 'basement', 'stairs', 'kitchen'],
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
