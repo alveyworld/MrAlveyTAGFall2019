@@ -94,10 +94,15 @@ def main(current_location):
          turtle.forward(20)
          turtle.pendown()
     
-    
+    if current_location == "farm house":
+        location_FH()
     
     if current_location == "field":
         location_F()
+        
+    if current_location == "pasture":
+        location_P()
+        
         
     turtle.done()
 
@@ -107,103 +112,103 @@ def you():
     
 def location_FH():
     turtle.penup()
-    turtle.goto(-275,190)
+    turtle.goto(-275,175)
     turtle.pendown()
     you()
     
 def location_F():
     turtle.penup()
-    turtle.goto(-205,165)
+    turtle.goto(-205,175)
     turtle.pendown()
     you()
     
 
 def location_P():
     turtle.penup()
-    turtle.goto(-130,190)
+    turtle.goto(-130,175)
     turtle.pendown()
     you()
 
 def location_C():
     turtle.penup()
-    turtle.goto(-60,190)
+    turtle.goto(-60,175)
     turtle.pendown()
     you()
 
 def location_Ra():
     turtle.penup()
-    turtle.goto(0,190)
+    turtle.goto(0,175)
     turtle.pendown()
     you()
 
 def location_iR():
     turtle.penup()
-    turtle.goto(70,190)
+    turtle.goto(70,175)
     turtle.pendown()
     you()
 
 def location_BH():
     turtle.penup()
-    turtle.goto(150,190)
+    turtle.goto(150,175)
     turtle.pendown()
     you()
 def location_CW():
     turtle.penup()
-    turtle.goto(220,190)
+    turtle.goto(220,175)
     turtle.pendown()
     you()
     
 def location_ToZ():
     turtle.penup()
-    turtle.goto(-275,130)
+    turtle.goto(-275,120)
     turtle.pendown()
     you()
 
 def location_SC():
     turtle.penup()
-    turtle.goto(-205,130)
+    turtle.goto(-205,120)
     turtle.pendown()
     you()
 
 def location_tDW():
     turtle.penup()
-    turtle.goto(-205,130)
+    turtle.goto(-205,120)
     turtle.pendown()
     you()
     
 def location_LT():
     turtle.penup()
-    turtle.goto(-130,130)
+    turtle.goto(-130,120)
     turtle.pendown()
     you()
 
 def location_UT():
     turtle.penup()
-    turtle.goto(-60,130)
+    turtle.goto(-60,120)
     turtle.pendown()
     you()
 
 def location_RwB():
     turtle.penup()
-    turtle.goto(0,130)
+    turtle.goto(0,120)
     turtle.pendown()
     you()
 
 def location_iRUB():
     turtle.penup()
-    turtle.goto(70,130)
+    turtle.goto(70,120)
     turtle.pendown()
     you()
 
 def location_MH():
     turtle.penup()
-    turtle.goto(150,130)
+    turtle.goto(150,120)
     turtle.pendown()
     you()
 
 def location_DW():
     turtle.penup()
-    turtle.goto(220,130)
+    turtle.goto(220,120)
     turtle.pendown()
     you()
     
@@ -250,47 +255,47 @@ def location_SW():
 
 def location_OH():
     turtle.penup()
-    turtle.goto(-275,10)
+    turtle.goto(-275,20)
     turtle.pendown()
     you()
 
 def location_DF():
     turtle.penup()
-    turtle.goto(-205,10)
+    turtle.goto(-205,20)
     turtle.pendown()
     you()
 def location_GBH():
     turtle.penup()
-    turtle.goto(-130,10)
+    turtle.goto(-130,20)
     turtle.pendown()
     you()
 def location_WwR():
     turtle.penup()
-    turtle.goto(-60,10)
+    turtle.goto(-60,20)
     turtle.pendown()
     you()
 def location_BW():
     turtle.penup()
-    turtle.goto(0,10)
+    turtle.goto(0,20)
     turtle.pendown()
     you()
 def location_HC():
     turtle.penup()
-    turtle.goto(-275,-50)
+    turtle.goto(-275,-30)
     turtle.pendown()
     you()
 def location_GC():
     turtle.penup()
-    turtle.goto(-205,-50)
+    turtle.goto(-205,-30)
     turtle.pendown()
     you()
 def location_DC():
     turtle.penup()
-    turtle.goto(-130,-50)
+    turtle.goto(-130,-30)
     turtle.pendown()
     you()
 def location_MC():
     turtle.penup()
-    turtle.goto(-60,-50)
+    turtle.goto(-60,-30)
     turtle.pendown()
     you()
