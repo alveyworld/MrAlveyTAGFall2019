@@ -197,7 +197,7 @@ def create_map():
                 'name':'Food Market',
                 'about':'',
                 'sells':{},
-                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'},}
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
                 }],
             },
         
@@ -378,7 +378,7 @@ def create_map():
                 'about':'* a lady sits on the steps of a huge house crying*\n' +
                         'Hello Mr.Ben im sorry i look this way my makup dripin and all\n' +
                         'but my kids went missing two days ago and nobody seems to care\n' +
-                        '* her tears seem to let up wait ',
+                        '* her tears seem to let up* wait you can help save my kids ill pay please ',
                 'sells':{},
                 'buys':{'kids': {"amount": 5, "currency": 'gold'}}
                 }],
