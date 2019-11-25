@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "21lawresha@washk12.org"
+__author__ = "21lawresha@washk12.org &"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
 'his field who has just thrown down his hoe down win by making 10 gold')
@@ -63,11 +63,12 @@ Records:
 
 ##### 3) Core Game Functions #####
 # Implement the following to create your game.
+import map
 
 def render_introduction():
     '''...'''
     return ("== Ben ? ==\n"+
-            "= By Shaden Lawrence =\n"+
+            "= By Shaden Lawrence & Raegon Tailbot =\n"+
             "\n" +
             ".... *Nothing* ... *Something* Light your flying through space on a long voyage\n"+
             ' *Smack* ... your awake ... your hear in the distance "Ben ?"\n'+
@@ -451,7 +452,7 @@ def create_map():
             },
         
         'kitchen':{
-            'neighbors':['entrance hall','libary'],
+            'neighbors':['entrance hall','library'],
             'about':'\n a room made of cobblestone there is a large cooking stove\n'+
                     'there is something in the stove cooking',
             'stuff':['Meat Pie','Golden Fork'],
@@ -475,7 +476,7 @@ def create_map():
             },
         
         'library':{
-            'neighbors':['alchemy room'],
+            'neighbors':['alchemy room','kitchen'],
             'about':'\n you look around and see shelves of books lots and lots of books \n'+
             "and you can see a door to the west.",
             'stuff':[],
@@ -562,8 +563,10 @@ def create_map():
             'people':[],
             },
          }
-def map_item():
-    import Map.py
+def map_item(current_location):
+    
+    map.main(current_location)
+
     
 def create_player():
     return {
@@ -756,7 +759,9 @@ def update(world, command):
         return goto(world, command)
     
     if command == 'open map':
-        map_item()
+        map_item(current_location)
+        
+        
         
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']

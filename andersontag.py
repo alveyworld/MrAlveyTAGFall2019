@@ -10,11 +10,11 @@ When you pass all tests, remember to clean and document your code.
 Be sure to unit test and document your functions.
 """
 
-##### 1) Author Info #####
+##### 1) Author Info ##### 
 
 # Change these three fields
 __author__ = "20anderdevj@washk12.org"
-__title__ = "Name of your game goes here"
+__title__ = "Yeet Yeet Mageet"
 __description__ = "Replace this with a quick description of your game."
 
 # Leave these two fields unchanged
@@ -74,6 +74,10 @@ def random_students():
     '''
     Return a random list of students, most sane, some insane
     '''
+    import random
+    students = ["Dallin", "Brayden", "Americo","Trevor", "Steve", "Roxanne", "Jeffery", "Brooklyn", "Cooper", "Davis", "Kaitlin"]
+    
+    return random.choice(students)
     
 def random_chillstaff():
     '''
@@ -273,6 +277,13 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    import random
+    
+    current_location = world ['player']['location']
+    
+    
+    
+    
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game"
@@ -281,7 +292,10 @@ def update(world, command):
         sanity = world['player']['sanity']
         world['player']['money'] += 1
         if sanity:
-            world['player']['sanity'] = take_roll()
+            people = world ['map'][current_location]['people']
+            if random.choice(people) == "Brayden":
+                world['player']['sanity'] = False
+                return " You are now delirious! I hope you have some tylenol."
         return "you earned a single dollar!"
     
     if command == "ring up":
