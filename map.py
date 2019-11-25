@@ -102,7 +102,18 @@ def main(current_location):
         
     if current_location == "pasture":
         location_P()
+    
+    if current_location == "clearing":
+        location_C()
+   
+    if current_location == "ravine":
+        location_Ra()
         
+    if current_location == "in ravine":
+        location_iR()
+        
+    if current_location == "bullywags huts":
+        location_BH()
         
     turtle.done()
 
