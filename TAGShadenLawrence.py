@@ -302,7 +302,7 @@ def create_map():
             'people':[
                     {'name': 'Blacksmith',
                     'about':'',
-                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':1, 'currency': 'gold'}},
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'Map':{'amount':1, 'currency': 'gold'}},
                     'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},},
                     }],
             },
@@ -407,7 +407,7 @@ def create_map():
             'neighbors':['entrance hall'],
             'about':'\n A large room made of candy, a table made of candy,\n '+
                     'even painting made of candy a door to the East ',
-            'stuff':['candy'],
+            'stuff':['Candy'],
             'people':[],
             },
         
@@ -458,7 +458,7 @@ def create_map():
                     'you see two little fat Kids who are tied up with lolipops gaging them\n' +
                     'you can hear them screaming through the lolipop for help\ n'
                     'you can turn back now a get out of here while you still can',
-            'stuff':['Kids'],
+            'stuff':['kids'],
             'people':[],
             },
         
@@ -671,9 +671,10 @@ def get_options(world):
             if item in inventory:
                 commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
-    if 'map' in inventory:
+    if 'Map' in inventory:
         commands.append("open map")
         
+    return commands  
         
         
 #    if current_location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
@@ -694,7 +695,7 @@ def get_options(world):
 #    if current_location == 'pasture' and 'eggs' in stuff and 'eggs' not in inventory:
 #        commands.append('pick up eggs')
         
-    return commands
+    
 
 def goto(world, command):
     new_location = command[len('goto '):]
@@ -733,6 +734,7 @@ def update(world, command):
     
     if command == 'open map':
         map_item(current_location)
+        
         
         
         
