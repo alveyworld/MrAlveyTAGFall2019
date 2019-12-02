@@ -303,7 +303,7 @@ def create_map():
                     {'name': 'Blacksmith',
                     'about':'',
                     'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'Map':{'amount':1, 'currency': 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'Shears':{'amount':1, 'currency': 'gold'},},
                     }],
             },
         
