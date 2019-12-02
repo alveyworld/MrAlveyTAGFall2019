@@ -2,6 +2,7 @@ import turtle
 # Setup the graphics window
 
 def main(current_location):
+    turtle.hideturtle()
     turtle.setup(800, 500,400, 400)
     turtle.title("Turtle Window")
     turtle.reset()
