@@ -197,7 +197,7 @@ def create_map():
                 'name':'Food Market',
                 'about':'',
                 'sells':{},
-                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'Candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
                 }],
             },
         
@@ -302,8 +302,8 @@ def create_map():
             'people':[
                     {'name': 'Blacksmith',
                     'about':'',
-                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'Map':{'amount':1, 'currency': 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'Shears':{'amount':1, 'currency': 'gold'},},
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':1, 'currency': 'gold'}},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'shears':{'amount':1, 'currency': 'gold'},},
                     }],
             },
         
@@ -399,7 +399,7 @@ def create_map():
             'neighbors':['small creek','dead forest','woods w/ river','dry cliff','entrance hall'],
             'about':"\n as you fallow a path of candy to a house made of candy deep in the woods\n"+
                     'there is a door into the house and paths made of candy leading in every direction',
-            'stuff':['Candy'],
+            'stuff':['candy'],
             'people':[],
             },
         
@@ -407,7 +407,7 @@ def create_map():
             'neighbors':['entrance hall'],
             'about':'\n A large room made of candy, a table made of candy,\n '+
                     'even painting made of candy a door to the East ',
-            'stuff':['Candy'],
+            'stuff':['candy'],
             'people':[],
             },
         
@@ -415,7 +415,7 @@ def create_map():
             'neighbors':['ginger bread house','dining hall','kitchen','alchemy room'],
             'about':'\n A large hall leading into a house made of candy\n'+
                     'there is a door to the north and rooms to the east, south, and west',
-            'stuff':['Candy'],
+            'stuff':['candy'],
             'people':[],
             },
         
@@ -671,7 +671,7 @@ def get_options(world):
             if item in inventory:
                 commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
-    if 'Map' in inventory:
+    if 'map' in inventory:
         commands.append("open map")
         
     return commands  
