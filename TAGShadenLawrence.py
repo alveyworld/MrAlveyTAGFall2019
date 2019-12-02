@@ -76,7 +76,7 @@ def render_introduction():
             ' your old bones hurt then you hear it again "Ben!" this time more angry\n '+
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
-            "== Objective Gained ==\n" + "== Get 10 gold== \n")
+            "== Objective Gained ==\n" + "== Get 37 gold== \n")
 
 import random
 def random_cliff_text():
