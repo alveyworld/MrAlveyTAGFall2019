@@ -13,7 +13,7 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "21lawresha@washk12.org &"
+__author__ = "21lawresha@washk12.org & 21talboraer@washk12.org"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
 'his field who has just thrown down his hoe down win by making 10 gold')
@@ -76,7 +76,7 @@ def render_introduction():
             ' your old bones hurt then you hear it again "Ben!" this time more angry\n '+
             '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
-            "== Objective Gained ==\n" + "== Get 10 gold== \n")
+            "== Objective Gained ==\n" + "== Get 37 gold== \n")
 
 import random
 def random_cliff_text():
