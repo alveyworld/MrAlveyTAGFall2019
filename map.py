@@ -2,6 +2,7 @@ import turtle
 # Setup the graphics window
 
 def main(current_location):
+    turtle.hideturtle()
     turtle.setup(800, 500,400, 400)
     turtle.title("Turtle Window")
     turtle.reset()
@@ -186,6 +187,12 @@ def main(current_location):
     
     if current_location == "grassy cliff":
         location_GC()
+        
+    if current_location == "dry cliff":
+        location_DC()
+    
+    if current_location == "muddy cliff":
+        location_MC()
     
     
         
