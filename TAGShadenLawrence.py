@@ -302,8 +302,8 @@ def create_map():
             'people':[
                     {'name': 'Blacksmith',
                     'about':'',
-                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':1, 'currency': 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'shears':{'amount':1, 'currency': 'gold'},},
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':5, 'currency': 'gold'}},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'shears':{'amount':1, 'currency': 'gold'},'gold egg':{'amount':3, 'currency': 'gold'},},
                     }],
             },
         
@@ -471,7 +471,13 @@ def create_map():
                     'you could fallow the path West toward a cottege in the woods,\n'+
                     'or head North along the path before it turns into woods',
             'stuff':[],
-            'people':['Troll'],
+            'people':[{
+                'name':'Troll',
+                'about':'Ello little man can you find me my special rock colection \n'
+                        'its in my special chest some men stole it from me please help',
+                'sells':{},
+                'buys':{'hidden chest':{'amount':3, 'currency': 'gold'}}
+                }],
             },
         
         'big waves':{
