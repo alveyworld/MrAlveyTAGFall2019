@@ -16,7 +16,7 @@ Be sure to unit test and document your functions.
 __author__ = "21lawresha@washk12.org & 21talboraer@washk12.org"
 __title__ = " Ben ? "
 __description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
-'his field who has just thrown down his hoe down win by making 10 gold')
+'his field who has just thrown down his hoe down win by making 37 gold')
 
 # Leave these two fields unchanged
 __version__ = 1
@@ -574,7 +574,7 @@ def render_visible_stuff(world):
         visible_stuff = []
         for thing in stuff:
             visible_stuff.append(thing)
-        return " / You see: " + ', '.join(visible_stuff)
+        return "You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
@@ -584,10 +584,10 @@ def render_player(world):
     inventory = world['player']['inventory']
     Gold = world['player']['Gold']
     
-    if Gold >= 39:
+    if Gold >= 37:
         world['status'] = "won"
         
-    return "\nGold: " + str(Gold)
+    return "\nGold: " + str(Gold) + "\ninventory" + str(inventory) + "\n"
 
 def render_location(world):
     '''
