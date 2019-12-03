@@ -13,6 +13,7 @@ def main(current_location):
     turtle.pendown()
 
     for squaresInLayer in range(0,8):
+         turtle.hideturtle()
          turtle.forward(50)
          turtle.right(90)
          turtle.forward(40)
@@ -31,6 +32,7 @@ def main(current_location):
     turtle.pendown()
 
     for squaresInLayer in range(0,8):
+         turtle.hideturtle()
          turtle.forward(50)
          turtle.right(90)
          turtle.forward(40)
@@ -49,6 +51,7 @@ def main(current_location):
     turtle.pendown()
 
     for squaresInLayer in range(0,8):
+         turtle.hideturtle()
          turtle.forward(50)
          turtle.right(90)
          turtle.forward(40)
@@ -66,6 +69,7 @@ def main(current_location):
     turtle.pendown()
 
     for squaresInLayer in range(0,5):
+         turtle.hideturtle()
          turtle.forward(50)
          turtle.right(90)
          turtle.forward(40)
@@ -82,6 +86,7 @@ def main(current_location):
     turtle.goto(-300,0)
     turtle.pendown()
     for squaresInLayer in range(0,4):
+         turtle.hideturtle()
          turtle.forward(50)
          turtle.right(90)
          turtle.forward(40)
@@ -199,6 +204,7 @@ def main(current_location):
     turtle.done()
 
 def you():
+    turtle.hideturtle()
     turtle.color('red')
     turtle.circle(10)
     
