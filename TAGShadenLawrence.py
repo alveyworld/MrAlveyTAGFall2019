@@ -574,7 +574,7 @@ def render_visible_stuff(world):
         visible_stuff = []
         for thing in stuff:
             visible_stuff.append(thing)
-        return " You see: " + ', '.join(visible_stuff)
+        return " / You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
@@ -587,7 +587,7 @@ def render_player(world):
     if Gold >= 39:
         world['status'] = "won"
         
-    return "Gold: " + str(Gold)
+    return "\nGold: " + str(Gold)
 
 def render_location(world):
     '''
@@ -761,7 +761,7 @@ def update(world, command):
                 if world['player']['Gold'] >= avail_to_buy[item]['amount']:
                     #able to buy
                     purchased = avail_to_buy.pop(item)
-                    world['player']['inventory'].append(purchased)
+                    world['player']['inventory'].append(item)
                     world['player']['Gold'] -= purchased['amount']
                 else:
                     #not able to buy
