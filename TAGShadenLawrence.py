@@ -679,7 +679,6 @@ def get_options(world):
         
     if 'map' in inventory:
         commands.append("open map")
-        
     return commands  
         
         
