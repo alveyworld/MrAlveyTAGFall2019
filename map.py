@@ -1,5 +1,6 @@
 import turtle
 # Setup the graphics window
+    
 
 def main(current_location):
     turtle.hideturtle()
