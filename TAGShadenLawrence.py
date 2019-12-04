@@ -423,7 +423,7 @@ def create_map():
             'neighbors':['entrance hall','library'],
             'about':'\n a room made of cobblestone there is a large cooking stove\n'+
                     'there is something in the stove cooking',
-            'stuff':['Meat Pie','Golden Fork'],
+            'stuff':['meat pie','golden fork'],
             'people':[],
             },
         
@@ -519,7 +519,7 @@ def create_map():
             'people':[],
             },
         
-        'muddy cliff ':{
+        'muddy cliff':{
             'neighbors':['dry cliff','wodds w/ river'],
             'about':'\n the land here is slippery and slick \n' +
                     'your feet find it hard to find perches in the mud \n' +
