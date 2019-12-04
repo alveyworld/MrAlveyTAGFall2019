@@ -198,10 +198,8 @@ def main(current_location):
         location_DC()
     
     if current_location == "muddy cliff":
-        location_MC()
+        location_MC() 
     
-    
-        
     
 
 def you():
@@ -209,6 +207,7 @@ def you():
     turtle.color('red')
     turtle.circle(10)
     turtle.done()
+    
     
 def location_FH():
     turtle.penup()
