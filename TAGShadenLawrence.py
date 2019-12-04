@@ -549,7 +549,7 @@ def map_item(current_location):
 def create_player():
     return {
         'location': 'field',
-        'inventory': [],
+        'inventory': ['map'],
         'Gold': 0
         }
 
