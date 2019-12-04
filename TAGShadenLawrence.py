@@ -549,7 +549,7 @@ def map_item(current_location):
 def create_player():
     return {
         'location': 'field',
-        'inventory': [''],
+        'inventory': [],
         'Gold': 0
         }
 
@@ -584,8 +584,6 @@ def render_player(world):
     inventory = world['player']['inventory']
     Gold = world['player']['Gold']
     
-    if Gold >= 37:
-        world['status'] = "won"
         
     return "\nGold: " + str(Gold) + "\ninventory" + str(inventory) + "\n"
 
@@ -647,7 +645,7 @@ def get_options(world):
         list[str]: The list of commands that the user can choose from.
     '''
      # ...
-    commands = ["Quit"]
+    commands = ["quit"]
     current_location = world['player']['location']
     l = current_location
     location = world['map'][current_location]
@@ -729,10 +727,15 @@ def update(world, command):
     location = world['map'][current_location]
     neighbors = location['neighbors']
     inventory = world['player']['inventory']
+    Gold = world['player']['Gold']
     
     if command == "quit":
         world['status'] = 'quit'
         return 'you quit the game'
+    
+    if world['player']['Gold'] >= 37:
+        world['status'] = "won"    
+        return ' you win you are now the richest man in germany'
     
     if command.startswith('goto '):
         return goto(world, command)
@@ -797,7 +800,7 @@ def render_ending(world):
         str: The ending text of your game to be displayed.
     '''
     if world['status'] == 'won':
-        return "You won!"
+        return ("You won!")
     
     elif world['status'] == 'lost':
         return render_ending_lost(world)
