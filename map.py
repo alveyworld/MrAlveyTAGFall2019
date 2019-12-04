@@ -206,7 +206,7 @@ def you():
     turtle.hideturtle()
     turtle.color('red')
     turtle.circle(10)
-    turtle.done()
+    
     
     
 def location_FH():
