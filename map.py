@@ -202,12 +202,13 @@ def main(current_location):
     
     
         
-    turtle.done()
+    
 
 def you():
     turtle.hideturtle()
     turtle.color('red')
     turtle.circle(10)
+    turtle.done()
     
 def location_FH():
     turtle.penup()
