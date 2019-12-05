@@ -463,7 +463,7 @@ def create_map():
             },
         
         'woods w/ river':{
-            'neighbors':['above cavern','ginger bread house','big waves','muddy cliff','small creek'],
+            'neighbors':['well','ginger bread house','big waves','muddy cliff','small creek'],
             'about':"\n A Forest of dead trees and insects with a candy path cutting through\n"+
                     'untell the path reaches a large Stream were it turns into a cobble stone Bridge\n'+
                     'the river continues untell it passes down the beach into the ocean \n'+
