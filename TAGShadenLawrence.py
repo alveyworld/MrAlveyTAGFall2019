@@ -192,12 +192,12 @@ def create_map():
                 'name':'Coining Store',
                 'about':'',
                 'sells':{},
-                'buys':{'gold vien':{'amount': 3, 'currency': 'gold'}}
+                'buys':{'gold vein':{'amount': 3, 'currency': 'gold'}}
                 },{
                 'name':'Food Market',
                 'about':'',
                 'sells':{},
-                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'candy':{'amount':1, 'currency': 'gold'},'Meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'candy':{'amount':1, 'currency': 'gold'},'meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
                 }],
             },
         
@@ -360,7 +360,7 @@ def create_map():
             'neighbors':['sandy beach'],
             'about':"\n you are standing in the water and see a nest with a egg and you can see \n"+
             "the beach to the west.",
-            'stuff':['Gold egg'],
+            'stuff':['gold egg'],
             'people':[],
             },
         
