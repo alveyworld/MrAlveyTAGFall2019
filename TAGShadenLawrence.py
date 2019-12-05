@@ -360,7 +360,7 @@ def create_map():
             'neighbors':['sandy beach'],
             'about':"\n you are standing in the water and see a nest with a egg and you can see \n"+
             "the beach to the west.",
-            'stuff':['Gold egg'],
+            'stuff':['gold egg'],
             'people':[],
             },
         
