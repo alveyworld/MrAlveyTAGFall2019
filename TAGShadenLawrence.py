@@ -342,7 +342,7 @@ def create_map():
         
         'woods w/ cliff':{
             'neighbors':['ravine w/ bridge','sandy beach'],
-            'about':"\n you are in a small group of trees and you see a cliff to the \n"+
+            'about':"\n you are in a small group of trees and you see a cliff " + random_cliff_text() + " to the \n"+
             "south and a bridge to the north east and a beach to the east",
             'stuff':[],
             'people':[],
