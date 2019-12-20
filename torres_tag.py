@@ -94,7 +94,7 @@ def create_map():
             'stuff': ['ibuprofen', 'cliff bar', 'lotto ticket'],
             'people': random_students()
         },
-        'lounge' : {
+         'lounge' : {
             'about': 'You sit in your regular spot and Hosner comments on your food.',
             'neighbors' : ['classroom'],
             'stuff': ['salt', 'pepper'],
@@ -261,12 +261,33 @@ def goto(world, command):
     world['player']['location'] = new_location
     return "You went to " + new_location
 
+import random
+classes = {
+    'period1': ['bob', 'jon', 'jane', 'carl', 'lisa'],
+    'period2': ['sara', 'suzie', 'jack', 'jacob', 'joe'],
+    'period3': ['braden', 'isaiah', 'daniel', 'dallen', 'val', 'ethan'],
+    'period4': ['brad', 'holly', 'sam', 'felix']
+    }
+  
 def take_roll(world):
     '''
-        Consumes a world, return False if the player is insane or goes insane
-        if the player is sane, randomly choose a student. if the student is Braden return False for insanity
+        Consumes a world, if sanity is True and you teach braden, change sanity to false
+        if the player is sane, randomly choose a student. if the student is Braden change sanity
         
     '''
+    response = ''
+    sanity = world['player']['sanity']
+    rand_class = random.choice(list(classes.keys()))
+    response += "You taught " + rand_class + "\n"
+    if sanity:
+        if 'braden' in classes[rand_class]:
+            response += "Braden is in your class and you go insane\n"
+            world['player']['sanity'] = False
+    
+    
+    return response
+    
+        
 def update(world, command):
     '''
     Consumes a world and a command and updates the world according to the
@@ -289,7 +310,10 @@ def update(world, command):
     if command == "teach":
         world['player']['money'] += 1
         world['player']['hungry'] = True
-        take_roll(world)
+        return take_roll(world)
+    
+    if command == "complain":
+         "sanity" == True
         
     return "Unknown command: " + command
 
@@ -298,7 +322,7 @@ def render_ending_lost(world):
     
 def render_ending(world):
     '''
-    Create the message to be displayed at the end of your game.
+    Create the message to be displayed at the end of your game.      
     
     Args:
         world (World): The final world state to use in describing the ending.
@@ -336,6 +360,7 @@ def choose(options):
     while command not in options:
         command = input("Invalid Command\n\nType a command: ")
     return command
+
 
 ###### 4) Win/Lose Paths #####
 # The autograder will use these to try out your game
@@ -399,4 +424,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
