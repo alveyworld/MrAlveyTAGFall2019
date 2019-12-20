@@ -54,7 +54,8 @@ def render_introduction():
             "\n"+
             "The twins invited you over to their house.\n"+
             "When you arrive to Whales Englind it was dark and cold.\n"+
-            "You had a taxi drive you  over to their address.")
+            "You had a taxi drive you  over to their address.\n"+
+            "")
 
 def create_world():
     return {
@@ -75,7 +76,7 @@ def render_player(world):
     
     statement = "you have " + str(health) + " health. "
     if health < 50:
-        statement += "You are low in health, you Need to rest. "
+        statement += "You are low in health, you need to rest. "
     return statement
 
 def render_location(world):
@@ -84,6 +85,7 @@ def render_location(world):
     about = here['about']
     
     return ("You are in "+location+"\n"+
+            "\n"+
             about+"\n")
 
 def random_twin():
@@ -94,7 +96,7 @@ def create_map():
         'entrance': {
             'neighbors': ['hallway', 'living room'],
             'about': "When you open up the door you felt like there is an Evil talking over the house.\n"+
-                     "You know that you not safe",
+                     "You know that you not safe.",
             'stuff': ["flashlight"],
             'people': random_twin(),
         },
@@ -123,7 +125,7 @@ def create_map():
             'people': random_twin(),
         },
         'living room': {
-            'neighbors': ['bedroom', 'back room', 'basement'],
+            'neighbors': ['bedroom', 'back room', 'underground'],
             'about': "As you walk into the living room things feels like death, but you don't know why.",
             'stuff': ["oil can"],
             'people': random_twin(),
@@ -140,16 +142,10 @@ def create_map():
             'stuff': ["straps"],
             'people': [],
         },
-        'basement': {
-            'neighbors':['underground'],
-            'about': "As you creep your way through the place you show this basement. What is down here.",
-            'stuff': ["nails", "metal"],
-            'people': random_twin(),
-        },
         'underground': {
-           'neighbors': ['tunnel', 'basement'],
-           'about': "You show a hole that lead to on opening. There is a in the distance.",
-           'stuff': [],
+           'neighbors': ['tunnel', 'living room'],
+           'about': "As you creep your way through the place you show this basement. What is down here.",
+           'stuff': ["nails", "metal"],
            'people': random_twin(),
         },
         'tunnel': {
@@ -228,13 +224,13 @@ def create_map():
             'people': [],
         },
         'kitchen': {
-            'neighbors': ['living room', 'hallway'],
+            'neighbors': ['livingroom', 'hallway'],
             'about': "There might be something usefull",
             'stuff': [],
             'people': ["minikane"],
         },
         'hallway': {
-            'neighbors': ['entrance', 'studies', 'basement', 'upstairs'],
+            'neighbors': ['entrance', 'studies', 'basement', 'stairs', 'kitchen'],
             'about': "Where to go",
             'stuff': [],
             'people': random_twin(),
@@ -296,7 +292,7 @@ def searching(world):
     location = world['player']['location']
     here = world['map'][location]
     stuff = here['stuff']
-    
+  
     item = random.choice(stuff)
     
     world['player']['inventory'].append(item)
@@ -342,7 +338,7 @@ def get_options(world):
         commands.append('search')
     if current_location == 'bedroom':
         commands.append('search')
-    if current_location == 'basement':
+    if current_location == 'basement2':
         commands.append('search')
     if current_location == 'underground':
         commands.append('search')
@@ -393,11 +389,23 @@ def goto(world, command):
     new_location = command[len('go to '):]
     world['player']['location'] = new_location
     return  "You went to " + new_location
-
+    
+    
+    
+    #number = random.randint(0,3)
+    #if number == 3:
+        #world['player']['health'] -= 5
+        #return "You were attacked when you entered the room."
+    
+    
 def update(world, command):
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game, but why?"
+
+    if world['player']['health'] <= 0:
+        world['status'] = 'lost'
+        return "You lost to much blood. You died."
     
     if command.startswith('go to '):
         return goto(world, command)
@@ -410,16 +418,13 @@ def update(world, command):
     
     return "Unknown command: " + command
 
-def render_ending_lost(world):
-    return "You Lost. Nice try."
-
 def render_ending(world):
     if world['status'] == 'won':
         return "You won! Now you get the twins owo."
     elif world['status'] == 'lost':
-        return render_ending_lost(world)
+        return "You lost."
     elif world['status'] == 'quit':
-        return ""
+        return "You quit the game, but why?"
 
 def choose(options):
     print("Available commands:")
@@ -439,11 +444,10 @@ def choose(options):
 
 WIN_PATH = []
 LOSE_PATH = []
-    
 ###### 5) Unit Tests #####
 # Write unit tests here
 
-from cisc108 import assert_equal
+# from cisc108 import assert_equal
 
 
 ###### 6) Main Function #####

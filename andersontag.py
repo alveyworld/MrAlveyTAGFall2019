@@ -10,11 +10,11 @@ When you pass all tests, remember to clean and document your code.
 Be sure to unit test and document your functions.
 """
 
-##### 1) Author Info #####
+##### 1) Author Info ##### 
 
 # Change these three fields
 __author__ = "20anderdevj@washk12.org"
-__title__ = "Name of your game goes here"
+__title__ = "Yeet Yeet Mageet"
 __description__ = "Replace this with a quick description of your game."
 
 # Leave these two fields unchanged
@@ -74,6 +74,10 @@ def random_students():
     '''
     Return a random list of students, most sane, some insane
     '''
+    import random
+    students = ["Dallin", "Brayden", "Americo","Trevor", "Steve", "Roxanne", "Jeffery", "Brooklyn", "Cooper", "Davis", "Kaitlin"]
+    
+    return random.choice(students)
     
 def random_chillstaff():
     '''
@@ -273,18 +277,65 @@ def update(world, command):
     Returns:
         str: A message describing the change that occurred in the world.
     '''
+    import random
+    
+    current_location = world ['player']['location']
+    
+    
+    
+    
     if command == "quit":
         world['status'] = 'quit'
         return "You quit the game"
     
+    if command == "teach":
+        sanity = world['player']['sanity']
+        world['player']['money'] += 1
+        if sanity:
+            people = world ['map'][current_location]['people']
+            if random.choice(people) == "Brayden":
+                world['player']['sanity'] = False
+                return " You are now delirious! I hope you have some tylenol."
+        return "you earned a single dollar!"
+    
+    if command == "ring up":
+        world['player']['money'] += 1
+        return "you earned a single dollar!"
+        
+    
     if command.startswith('go to '):
         return goto(world, command)
+    
+    if command == "get icecream":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
+        
+        return "You enjoy an icecream cone and feel much better."
+    if command == "eat":
+        world['player']['money'] -= 1
+        world['player']['sanity'] = True
+    
+        return "You enjoy some food and are feeling energetic again!"
+    if command == "meet joker":
+        world['status'] = 'lost'
+        return "You shared a cell with joker and died of laughter!"
+    if command == "counseling":
+        world['player']['money'] -= 2
+        world['player']['sanity'] = True
+        return "You are well again and can continue working!"
+    
+    
+    if command == "search desk":
+        world['player']['money'] += 4
+        return "WOW you have found $4!"
+    
+        
     
         
     return "Unknown command: " + command
 
 def render_ending_lost(world):
-    return "You lost."
+    return "You lost, Jeffery Epstein didn't kill himself."
     
 def render_ending(world):
     '''
@@ -301,7 +352,7 @@ def render_ending(world):
     elif world['status'] == 'lost':
         return render_ending_lost(world)
     elif world['status'] == 'quit':
-        return "You quit, you are the big gay."
+        return "You are the big gay."
 
 def choose(options):
     '''

@@ -13,10 +13,10 @@ Be sure to unit test and document your functions.
 ##### 1) Author Info #####
 
 # Change these three fields
-__author__ = "21lawresha@washk12.org"
+__author__ = "21lawresha@washk12.org & 21talboraer@washk12.org"
 __title__ = " Ben ? "
-__description__ = ('You are a Germen medieval peasant Farmmer who was in \n'+
-'his field who has just thrown down his hoe down win by making 10 gold')
+__description__ = ('You are a Germen medieval peasant Farmer who was in \n'+
+'his field who has just thrown down his hoe down win by making 37 gold')
 
 # Leave these two fields unchanged
 __version__ = 1
@@ -55,7 +55,7 @@ Records:
         
         Person:
             name (str): the person's name
-            r_info (str): they say somthing random lore based
+            r_info (str): they say something random lore based
             Buy/sell (str): what the person sells/buys
             
             
@@ -63,47 +63,53 @@ Records:
 
 ##### 3) Core Game Functions #####
 # Implement the following to create your game.
+import map
 
 def render_introduction():
     '''...'''
     return ("== Ben ? ==\n"+
-            "= By Shaden Lawrence =\n"+
+            "= By Shaden Lawrence & Raegon Tailbot =\n"+
             "\n" +
             ".... *Nothing* ... *Something* Light your flying through space on a long voyage\n"+
             ' *Smack* ... your awake ... your hear in the distance "Ben ?"\n'+
-            " you get up. your in a field your old. you dust your self off\n"+
+            " you get up. your in a field your old. you dust yourself off\n"+
             ' your old bones hurt then you hear it again "Ben!" this time more angry\n '+
-            '"what are you doing... i dont pay you a a copper an hour for doing nothing"\n'+
+            '"what are you doing... i dont pay you a copper an hour for doing nothing"\n'+
             'Aw so you need money ... guess your job is to get money then.\n'+
-            "== Objective Gained ==\n" + "== Get 10 gold== \n")
+            "== Objective Gained ==\n" + "== Get 37 gold== \n")
 
 import random
 def random_cliff_text():
-    Cliff_Text = ['Whoa this looks dangeroures','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
+    Cliff_Text = ['Whoa this looks dangerous','i think i see Sharp rocks ','It looks nice today ... Whoa a cliff!']
     return random.choice(Cliff_Text) 
     
     
 def create_map():
-    return {
+    m = {
         
         'farm house':{
             'neighbors':['field','town of zik'],
-            'about':"\n a old house sat on a hill over looking a large ranch it\n"+
+            'about':"\n a old house sat on a hill overlooking a large ranch it\n"+
                     "looks like it has not seen much use but there is a table nearby\n"+
                     'on the table is 1 gold coin and a bowl of soup\n' +
                     "East is a large field and to the South there is the town of zik",
-            'stuff':['Green cap mushroom','bowl of soup','shears'],
-            'people':['your boss']
+            'stuff':['mushroom','bowl of soup','shears'],
+            'people':[{
+                'name':'your boss',
+                'about':"What are you doing Ben aw i don't care as long as i get money",
+                'sells':{},
+                'buys':{}
+                }]
             },
             
         'field':{
             'neighbors':['farm house','pasture','small clearing'],
             'about':"\n A large Field of golden wheat\n"+
-                    'to the West is a old house to the East is a Large Pasture\n'+
+                    'to the West is an old house to the East is a Large Pasture\n'+
                     'there is a hoe at your feet and wheat all around you\n' +
                     'and to the south is a dense forest',
             'stuff':['wheat','hoe',],
-            'people':[]
+            'people':[],
             },
         
         
@@ -112,7 +118,7 @@ def create_map():
             'about':"\n Large Field of grass light seems brighter here and life seems happier \n"+
                     'to the west a field of wheat to the east a dense forest',
             'stuff':['wool','eggs'],
-            'people':[]
+            'people':[],
             },
         
         'clearing':{
@@ -120,7 +126,7 @@ def create_map():
             'about':"\n You are in a clearing in the forest you see the forest continues south"
             + "there is a pasture to the west and a large hole to the east",
             'stuff':[],
-            'people':[]
+            'people':[],
             },
         
         'ravine':{
@@ -141,18 +147,31 @@ def create_map():
         
         'bullywogs huts':{
             'neighbors':['in ravine','calm waters','merlock huts'],
-            'about':'\n You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow'+
+            'about':'\n You walk up to a bunch of small huts as 2 small frogs jump out one green the other yellow \n'+
                     'to the west is a way down into a deep ravine to the east is the ocean\n'+
                     'and to the south farther down the beach',
             'stuff':[],
-            'people':['green bullywog','yellow bullywog']
+            'people':[{
+                'name':'green bullywog',
+                'about':'*ribit* hello there my nice fellow *ribit*\n'+
+                        'can you help us some slimy fish stole are flies\n'+
+                        '*ribit* will you go get them back. well give back *ribit*\n'+
+                        'there seaweed its just in are pond to the east',
+                'sells':{},
+                'buys':{'jar of flies':{"amount": 3, "currency": 'gold'}}
+                },{
+                'name':'yellow bullywog',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }]
             },
         
         'calm waters':{
-            'neighbors':['bullywogs'],
+            'neighbors':['bullywogs huts'],
             'about':"\n Calm still waters there might be a ship out there...\n"+
-            'But probably not thats the edge of the world',
-            'stuff':[],
+            "But probably not that's the edge of the world",
+            'stuff':['tasty seaweed'],
             'people':[],
             },
         
@@ -164,7 +183,22 @@ def create_map():
                     'to the north is a small House to the east is a small forest\n'+
                     'and to the south is a small house with a forge outside',
             'stuff':[],
-            'people':['Tailor','Coining Store','Food Market'],
+            'people':[{
+                'name':'Tailor',
+                'about':'',
+                'sells':{},
+                'buys':{'wool':{"amount": 2, "currency": 'gold'},}
+                },{
+                'name':'Coining Store',
+                'about':'',
+                'sells':{},
+                'buys':{'gold vein':{'amount': 3, 'currency': 'gold'}}
+                },{
+                'name':'Food Market',
+                'about':'',
+                'sells':{},
+                'buys':{'mushroom':{'amount': 1, 'currency': 'gold'},'bowl of soup':{'amount':1, 'currency': 'gold'},'wheat':{'amount':2, 'currency': 'gold'},'eggs':{'amount':2, 'currency': 'gold'},'candy':{'amount':1, 'currency': 'gold'},'meat pie':{'amount':2, 'currency': 'gold'}, 'golden fork':{'amount': 3, 'currency': 'gold'}}
+                }],
             },
         
         'small clearing':{
@@ -185,7 +219,7 @@ def create_map():
         
         'large tree':{
             'neighbors':['clearing','the dark woods','ravine w/ bridge','well','up tree'],
-            'about':"\n A small clearing with a big tree there is more woods to the west \n" +
+            'about':"\n A small clearing with a big tree there is more forest to the west \n" +
             ' and north and opening to the south and a big opening to the east',
             'stuff':[],
             'people':[],
@@ -193,7 +227,7 @@ def create_map():
         
         'up tree':{
             'neighbors':['large tree'],
-            'about':'you climb up the tree you see a nest with many diffrent eggs a few shine ',
+            'about':'you climb up the tree you see a nest with many different eggs a few shine ',
             'stuff':['silver egg'],
             'people':[],
             },
@@ -208,7 +242,7 @@ def create_map():
             },
         
         'in ravine under bridge':{
-            'neighbors':['ravine w/ bridge','cavern'],
+            'neighbors':['ravine w/ bridge','cavern','in ravine'],
             'about':'\n you are in a deep Ravine above you is a small rope bridge\n'+
                     'to the north is farther into the ravine , there is a way up out of the ravine \n'+
                     'and there is a path into a cave to the SouthWest',
@@ -217,34 +251,50 @@ def create_map():
             },
         
         
-        'merlock huts ':{
+        'merlock huts':{
             'neighbors':['bullywogs huts','deep waters','sandy beach'],
-            'about':"\n as you aproch wooden houses elevated above the water\n"+
+            'about':"\n as you approach wooden houses elevated above the water\n"+
                     'two merlocks jump out of them one white one blue\n'+
                     'there is a path farther up the beach north \n'+
                     'a way to the ocean east , and a path down the beach south',
             'stuff':[],
-            'people':['white merlock','Blue merlock'],
+            'people':[{
+                'name':'white merlock',
+                'about':'Hey you big guy can you help us some frogs to the north stole from us\n' +
+                'can you get us back are seaweed well give you there flys there to the east in are sea town',
+                'sells':{},
+                'buys':{'tasty seaweed':{"amount": 3, "currency": 'gold'}}
+                },{
+                'name':'Blue merlock',
+                'about':'',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'cavern':{
             'neighbors':['in ravine under bridge',],
             'about':'',
             'stuff':[],
-            'people':['Goblins'],
+            'people':[{
+                'name':'Goblins',
+                'about':'a wut dus u think u doing here Grab him',
+                'sells':{},
+                'buys':{}
+                }],
             },
         
         'deep waters':{
-            'neighbors':['ravine w/ bridge'],
+            'neighbors':['merlock huts'],
             'about':"\n you are swimming in the water and can not touch the bottom and \n" +
             " you see some huts to the west.",
-            'stuff':[],
+            'stuff':['jar of flies'],
             'people':[],
             },
         
         'black smith':{
             'neighbors':['town of zik','river',"olga's house"],
-            'about':'\n The smell of iorn can be smelled in the air as you aproch \n'+
+            'about':'\n The smell of iron can be smelled in the air as you approach \n'+
                     'there is a small man bent over an anvil smashing red hot iron\n'+
                     'into a cast to make nails\n'+
                     'north is the Town of Zik east is a River and south is a large house',
@@ -252,8 +302,8 @@ def create_map():
             'people':[
                     {'name': 'Blacksmith',
                     'about':'',
-                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}},
-                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'}},
+                    'sells':{"pickaxe": {"amount": 2, "currency": 'gold'}, 'map':{'amount':5, 'currency': 'gold'}},
+                    'buys':{'silver egg':{'amount':3, 'currency': 'gold'}, 'golden fork':{'amount':1, 'currency': 'gold'},'hoe':{'amount':1,  'currency': 'gold'},'shears':{'amount':1, 'currency': 'gold'},'gold egg':{'amount':3, 'currency': 'gold'},},
                     }],
             },
         
@@ -267,9 +317,9 @@ def create_map():
             },
         
         'small creek':{
-            'neighbors':['river','well','the dark woods','wood w/ river','ginger bread house','hidden cave'],
+            'neighbors':['river','well','the dark woods','woods w/ river','gingerbread house','hidden cave'],
             'about':"\n there is a small creek with a small river to the west and one going \n"+
-            " to the south east from with lots of tree all around and you see wood \n" +
+            " to the south east from with lots of trees all around and you see wood \n" +
             "all around and a small trail of candy to the south.",
             'stuff':[],
             'people':[],
@@ -284,7 +334,7 @@ def create_map():
         
         'well':{
             'neighbors':['small creek','ravine w/ bridge','woods w/ river', 'large tree',],
-            'about':"\n There is a old broken well in the middle of a clearing \n"+
+            'about':"\n There is an old broken well in the middle of a clearing \n"+
             "to the north is a large tree you also hear some water flowing to the west and south.",
             'stuff':[],
             'people':[],
@@ -292,7 +342,7 @@ def create_map():
         
         'woods w/ cliff':{
             'neighbors':['ravine w/ bridge','sandy beach'],
-            'about':"\n you are in a small group of trees and you see a cliff to the \n"+
+            'about':"\n you are in a small group of trees and you see a cliff " + random_cliff_text() + " to the \n"+
             "south and a bridge to the north east and a beach to the east",
             'stuff':[],
             'people':[],
@@ -308,40 +358,48 @@ def create_map():
         
         'shallow waters':{
             'neighbors':['sandy beach'],
-            'about':"\n you are standing in the water and see a nest with a egg and you can see \n"+
+            'about':"\n you are standing in the water and see a nest with an egg and you can see \n"+
             "the beach to the west.",
-            'stuff':['Gold egg'],
+            'stuff':['gold egg'],
             'people':[],
             },
         
         "olga's house":{
             'neighbors':['black smith','dead forest','high cliff'],
-            'about':'\n A small women sits in front of a very large house\n'+
+            'about':'\n A small woman sits in front of a very large house\n'+
                     'the house looks very old it has many celtic symbols\n'+
                     'and many other drudic symbols\n'+
                     'to the north is a small house with a forge outside\n'+
                     'to the east is a dead forest and to\n'+
                     ' the south is a Hill near a Cliff',
             'stuff':[],
-            'people':['Olga'],
+            'people':[{
+                'name':'Olga',
+                'about':'* a lady sits on the steps of a huge house crying*\n' +
+                        "Hello Mr.Ben i'm sorry i look this way my makeup dripping and all\n" +
+                        'but my kids went missing two days ago and nobody seems to care\n' +
+                        '* her tears seem to let up* wait you can help save my kids ill pay please ',
+                'sells':{},
+                'buys':{'kids': {"amount": 5, "currency": 'gold'}}
+                }],
             },
         
         'dead forest':{
-            'neighbors':['river',"olga's house",'ginger bread house','grassy cliff'],
-            'about':'\n you aproch a what looks like a dead forest.\n'+
+            'neighbors':['river',"olga's house",'gingerbread house','grassy cliff'],
+            'about':'\n you approach a what looks like a dead forest.\n'+
                     'Hundreds of crows sit up high in the leafless trees\n'+
-                    'there eyes fallow you as you walk deeper into there domain\n'+
+                    'their eyes follow you as you walk deeper into their domain\n'+
                     'to the north is a river and to the west is a large house\n'+
-                    'to the east is a Tail made of candy and to the south is a grassy feild',
+                    'to the east is a Tail made of candy and to the south is a grassy field',
             'stuff':[],
             'people':[],
             },
         
-        'ginger bread house':{
+        'gingerbread house':{
             'neighbors':['small creek','dead forest','woods w/ river','dry cliff','entrance hall'],
-            'about':"\n as you fallow a path of candy to a house made of candy deep in the woods\n"+
+            'about':"\n as you follow a path of candy to a house made of candy deep in the woods\n"+
                     'there is a door into the house and paths made of candy leading in every direction',
-            'stuff':['Candy'],
+            'stuff':['candy'],
             'people':[],
             },
         
@@ -354,18 +412,18 @@ def create_map():
             },
         
         'entrance hall':{
-            'neighbors':['ginger bread house','dining hall','kitchen','alchemy room'],
+            'neighbors':['gingerbread house','dining hall','kitchen','alchemy room'],
             'about':'\n A large hall leading into a house made of candy\n'+
                     'there is a door to the north and rooms to the east, south, and west',
-            'stuff':['Candy'],
+            'stuff':['candy'],
             'people':[],
             },
         
         'kitchen':{
-            'neighbors':['entrance hall','libary'],
+            'neighbors':['entrance hall','library'],
             'about':'\n a room made of cobblestone there is a large cooking stove\n'+
                     'there is something in the stove cooking',
-            'stuff':['Meat Pie','Golden Fork'],
+            'stuff':['meat pie','golden fork'],
             'people':[],
             },
         
@@ -386,7 +444,7 @@ def create_map():
             },
         
         'library':{
-            'neighbors':['alchemy room'],
+            'neighbors':['alchemy room','kitchen'],
             'about':'\n you look around and see shelves of books lots and lots of books \n'+
             "and you can see a door to the west.",
             'stuff':[],
@@ -395,25 +453,31 @@ def create_map():
         
         'basement':{
             'neighbors':['alchemy room'],
-            'about':'\n you walk down a dark staircase into the wiches basement \n' +
+            'about':'\n you walk down a dark staircase into the witches basement \n' +
                     'you feel around for a candle and strike a match \n' +
-                    'you see two little fat Kids who are tied up with lolipops gaging them\n' +
-                    'you can hear them screaming through the lolipop for help\ n'
-                    'you can turn back now a get out of here while you still can',
-            'stuff':['Kids'],
+                    'you see two little fat Kids who are tied up with lollipops gagging them\n' +
+                    'you can hear them screaming through the lollipop for help\ n'
+                    'you can turn back now and get out of here while you still can',
+            'stuff':['kids'],
             'people':[],
             },
         
         'woods w/ river':{
-            'neighbors':['above cavern','ginger bread house','big waves','muddy cliff','Small Creek'],
+            'neighbors':['well','gingerbread house','big waves','muddy cliff','small creek'],
             'about':"\n A Forest of dead trees and insects with a candy path cutting through\n"+
-                    'untell the path reaches a large Stream were it turns into a cobble stone Bridge\n'+
-                    'the river continues untell it passes down the beach into the ocean \n'+
-                    'you could fallow the river up to the North Weast, East into the sea,\n'+
-                    'you could fallow the path West toward a cottege in the woods,\n'+
+                    'until the path reaches a large Stream where it turns into a cobblestone Bridge\n'+
+                    'the river continues until it passes down the beach into the ocean \n'+
+                    'you could follow the river up to the North West, East into the sea,\n'+
+                    'you could follow the path West toward a cottage in the woods,\n'+
                     'or head North along the path before it turns into woods',
             'stuff':[],
-            'people':['Troll'],
+            'people':[{
+                'name':'Troll',
+                'about':'Ello little man can you find me my special rock collection \n'
+                        'its in my special chest some men stole it from me please help',
+                'sells':{},
+                'buys':{'hidden chest':{'amount':3, 'currency': 'gold'}}
+                }],
             },
         
         'big waves':{
@@ -436,7 +500,7 @@ def create_map():
         
         'grassy cliff':{
             'neighbors':['dead forest','high cliff','dry cliff'],
-            'about':'\n you are standing in a feild of grass as high as your head you walk a bit south\n'+
+            'about':'\n you are standing in a field of grass as high as your head you walk a bit south\n'+
                     'Where you see you are standing on a cliff when you yip and say '+ ' " ' + random_cliff_text() + ' "' +
                     'you get up on a rock and can see that you can head North to a forest of dead trees,\n'+
                     'or head West or East to another cliff',
@@ -447,16 +511,16 @@ def create_map():
         'dry cliff':{
             'neighbors':['ginger bread house','grassy cliff','muddy cliff'],
             'about':'\n The land here is very weird the ground is dry\n'+
-                    'not a animal in sight you aproch the edge of the cliff\n' +
+                    'not an animal in sight you approach the edge of the cliff\n' +
                     'the water looks nice like it wants to give you a big hug \n'+
                     random_cliff_text() + ' you can head North to a small cottage in the woods,\n'+
-                    'West into a feild of grass, or East to another cliff in the distance',
+                    'West into a field of grass, or East to another cliff in the distance',
             'stuff':[],
             'people':[],
             },
         
-        'muddy cliff ':{
-            'neighbors':['dry cliff','wodds w/ river'],
+        'muddy cliff':{
+            'neighbors':['dry cliff','woods w/ river'],
             'about':'\n the land here is slippery and slick \n' +
                     'your feet find it hard to find perches in the mud \n' +
                     'you fall and slide toward a Cliff face ' + random_cliff_text() +
@@ -467,18 +531,25 @@ def create_map():
         
         'hacker':{
             'neighbors':[],
-            'about':'\n Hey what are you doing here wow now you have just sommoned \n'+
-                    'CTHULU!!! WERE ALL DOOMED',
+            'about':'\n Hey what are you doing here wow now you have just summoned \n'+
+                    'CTHULHU!!! WERE ALL DOOMED',
             'stuff':[],
             'people':[],
             },
          }
+    for location in m.values():
+        location['visited'] = False
+    return m
 
+def map_item(current_location):
+    
+    map.main(current_location)
+
+    
 def create_player():
     return {
-        'location': 'black smith',
-        'inventory': ['golden fork'],
-        'Hunger': False ,
+        'location': 'field',
+        'inventory': [],
         'Gold': 0
         }
 
@@ -503,7 +574,7 @@ def render_visible_stuff(world):
         visible_stuff = []
         for thing in stuff:
             visible_stuff.append(thing)
-        return " You see: " + ', '.join(visible_stuff)
+        return "You see: " + ', '.join(visible_stuff)
 
 
 def render_player(world):
@@ -512,12 +583,9 @@ def render_player(world):
     '''
     inventory = world['player']['inventory']
     Gold = world['player']['Gold']
-    Hunger = world['player']['Hunger']
     
-    if Gold == 10:
-        world['status'] = "won"
         
-    return "Gold: " + str(Gold) + " Hungry: " + str(Hunger)
+    return "\nGold: " + str(Gold) + "\ninventory" + str(inventory) + "\n"
 
 def render_location(world):
     '''
@@ -526,9 +594,27 @@ def render_location(world):
     location = world['player']['location']
     here = world['map'][location]
     about = here['about']
+    people = here['people']
     
-    return ("You are in "+location+"\n"+
-            about +"\n")
+    names = [p['name'] for p in people]
+
+    message = f"You are in {location} \n{about}"
+    
+    if(not here['visited']):
+        try:
+            if names[0]:
+                for person in people:
+                    message += f"\n\n{person['name']}: {person['about']}\n\n"
+            else:
+                message += "\n\nNobody's here\n\n"
+        except IndexError:
+            #No People
+            message += "\n\nNobody's here\n\n"
+        here['visited'] = True
+    
+    return message
+#    return ("You are in "+location+"\n"+
+#            about +"\n")
     
 def render(world):
     
@@ -559,7 +645,7 @@ def get_options(world):
         list[str]: The list of commands that the user can choose from.
     '''
      # ...
-    commands = ["Quit"]
+    commands = ["quit"]
     current_location = world['player']['location']
     l = current_location
     location = world['map'][current_location]
@@ -589,8 +675,9 @@ def get_options(world):
             if item in inventory:
                 commands.append(f"sell {item} for {item_data['amount']} {item_data['currency']}")
         
-
-        
+    if 'map' in inventory:
+        commands.append("open map")
+    return commands  
         
         
 #    if current_location == 'farm house' and '1 gold coin' in stuff and '1 gold coin' not in inventory:
@@ -611,7 +698,7 @@ def get_options(world):
 #    if current_location == 'pasture' and 'eggs' in stuff and 'eggs' not in inventory:
 #        commands.append('pick up eggs')
         
-    return commands
+    
 
 def goto(world, command):
     new_location = command[len('goto '):]
@@ -640,14 +727,25 @@ def update(world, command):
     location = world['map'][current_location]
     neighbors = location['neighbors']
     inventory = world['player']['inventory']
+    Gold = world['player']['Gold']
     
     if command == "quit":
         world['status'] = 'quit'
         return 'you quit the game'
     
+    if world['player']['Gold'] >= 37:
+        world['status'] = "won"    
+        return ' you win you are now the richest man in germany'
+    
     if command.startswith('goto '):
         return goto(world, command)
     
+    if command == 'open map':
+        map_item(current_location)
+        
+        
+        
+        
     #command = 'pick up hoe'
     #location['stuff'] = ['wheat', 'hoe']
     
@@ -665,7 +763,7 @@ def update(world, command):
                 if world['player']['Gold'] >= avail_to_buy[item]['amount']:
                     #able to buy
                     purchased = avail_to_buy.pop(item)
-                    world['player']['inventory'].append(purchased)
+                    world['player']['inventory'].append(item)
                     world['player']['Gold'] -= purchased['amount']
                 else:
                     #not able to buy
@@ -702,7 +800,7 @@ def render_ending(world):
         str: The ending text of your game to be displayed.
     '''
     if world['status'] == 'won':
-        return "You won!"
+        return ("You won!")
     
     elif world['status'] == 'lost':
         return render_ending_lost(world)
@@ -724,7 +822,7 @@ def render_ending_lost(world):
     
     if current_location == 'bedroom' :
         return("as you walk in the dark room you see someone and they \n"+
-            "see you and thay run and grab you and tie you up and throw you down the basement. You lose.")
+            "see you and they run and grab you and tie you up and throw you down the basement. You lose.")
     
     if current_location == 'big waves' :
         return("as you wade out into the water you see a shark fin pop out of the water. You lose\n")
@@ -751,7 +849,7 @@ def choose(options):
     command = input("type a command: ")
         
     while command not in options:
-        command = input("Invalid Cammand \n\nType a command: ")
+        command = input("Invalid Command \n\nType a command: ")
     return command
 
 ###### 4) Win/Lose Paths #####
